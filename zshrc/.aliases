@@ -1,0 +1,61 @@
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+######
+# Aliases
+#####
+
+# Common
+alias cl=clear
+
+# Dirs
+alias cdb="cd ~/Dropbox"
+alias cdv="cd ~/Dropbox/vagrant"
+alias cdp="cd ~/Projects"
+alias cds="cd ~/Sites"
+alias cdd="cd ~/Downloads"
+alias dtf="cd ~/dotfiles"
+
+# Capistrano
+alias capp="bundle exec cap production deploy"
+alias caps="bundle exec cap staging deploy"
+alias capv="bundle exec cap vagrant deploy"
+
+alias cappdp="bundle exec cap production db:pull"
+
+# Foreman
+alias fs="foreman start"
+alias fr="foreman run"
+alias fsp="foreman start -f Procfile.production"
+alias fsd="foreman start -f Procfile.dev"
+
+# Development
+alias ra="rubocop -a"
+alias bs="bin/setup"
+alias bw="bin/webpack-dev-server"
+alias ss="spring stop"
+
+alias t="tree"
+
+# Homebrew
+# --global – Read the Brewfile from ~/.Brewfile
+alias bb="brew bundle --global"
+
+# Git
+alias gcm="git checkout master"
+
+# VIM
+alias v="vim"
+alias vv="vim ."
+alias vrc="vim ~/.vimrc"
+alias zrc="vim ~/.zshrc"
+# NVIM
+alias nv="nvim"
+alias nvv="nvim ."
+
+# Search history
+alias hg='history | grep'
+
+# Lazygit
+alias lg='lazygit'

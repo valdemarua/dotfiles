@@ -1,5 +1,7 @@
 tap 'homebrew/cask'
 tap 'homebrew/cask-versions'
+tap 'homebrew/cask-fonts' # Fonts
+tap 'homebrew/cask-drivers' # For logitech-options
 
 brew 'mas' # Mac App Store manager
 #brew 'yarn'
@@ -16,6 +18,7 @@ brew 'ccrypt'
 brew 'nvm' # Node version manager
 brew 'watchman'
 brew 'git-lfs'
+brew 'svn' # Needed for some brew formulas
 brew 'tig'
 # simple terminal UI for git commands
 brew 'jesseduffield/lazygit/lazygit'
@@ -28,7 +31,8 @@ brew 'vim'
 brew 'neovim'
 brew 'tmux'
 brew 'tmuxinator'
-brew 'z' # Tracks most-used directories to make cd smarter
+# brew 'z' # Tracks most-used directories to make cd smarter
+brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
 
 # File managers
 brew 'mc'
@@ -168,3 +172,14 @@ cask 'viber'
 #cask 'discord'
 #cask 'tower'
 cask 'amethyst' # Tiling window manager for macOS
+# Logitech Options - Drivers for MX Master 3
+cask 'logitech-options'
+
+# Fonts
+cask 'font-lato'
+cask 'font-hack'
+cask 'font-inconsolata'
+cask 'font-meslo-for-powerline'
+cask 'font-menlo-for-powerline'
+cask 'font-fira-mono-for-powerline'
+cask 'font-fantasque-sans-mono'
