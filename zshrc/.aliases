@@ -42,9 +42,6 @@ alias t="tree"
 # --global – Read the Brewfile from ~/.Brewfile
 alias bb="brew bundle --global"
 
-# Git
-alias gcm="git checkout master"
-
 # VIM
 alias v="vim"
 alias vv="vim ."
