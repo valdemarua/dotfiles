@@ -174,12 +174,17 @@ cask 'viber'
 cask 'amethyst' # Tiling window manager for macOS
 # Logitech Options - Drivers for MX Master 3
 cask 'logitech-options'
+cask 'ticktick' # To-do & task list manager
 
 # Fonts
+cask 'font-camingocode'
 cask 'font-lato'
 cask 'font-hack'
 cask 'font-inconsolata'
 cask 'font-meslo-for-powerline'
 cask 'font-menlo-for-powerline'
+cask 'font-monoid'
+cask 'font-fira-code'
+cask 'font-fira-code-nerd-font'
 cask 'font-fira-mono-for-powerline'
 cask 'font-fantasque-sans-mono'
