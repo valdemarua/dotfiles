@@ -10,10 +10,11 @@ xcode-select --install
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+Don't forget to add Homebrew to your PATH. See instructions in installation log.
 
 #### Install Stow
 ```
-brew update && brew install stow
+brew install stow
 ```
 
 ### Clone dotfiles
