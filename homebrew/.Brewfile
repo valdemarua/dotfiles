@@ -117,7 +117,7 @@ cask 'postman'
 cask 'keycastr'
 cask 'ngrok'
 
-cask 'google-backup-and-sync'
+cask 'google-drive'
 cask 'google-cloud-sdk'
 
 # Development
