@@ -25,7 +25,7 @@ git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
 
 ##### Link config files with Stow
 ```
-cd ~/dotfiles && stow homebrew zshrc term
+cd ~/dotfiles && stow homebrew zsh term vim
 ```
 
 ##### Install packages
