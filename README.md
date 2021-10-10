@@ -38,3 +38,8 @@ brew bundle --global
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
+
+##### Install terminfo file
+```
+tic -x ~/.xterm-256color-italic.terminfo
+```
