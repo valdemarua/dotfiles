@@ -1,33 +1,40 @@
-### Install
+### Installation
+_________
 
 #### On fresh Mac OS
-#### Install XCode Command Line Tools
+##### Install XCode Command Line Tools
 ```
 xcode-select --install
 ```
 
-#### Install Homebrew
+##### Install Homebrew
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 Don't forget to add Homebrew to your PATH. See instructions in installation log.
 
-#### Install Stow
+##### Install Stow
 ```
 brew install stow
 ```
 
-### Clone dotfiles
+##### Clone dotfiles
 ```
 git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
 ```
 
-### Link config files with Stow
+##### Link config files with Stow
 ```
-stow homebrew zshrc
+cd ~/dotfiles && stow homebrew zshrc
 ```
 
-### Install packages
+##### Install packages
 ```
-stow homebrew zshrc
+brew bundle --global
+```
+
+#### Next steps
+##### Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
