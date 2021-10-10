@@ -20,9 +20,6 @@ export LC_ALL=en_US.UTF-8
 
 alias th="tmux new -s $TMUX_SESSION_NAME"
 
-# Add homebrew directory to PATH on Apple Silicon
-export PATH="/opt/homebrew/bin:$PATH"
-
 # Use brew installed ruby as system ruby version
 export PATH="/usr/local/opt/ruby/bin/:$PATH"
 
@@ -94,8 +91,8 @@ plugins=(git osx ruby rbenv vagrant bundler tmuxinator)
 
 # User configuration
 
-export PATH="/Users/valdemarua/.rbenv/bin:/Users/valdemarua/.rbenv/shims:/Users/valdemarua/.rbenv/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/Applications/Server.app/Contents/ServerRoot/usr/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
@@ -129,10 +126,7 @@ eval "$(zoxide init zsh)"
 eval "$(rbenv init -)"
 
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-# export PATH="/usr/local/opt/node@8/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-# export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
-# export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
 
@@ -140,7 +134,6 @@ export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
 
 # nvm
 #
