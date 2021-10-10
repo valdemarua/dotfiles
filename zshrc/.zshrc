@@ -20,6 +20,9 @@ export LC_ALL=en_US.UTF-8
 
 alias th="tmux new -s $TMUX_SESSION_NAME"
 
+# Add homebrew directory to PATH on Apple Silicon
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Use brew installed ruby as system ruby version
 export PATH="/usr/local/opt/ruby/bin/:$PATH"
 
@@ -38,10 +41,6 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 #ZSH_THEME="cobalt2"
 #ZSH_THEME="random"
 
-# ZSH_THEME="powerlevel9k/powerlevel9k"
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=false
-
-# Powerlevel10k
 ZSH_THEME="muse" # set by `omz`
 
 # Initialize Pure theme
@@ -49,7 +48,6 @@ ZSH_THEME="muse" # set by `omz`
 # autoload -U promptinit; promptinit
 # prompt pure
 
-# ZSH_THEME="ys"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
