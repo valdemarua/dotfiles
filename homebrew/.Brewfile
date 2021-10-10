@@ -176,6 +176,10 @@ cask 'amethyst' # Tiling window manager for macOS
 cask 'logitech-options'
 cask 'ticktick' # To-do & task list manager
 
+# Dictionaries extends your Mac, by adding bidirectional translation, spellchecking and pronunciation for over 80 languages.
+# https://dictionaries.io/
+cask 'dictionaries'
+
 # Fonts
 cask 'font-camingocode'
 cask 'font-lato'
