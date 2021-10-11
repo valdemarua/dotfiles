@@ -93,7 +93,7 @@ plugins=(git osx ruby rbenv vagrant bundler tmuxinator)
 
 # Homebrew folder should be before /usr/bin
 # This is the path to homebrew for Apple Silicon machines
-export PATH="/opt/homebrew/bine:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 
