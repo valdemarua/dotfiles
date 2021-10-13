@@ -43,6 +43,19 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 tic -x ~/.xterm-256color-italic.terminfo
 ```
+##### Node.js
+
+To download, compile, and install the latest release of node, do this:
+```
+nvm install node # "node" is an alias for the latest version
+```
+
+To install a specific version of node:
+```
+nvm install 14.7.0 # or 16.3.0, 12.22.1, etc
+```
+
+If `nvm` not found see post-install instructions from homebrew how to set `NVM_DIR` correctly: `brew info nvm`.
 
 ##### VIM
 
@@ -51,5 +64,6 @@ Install PlugVim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+**Important** some plugins depends on Node.js so it should be installed before you call the next command.
 
 Call `:PlugInstall` in VIM to install plugins.
