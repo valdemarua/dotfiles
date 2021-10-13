@@ -155,7 +155,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'voldikss/vim-floaterm'
 
   " Preview markdown on your modern browser with synchronised scrolling and flexible configuration
-  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 
   " Easy navigation between JavaScript alternate files (source and test). Inspired by the amazing vim-rails.
   Plug 'dunckr/js_alternate.vim'
