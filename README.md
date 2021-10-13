@@ -43,3 +43,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 tic -x ~/.xterm-256color-italic.terminfo
 ```
+
+##### VIM
+
+Install PlugVim
+```
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+Call `:PlugInstall` in VIM to install plugins.
