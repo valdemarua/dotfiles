@@ -4,7 +4,6 @@ tap 'homebrew/cask-fonts' # Fonts
 tap 'homebrew/cask-drivers' # For logitech-options
 
 brew 'mas' # Mac App Store manager
-#brew 'yarn'
 brew 'stow'
 brew 'ssh-copy-id'
 brew 'htop'
@@ -13,8 +12,6 @@ brew 'wget'
 brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
-#brew 'node'
-#brew 'node@10'
 brew 'nvm' # Node version manager
 brew 'watchman'
 brew 'git-lfs'
@@ -31,7 +28,6 @@ brew 'vim'
 brew 'neovim'
 brew 'tmux'
 brew 'tmuxinator'
-# brew 'z' # Tracks most-used directories to make cd smarter
 brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
 
 # File managers
@@ -75,7 +71,6 @@ brew 'imagemagick@6'
 brew 'graphicsmagick'
 
 #brew 'postgresql'
-#brew 'postgresql@10'
 brew 'postgresql@12'
 brew 'mysql@5.7', restart_service: false
 #brew 'mongodb', restart_service: false
@@ -85,10 +80,8 @@ brew 'elasticsearch', restart_service: false
 brew 'ffmpeg'
 brew 'ffmpegthumbnailer'
 brew 'libav'
-#brew 'phpmyadmin'
 #cask 'java8'
 #cask 'adoptopenjdk8'
-#brew 'jenkins'
 
 #
 # Install Casks
@@ -106,8 +99,8 @@ cask 'java'
 cask 'iterm2'
 cask 'alacritty'
 cask 'kitty'
+#cask 'hyper'
 
-#cask 'upterm'
 #cask 'robomongo'
 cask 'pgadmin4'
 #cask 'sequel-pro'
@@ -125,13 +118,11 @@ cask 'google-cloud-sdk'
 #cask 'virtualbox'
 cask 'vagrant'
 #cask 'chefdk'
-#cask 'hyper'
 #cask 'android-studio'
 #cask 'android-sdk'
 cask 'visual-studio-code'
 cask 'sublime-text'
 #cask 'atom'
-#cask 'rubymine'
 #cask 'alcatraz'
 cask 'gitter'
 #cask 'grammarly'
@@ -166,8 +157,6 @@ cask 'slack'
 # cask 'skype'
 cask 'viber'
 #cask 'gifrocket'
-#cask 'radiant-player'
-#cask 'flash-npapi' # As dependency for Radiant Player
 #cask 'studio-3t'
 #cask 'discord'
 #cask 'tower'
