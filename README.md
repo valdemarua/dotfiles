@@ -59,7 +59,7 @@ If `nvm` not found see post-install instructions from homebrew how to set `NVM_D
 
 ##### VIM
 
-Install PlugVim
+Install [vim-plug](https://github.com/junegunn/vim-plug)
 ```
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
