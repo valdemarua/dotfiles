@@ -259,7 +259,7 @@ nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 
 "let test#javascript#jest#executable = 'npm run test'
-let test#javascript#jest#executable = 'yarn jest'
+let test#javascript#jest#executable = 'NPM_TOKEN=bla yarn jest'
 " let test#strategy = "vimterminal"
 " let g:test#javascript#jest#file_pattern = '\v\.test\.js$'
 " let g:test#javascript#jest#file_pattern = '\v(spec|test))\.(js|jsx|coffee|ts|tsx)$'
