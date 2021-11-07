@@ -3,7 +3,9 @@ syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
-"""
+
+set noswapfile " no swapfiles
+
 " set autochdir
 
 " Enable per-project .vimrc configuration files
