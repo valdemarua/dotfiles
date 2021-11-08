@@ -99,7 +99,7 @@ cask 'java'
 cask 'iterm2'
 cask 'alacritty'
 cask 'kitty'
-#cask 'hyper'
+cask 'hyper'
 
 #cask 'robomongo'
 cask 'pgadmin4'

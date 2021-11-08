@@ -387,7 +387,9 @@ noremap <Leader>h :History<CR>
 nmap <Leader>cl :set conceallevel=0<CR>
 nmap <Leader>so :source ~/.vimrc<CR>
 nmap <Leader>rc :vs ~/.vimrc<CR>
-nmap <Leader>s :Rg<Space>
+nnoremap <Leader>r :Rg<Space>
+nnoremap <leader>rr :execute ':Rg ' . expand('<cWORD>')<CR>
+nnoremap <leader>ss :execute '/' . expand('<cWORD>')<CR>
 
 nmap <CR> o<Esc>
 
