@@ -3,3 +3,9 @@
 # Please adapt and uncomment the following lines:
 name = valdemarua
 email = valdemarua@users.noreply.github.com
+[diff]
+	colormoved = plain # color moved text shorter than 20 characters
+[pull]
+	rebase = true
+[fetch]
+	prune = true
