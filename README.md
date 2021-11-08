@@ -25,7 +25,7 @@ git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
 
 ##### Link config files with Stow
 ```
-cd ~/dotfiles && stow git homebrew zsh term vim nvim
+cd ~/dotfiles && stow git homebrew zsh term vim nvim tmux
 ```
 
 ##### Install packages
@@ -67,3 +67,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 **Important** some plugins depends on Node.js so it should be installed before you call the next command.
 
 Call `:PlugInstall` in VIM to install plugins.
+
+##### TMUX
+
+Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
