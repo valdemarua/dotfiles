@@ -33,7 +33,7 @@ window:
   #  columns: 0
   #  lines: 0
   dimensions:
-    columns: 200
+    columns: 180
     lines: 60
 
   # Window position (changes require restart)
