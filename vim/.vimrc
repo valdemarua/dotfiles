@@ -133,7 +133,8 @@ call plug#begin('~/.vim/plugged')
   " fugitive.vim: A Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
   " allows you to toggle bool (true/false) and other words with a shortcut
-  Plug 'vim-scripts/Toggle'
+  " Plug 'vim-scripts/Toggle'
+  Plug 'lukelbd/vim-toggle'
   " Toggles between hybrid and absolute line numbers automatically
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   "Plug '/usr/local/opt/fzf'
@@ -166,6 +167,7 @@ call plug#begin('~/.vim/plugged')
   " Plug 'fatih/vim-go'
   " Far.vim makes it easier to find and replace text through multiple files. It's inspired by fancy IDEs, like IntelliJ and Eclipse, that provide cozy tools for such tasks.
   Plug 'brooth/far.vim'
+  Plug 'freitass/todo.txt-vim'
 call plug#end()
 
 " Want utf8 at all times
@@ -308,13 +310,6 @@ let g:UltiSnipsEditSplit="vertical"
 " Activate repeat plugin
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
-" Insert a space in normal mode
-"nnoremap <space> i<space><esc>
-nnoremap ss i<space><esc>
-
-" Delete surrounding whitespace
-nnoremap <leader>dd F<space>xf<space>x
-
 " better-whitespace plugin settings
 let g:better_whitespace_enabled=0
 let g:strip_whitespace_on_save=1
@@ -388,9 +383,27 @@ nmap <Leader>cl :set conceallevel=0<CR>
 nmap <Leader>so :source ~/.vimrc<CR>
 nmap <Leader>rc :vs ~/.vimrc<CR>
 nnoremap <Leader>r :Rg<Space>
-nnoremap <leader>rr :execute ':Rg ' . expand('<cWORD>')<CR>
-nnoremap <leader>ss :execute '/' . expand('<cWORD>')<CR>
+nnoremap <Leader>rr :execute ':Rg ' . expand('<cWORD>')<CR>
+nnoremap <Leader>ss :execute '/' . expand('<cWORD>')<CR>
 
+"
+" Buffers and windows
+"
+" Close buffer
+nnoremap <nowait><leader>q :bw<Enter>
+
+" Fugitive mappings
+nnoremap <Leader>gb :Git blame<CR>
+nnoremap <Leader>gs :Git status<CR>
+
+"
+" Editing
+"
+" Insert a space in normal mode
+"nnoremap <space> i<space><esc>
+nnoremap ss i<space><esc>
+" Delete surrounding whitespace
+nnoremap <leader>dd F<space>xf<space>x
 nmap <CR> o<Esc>
 
 " IntentLine plugin
@@ -426,3 +439,10 @@ let g:coc_global_extensions = [
       \'coc-git',
       \'coc-css',
       \]
+
+"
+" vim-toggle settings
+"
+let g:toggle_map = '+'
+let g:toggle_words_on  = ["true", "on", "yes", "define", "in", "up", "left", "north", "east", "to", "if"]
+let g:toggle_words_off = ["false", "off", "no", "undef", "out", "down", "right", "south", "west", "not_to", "unless"]
