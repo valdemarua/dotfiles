@@ -9,6 +9,8 @@ email = valdemarua@users.noreply.github.com
   tool = vimdiff
 [difftool]
   prompt = false
+[merge]
+  tool = vimdiff
 [pull]
 	rebase = true
 [fetch]
