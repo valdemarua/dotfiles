@@ -100,6 +100,7 @@ cask 'iterm2'
 cask 'alacritty'
 cask 'kitty'
 cask 'hyper'
+cask 'warp' # Rust-based terminal
 
 #cask 'robomongo'
 cask 'pgadmin4'
