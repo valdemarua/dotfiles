@@ -13,6 +13,7 @@ brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
 brew 'nvm' # Node version manager
+brew 'firebase-cli'
 brew 'watchman'
 brew 'git-lfs'
 brew 'svn' # Needed for some brew formulas
