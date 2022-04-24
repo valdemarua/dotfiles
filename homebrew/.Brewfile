@@ -2,6 +2,8 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask-fonts' # Fonts
 tap 'homebrew/cask-drivers' # For logitech-options
+tap 'mongodb/brew'
+tap 'elastic/tap'
 
 brew 'mas' # Mac App Store manager
 brew 'stow'
@@ -74,8 +76,10 @@ brew 'graphicsmagick'
 #brew 'postgresql'
 brew 'postgresql@12'
 brew 'mysql@5.7', restart_service: false
-#brew 'mongodb', restart_service: false
-brew 'elasticsearch', restart_service: false
+#brew 'elasticsearch', restart_service: false
+brew 'elastic/tap/elasticsearch-full'
+# Install mongodb from tap mongodb/brew
+brew 'mongodb-community@5.0'
 
 # Video and audio converters
 brew 'ffmpeg'
@@ -101,9 +105,10 @@ cask 'iterm2'
 cask 'alacritty'
 cask 'kitty'
 cask 'hyper'
-cask 'warp' # Rust-based terminal
+#cask 'warp' # Rust-based terminal
 
 #cask 'robomongo'
+cask 'mongodb-compass'
 cask 'pgadmin4'
 #cask 'sequel-pro'
 # Redis desktop manager
