@@ -1,0 +1,66 @@
+##########
+#  Ruby  #
+##########
+
+snippet fr
+# frozen_string_literal: true
+
+endsnippet
+
+###########
+#  Rails  #
+###########
+
+###########
+#  RSpec  #
+###########
+
+snippet cont
+context "${1:message}" do
+	${0}
+end
+endsnippet
+
+snippet it
+it "${1:spec_name}" do
+	${0}
+end
+endsnippet
+
+snippet dc
+described_class
+endsnippet
+
+snippet rdc
+result = described_class
+endsnippet
+
+snippet odc
+outcome = described_class
+endsnippet
+
+snippet cr
+${1:user} = create(:$1)
+endsnippet
+
+snippet crl
+create_list(${1:user}, ${2:5})
+endsnippet
+
+snippet bl
+${1:user} = build(:$1)
+endsnippet
+
+# Matchers
+
+snippet hc
+have_content(${0})
+endsnippet
+
+snippet hl
+have_link(${0})
+endsnippet
+
+snippet hr
+have_received(${0})
+endsnippet
