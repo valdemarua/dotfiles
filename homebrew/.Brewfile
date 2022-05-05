@@ -88,6 +88,8 @@ brew 'libav'
 #cask 'java8'
 #cask 'adoptopenjdk8'
 
+brew 'tailscale'
+
 #
 # Install Casks
 #
