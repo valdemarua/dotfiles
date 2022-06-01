@@ -122,6 +122,8 @@ cask 'ngrok'
 cask 'google-drive'
 cask 'google-cloud-sdk'
 
+cask 'dropbox'
+
 # Development
 #cask 'fastlane'
 #cask 'virtualbox'
