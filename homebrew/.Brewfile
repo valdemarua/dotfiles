@@ -154,7 +154,7 @@ cask 'tor-browser'
 
 cask 'vlc'
 #cask 'android-file-transfer'
-#cask 'steam'
+cask 'steam'
 #cask 'unrarx'
 cask 'the-unarchiver'
 #cask 'sourcetree'
