@@ -271,16 +271,29 @@ let test#javascript#jest#executable = 'NPM_TOKEN=bla yarn jest'
 
 " ALE settings
 "
+" let g:ale_fixers = ['reek', 'scss_lint', 'eslint']
 " Fix files with prettier, and then ESLint.
-let g:ale_fixers = ['rubocop', 'reek', 'scss_lint', 'eslint']
+"
+" Make it more beautiful later
+if !empty(glob(".standard.yml"))
+  let g:ale_fixers = ['standardrb', 'reek', 'scss_lint', 'eslint']
+  let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \   'ruby': ['standardrb', 'reek'],
+  \   'css': ['scss_lint'],
+  \}
+else
+  let g:ale_fixers = ['rubocop', 'reek', 'scss_lint', 'eslint']
+  let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \   'ruby': ['rubocop', 'reek'],
+  \   'css': ['scss_lint'],
+  \}
+end
+" let g:ale_fixers = ['standardrb', 'rubocop', 'reek', 'scss_lint', 'eslint']
 
 " Only run linters named in ale_linters settings.
 
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'ruby': ['rubocop', 'reek'],
-\   'css': ['scss_lint'],
-\}
 
 let g:ale_linters_explicit = 1
 
