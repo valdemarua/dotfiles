@@ -168,6 +168,7 @@ call plug#begin('~/.vim/plugged')
   " Far.vim makes it easier to find and replace text through multiple files. It's inspired by fancy IDEs, like IntelliJ and Eclipse, that provide cozy tools for such tasks.
   Plug 'brooth/far.vim'
   Plug 'freitass/todo.txt-vim'
+  Plug 'mbbill/undotree'
 call plug#end()
 
 " Want utf8 at all times
