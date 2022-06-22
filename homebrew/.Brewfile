@@ -38,6 +38,9 @@ brew 'mc'
 brew 'vifm'
 brew 'ranger'
 
+# Static site generators
+brew 'hugo'
+
 brew 'tree'
 brew 'go'
 brew 'elixir'
