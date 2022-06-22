@@ -25,7 +25,7 @@ git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
 
 ##### Link config files with Stow
 ```
-cd ~/dotfiles && stow alacritty git gem homebrew zsh term vim nvim tmux
+cd ~/dotfiles && stow alacritty git gem homebrew zsh term vim nvim tmux pry
 ```
 
 ##### Install packages
