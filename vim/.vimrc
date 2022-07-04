@@ -122,6 +122,7 @@ call plug#begin('~/.vim/plugged')
   " 🔦 [Vim script] JSX and TSX syntax pretty highlighting for vim.
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'cakebaker/scss-syntax.vim'
+  Plug 'yaegassy/coc-tailwindcss3', {'do': 'yarn install --frozen-lockfile'}
   " Cutting-edge vim css syntax file
   " https://github.com/JulesWang/css.vim
   Plug 'JulesWang/css.vim'
@@ -164,7 +165,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'dunckr/js_alternate.vim'
 
   "Go development plugin for Vim
-  " Plug 'fatih/vim-go'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   " Far.vim makes it easier to find and replace text through multiple files. It's inspired by fancy IDEs, like IntelliJ and Eclipse, that provide cozy tools for such tasks.
   Plug 'brooth/far.vim'
   Plug 'freitass/todo.txt-vim'
