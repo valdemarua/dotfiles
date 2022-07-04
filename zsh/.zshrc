@@ -29,9 +29,9 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 # ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="cobalt2"
-#ZSH_THEME="random"
+ZSH_THEME="random"
 
-ZSH_THEME="muse" # set by `omz`
+# ZSH_THEME="muse" # set by `omz`
 
 # Initialize Pure theme
 # https://github.com/sindresorhus/pure#getting-started
