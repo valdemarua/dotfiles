@@ -28,6 +28,7 @@ git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
 cd ~/dotfiles && stow \
   alacritty \
   kitty \
+  amethyst \
   git \
   gem \
   homebrew \

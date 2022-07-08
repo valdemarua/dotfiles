@@ -1,0 +1,8 @@
+layouts:
+  - tall
+  - column
+  - fullscreen
+  - wide
+
+window-margins: true
+window-margin-size: 5
