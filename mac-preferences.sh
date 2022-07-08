@@ -11,3 +11,6 @@ defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
 # defaults write com.apple.dock autohide -bool false && killall Dock
 # defaults delete com.apple.dock autohide-delay && killall Dock
 # defaults write com.apple.dock no-bouncing -bool FALSE && killall Dock
+
+# Set the icon size of Dock items to 36 pixels
+defaults write com.apple.dock tilesize -int 44
