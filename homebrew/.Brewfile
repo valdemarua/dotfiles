@@ -151,9 +151,10 @@ cask 'daisydisk'
 
 # Web browsers
 cask 'google-chrome'
-cask 'brave-browser'
+#cask 'brave-browser'
 cask 'firefox'
 cask 'tor-browser'
+cask 'min'
 
 cask 'vlc'
 #cask 'android-file-transfer'
