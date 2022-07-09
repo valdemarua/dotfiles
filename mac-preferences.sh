@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+# Close System Preferences
+osascript -e 'tell application "System Preferences" to quit'
 
 # Dock
 
@@ -12,5 +15,10 @@ defaults write com.apple.dock no-bouncing -bool TRUE && killall Dock
 # defaults delete com.apple.dock autohide-delay && killall Dock
 # defaults write com.apple.dock no-bouncing -bool FALSE && killall Dock
 
-# Set the icon size of Dock items to 36 pixels
+# Set the icon size of Dock items to 44 pixels
 defaults write com.apple.dock tilesize -int 44
+
+# Mission Control
+
+# Disable space rearrange
+defaults write com.apple.dock mru-spaces -bool FALSE
