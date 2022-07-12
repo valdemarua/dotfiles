@@ -217,7 +217,7 @@ let g:NERDTreeIgnore = ['^node_modules$']
 " Files is a FZF Files command
 "nmap <C-p> :FZF<CR>
 "nmap <C-p>:call fzf#vim#gitfiles('', fzf#vim#with_preview('right'))<CR>
-" nmap <C-p> :call fzf#vim#files('', fzf#vim#with_preview('right'))<CR>
+" noremap <C-p> :call fzf#vim#files('', fzf#vim#with_preview('right'))<CR>
 nmap <Leader>p :call fzf#vim#files('', fzf#vim#with_preview('right'))<CR>
 
 if (has("termguicolors"))

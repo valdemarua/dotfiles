@@ -36,6 +36,11 @@ alias bs="bin/setup"
 alias bw="bin/webpack-dev-server"
 alias ss="spring stop"
 
+# NPM
+
+alias nrd="npm run dev"
+alias nrl="npm run lint"
+
 alias t="tree"
 
 # Homebrew
