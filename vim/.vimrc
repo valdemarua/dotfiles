@@ -395,7 +395,8 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Leader mappings
 noremap <Leader>h :History<CR>
-nmap <Leader>cl :set conceallevel=0<CR>
+" Toggle conceal mode
+nmap <Leader>cl :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 nmap <Leader>so :source ~/.vimrc<CR>
 nmap <Leader>rc :vs ~/.vimrc<CR>
 nnoremap <Leader>r :Rg<Space>
