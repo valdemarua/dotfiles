@@ -400,8 +400,8 @@ nmap <Leader>cl :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1
 nmap <Leader>so :source ~/.vimrc<CR>
 nmap <Leader>rc :vs ~/.vimrc<CR>
 nnoremap <Leader>r :Rg<Space>
-nnoremap <Leader>rr :execute ':Rg ' . expand('<cWORD>')<CR>
-nnoremap <Leader>ss :execute '/' . expand('<cWORD>')<CR>
+nnoremap <Leader>rr :execute ':Rg ' . expand('<cword>')<CR>
+nnoremap <Leader>ss :execute '/' . expand('<cword>')<CR>
 
 "
 " Buffers and windows
