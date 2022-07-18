@@ -92,6 +92,7 @@ brew 'libav'
 #cask 'adoptopenjdk8'
 
 brew 'tailscale'
+brew 'ansible'
 
 #
 # Install Casks
@@ -131,7 +132,6 @@ cask 'dropbox'
 #cask 'fastlane'
 #cask 'virtualbox'
 cask 'vagrant'
-cask 'ansible'
 #cask 'chefdk'
 #cask 'android-studio'
 #cask 'android-sdk'
