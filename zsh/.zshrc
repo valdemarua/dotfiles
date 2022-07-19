@@ -80,7 +80,11 @@ ZSH_THEME="random"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git macos ruby rbenv vagrant bundler tmuxinator)
+
+export NVM_LAZY_LOAD=true # For zsh-nvm
+export NVM_COMPLETION=true # For zsh-nvm
+
+plugins=(zsh-nvm git macos ruby rbenv vagrant bundler tmuxinator)
 
 # User configuration
 
@@ -130,6 +134,8 @@ export PATH="${HOMEBREW_PREFIX}/opt/postgresql@12/bin:$PATH"
 
 # nvm
 #
-export NVM_DIR="$HOME/.nvm"
-[ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && . "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && . "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# I use zsh-nvm instead of these:
+#
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && . "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"  # This loads nvm
+# [ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && . "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion

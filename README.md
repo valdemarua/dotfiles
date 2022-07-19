@@ -51,6 +51,13 @@ brew bundle --global
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+###### Install `zsh-nvm` plugin:
+It allows load `nvm` lazely
+
+```
+git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
+```
+
 ##### Install terminfo file
 ```
 tic -x ~/.xterm-256color-italic.terminfo

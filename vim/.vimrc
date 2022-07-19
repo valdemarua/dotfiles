@@ -407,7 +407,7 @@ nnoremap <Leader>ss :execute '/' . expand('<cword>')<CR>
 " Buffers and windows
 "
 " Close buffer
-nnoremap <nowait><leader>q :bw<Enter>
+" nnoremap <nowait><leader>q :bw<Enter>
 
 " Fugitive mappings
 nnoremap <Leader>gb :Git blame<CR>
