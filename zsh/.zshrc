@@ -1,3 +1,9 @@
+zmodload zsh/zprof # Profiler
+
+zstyle ':omz:update' mode disabled
+# This will check for updates every 14 days
+zstyle ':omz:update' frequency 14
+
 ZSH_DISABLE_COMPFIX=true
 
 export EDITOR='vim'
