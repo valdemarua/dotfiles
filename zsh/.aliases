@@ -36,6 +36,9 @@ alias bs="bin/setup"
 alias bw="bin/webpack-dev-server"
 alias ss="spring stop"
 
+alias rs="rails s"
+alias rc="rails c"
+
 # NPM
 
 alias nrd="npm run dev"
