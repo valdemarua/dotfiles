@@ -6,6 +6,9 @@
 # Aliases
 #####
 
+# zsh
+alias so="source ~/.zshrc"
+
 # Common
 alias cl=clear
 
