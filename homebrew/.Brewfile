@@ -76,6 +76,9 @@ brew 'imagemagick@6'
 #brew 'imagemagick'
 brew 'graphicsmagick'
 
+#
+# Databases
+#
 #brew 'postgresql'
 brew 'postgresql@12'
 brew 'mysql@5.7', restart_service: false
@@ -83,6 +86,11 @@ brew 'mysql@5.7', restart_service: false
 brew 'elastic/tap/elasticsearch-full'
 # Install mongodb from tap mongodb/brew
 brew 'mongodb-community@5.0'
+
+#
+# Database clients
+#
+brew 'pgcli' # This is a postgres client that does auto-completion and syntax highlighting.
 
 # Video and audio converters
 brew 'ffmpeg'
@@ -110,12 +118,9 @@ cask 'java'
 cask 'iterm2'
 cask 'alacritty'
 cask 'kitty'
-cask 'hyper'
+#cask 'hyper'
 #cask 'warp' # Rust-based terminal
 
-#cask 'robomongo'
-cask 'mongodb-compass'
-cask 'pgadmin4'
 #cask 'sequel-pro'
 # Redis desktop manager
 #cask 'rdm'
