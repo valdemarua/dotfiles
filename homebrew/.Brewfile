@@ -135,7 +135,7 @@ cask 'dropbox'
 
 # Development
 #cask 'fastlane'
-#cask 'virtualbox'
+cask 'virtualbox'
 cask 'vagrant'
 #cask 'chefdk'
 #cask 'android-studio'
