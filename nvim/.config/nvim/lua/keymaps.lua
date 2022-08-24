@@ -14,6 +14,9 @@ map('n', '<leader>c', ':nohl<CR>')
 
 -- Reload configuration without restart nvim
 map('n', '<leader>r', ':so %<CR>')
+-- Open nvim config
+map('n', '<Leader>rc', ':vs ~/.config/nvim/init.lua<CR>')
+
 
 -- Close buffer with <leader> and q
 map('n', '<leader>q', '<c-w>q')
