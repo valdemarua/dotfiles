@@ -9,6 +9,7 @@ brew 'mas' # Mac App Store manager
 brew 'stow'
 brew 'ssh-copy-id'
 brew 'htop'
+brew 'tree'
 brew 'openssl'
 brew 'wget'
 brew 'optipng'
@@ -24,6 +25,7 @@ brew 'tig'
 brew 'jesseduffield/lazygit/lazygit'
 brew 'rbenv'
 brew 'ruby-build'
+brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
 brew 'wrk'
 brew 'ctop'
 brew 'zsh'
@@ -41,7 +43,6 @@ brew 'ranger'
 # Static site generators
 brew 'hugo'
 
-brew 'tree'
 brew 'go'
 brew 'elixir'
 brew 'docker'
@@ -49,7 +50,7 @@ brew 'docker'
 # brew 'docker-machine'
 
 # Searching tools
-brew 'ack'
+# brew 'ack'
 brew 'the_silver_searcher'
 # ripgrep recursively searches directories for a regex pattern
 brew 'ripgrep'
@@ -96,6 +97,7 @@ brew 'pgcli' # This is a postgres client that does auto-completion and syntax hi
 brew 'ffmpeg'
 brew 'ffmpegthumbnailer'
 brew 'libav'
+
 #cask 'java8'
 #cask 'adoptopenjdk8'
 
@@ -134,54 +136,56 @@ cask 'google-cloud-sdk'
 cask 'dropbox'
 
 # Development
-#cask 'fastlane'
+# cask 'fastlane'
 cask 'virtualbox'
 cask 'vagrant'
-#cask 'chefdk'
-#cask 'android-studio'
-#cask 'android-sdk'
+# cask 'chefdk'
+# cask 'android-studio'
+# cask 'android-sdk'
 cask 'visual-studio-code'
 cask 'sublime-text'
-#cask 'atom'
-#cask 'alcatraz'
-cask 'gitter'
-#cask 'grammarly'
+# cask 'alcatraz'
+# cask 'gitter'
+# cask 'grammarly'
+
 # To play AceStreams
 cask 'soda-player'
 # I think kodi can play some NFL streams. Not use it anymore
-#cask 'kodi'
+# cask 'kodi'
 
-#cask 'omnidisksweeper'
+# cask 'omnidisksweeper'
 cask 'imageoptim'
 cask 'daisydisk'
 
 # Web browsers
 cask 'google-chrome'
-#cask 'brave-browser'
+# cask 'brave-browser'
 cask 'firefox'
 cask 'tor-browser'
 cask 'min'
 
 cask 'vlc'
-#cask 'android-file-transfer'
+# cask 'android-file-transfer'
 cask 'steam'
-#cask 'unrarx'
+# cask 'unrarx'
 cask 'the-unarchiver'
-#cask 'sourcetree'
-#cask 'sketch'
-#cask 'sketch-toolbox'
-#cask 'figma'
-#cask 'bittorrent'
+# cask 'sourcetree'
+# cask 'sketch'
+# cask 'sketch-toolbox'
+# cask 'figma'
+# cask 'bittorrent'
 cask 'telegram'
-#cask 'launchrocket'
+# cask 'launchrocket'
 cask 'slack'
 # cask 'skype'
 cask 'viber'
-#cask 'gifrocket'
-#cask 'studio-3t'
-#cask 'discord'
-#cask 'tower'
+# cask 'gifrocket'
+# cask 'studio-3t'
+# cask 'discord'
+# cask 'tower'
+
 cask 'amethyst' # Tiling window manager for macOS
+
 # Logitech Options - Drivers for MX Master 3
 cask 'logitech-options'
 cask 'ticktick' # To-do & task list manager
