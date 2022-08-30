@@ -28,10 +28,14 @@ alias capv="bundle exec cap vagrant deploy"
 alias cappdp="bundle exec cap production db:pull"
 
 # Foreman
-alias fs="foreman start"
-alias fr="foreman run"
-alias fsp="foreman start -f Procfile.production"
-alias fsd="foreman start -f Procfile.dev"
+# alias fs="foreman start"
+# alias fr="foreman run"
+# alias fsp="foreman start -f Procfile.production"
+# alias fsd="foreman start -f Procfile.dev"
+
+# Overmind
+alias os="overmind start"
+alias osd="overmind s -f Procfile.dev"
 
 # Development
 alias ra="rubocop -a"
