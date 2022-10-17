@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'tpope/vim-rails'
   Plug 'vim-ruby/vim-ruby'
+  Plug 'keith/rspec.vim' " Better rspec syntax highlighting for Vim
   " Plug 'tpope/vim-bundler'
   " Plug 'tpope/vim-rake'
   Plug 'janko-m/vim-test'
