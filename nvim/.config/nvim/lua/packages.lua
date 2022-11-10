@@ -7,6 +7,13 @@ return require('packer').startup(function(use)
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
 
+  -- telescope
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   -- ruby, rails, rspec
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
@@ -14,4 +21,14 @@ return require('packer').startup(function(use)
 
   -- color schemes
   use 'folke/tokyonight.nvim'
+
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    }
+  }
+
+  use "terrortylor/nvim-comment"
+  use "folke/which-key.nvim"
 end)
