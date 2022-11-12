@@ -471,5 +471,5 @@ let g:coc_global_extensions = [
 " vim-toggle settings
 "
 let g:toggle_map = '+'
-let g:toggle_words_on  = ["true", "on", "yes", "define", "in", "up", "left", "north", "east", "to", "if"]
-let g:toggle_words_off = ["false", "off", "no", "undef", "out", "down", "right", "south", "west", "not_to", "unless"]
+let g:toggle_words_on  = ["true", "on", "yes", "define", "in", "up", "left", "north", "east", "to", "if", "let"]
+let g:toggle_words_off = ["false", "off", "no", "undef", "out", "down", "right", "south", "west", "not_to", "unless", "const"]
