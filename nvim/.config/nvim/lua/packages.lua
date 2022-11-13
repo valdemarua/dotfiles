@@ -32,6 +32,9 @@ return require('packer').startup(function(use)
   use 'vim-ruby/vim-ruby'
   use 'keith/rspec.vim'
 
+  -- to run rspec, jest and other tests
+  use 'vim-test/vim-test'
+
   -- color schemes
   use 'folke/tokyonight.nvim'
 
@@ -48,28 +51,6 @@ return require('packer').startup(function(use)
   use {
     'rmagatti/alternate-toggler',
     config = function()
-      require("alternate-toggler").setup {
-        alternates = {
-          ["true"] = "false",
-          ["True"] = "False",
-          ["TRUE"] = "FALSE",
-          ["Yes"] = "No",
-          ["YES"] = "NO",
-          ["1"] = "0",
-          ["<"] = ">",
-          ["("] = ")",
-          ["["] = "]",
-          ["{"] = "}",
-          ['"'] = "'",
-          ['""'] = "''",
-          ["+"] = "-",
-          ["==="] = "!==",
-          ["to"] = "not_to",       
-          ["if"] = "unless"        
-          ["let"] = "const"        
-        }
-      }
-
       vim.keymap.set(
       "n",
       "<leader>ta", -- <space><space>
@@ -78,6 +59,8 @@ return require('packer').startup(function(use)
     end,
     -- event = { "BufReadPost" }, -- lazy load after reading a buffer
   }
+
+  use 'cappyzawa/trim.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

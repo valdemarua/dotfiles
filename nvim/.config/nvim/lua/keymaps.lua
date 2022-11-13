@@ -41,3 +41,10 @@ vim.keymap.set('n', '<leader>p', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- Vim test
+vim.keymap.set('n', '<leader>t', ':TestNearest<CR>', {})
+vim.keymap.set('n', '<leader>T', ':TestFile<CR>', {})
+vim.keymap.set('n', '<leader>a', ':TestSuite<CR>', {})
+vim.keymap.set('n', '<leader>l', ':TestLast<CR>', {})
+vim.keymap.set('n', '<leader>g', ':TestVisit<CR>', {})
