@@ -87,10 +87,7 @@ ZSH_THEME="random"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-export NVM_LAZY_LOAD=true # For zsh-nvm
-export NVM_COMPLETION=true # For zsh-nvm
-
-plugins=(zsh-nvm git macos ruby rbenv vagrant bundler tmuxinator)
+plugins=(git macos ruby rbenv vagrant bundler tmuxinator)
 
 # User configuration
 
@@ -138,13 +135,10 @@ export PATH="${HOMEBREW_PREFIX}/opt/postgresql@12/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# nvm
 #
-# I use zsh-nvm instead of these:
+# fnm
 #
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh" ] && . "${HOMEBREW_PREFIX}/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm" ] && . "${HOMEBREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+eval "$(fnm env --use-on-cd)"
 
 #
 # Functions

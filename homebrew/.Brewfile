@@ -16,6 +16,7 @@ brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
 brew 'nvm' # Node version manager
+brew 'fnm' # 🚀 Fast and simple Node.js version manager, built in Rust
 brew 'firebase-cli'
 brew 'watchman'
 brew 'git-lfs'
@@ -54,7 +55,7 @@ brew 'docker'
 brew 'the_silver_searcher'
 # ripgrep recursively searches directories for a regex pattern
 brew 'ripgrep'
-# fd is a simple, fast and user-friendly alternative to find. 
+# fd is a simple, fast and user-friendly alternative to find.
 brew 'fd'
 
 # bat supports syntax highlighting for a large number of programming and markup languages
@@ -71,8 +72,8 @@ brew 'graphviz'
 # For update 'time' command
 brew 'coreutils'
 
-brew 'redis', restart_service: false 
-brew 'memcached', restart_service: false 
+brew 'redis', restart_service: false
+brew 'memcached', restart_service: false
 brew 'imagemagick@6'
 #brew 'imagemagick'
 brew 'graphicsmagick'
