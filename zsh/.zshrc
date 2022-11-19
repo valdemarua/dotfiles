@@ -35,7 +35,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 # ZSH_THEME="robbyrussell"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="cobalt2"
-ZSH_THEME="random"
+# ZSH_THEME="random"
 
 # ZSH_THEME="muse" # set by `omz`
 
@@ -147,3 +147,6 @@ timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
+
+# Init starship prompt
+eval "$(starship init zsh)"
