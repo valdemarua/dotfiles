@@ -15,7 +15,6 @@ brew 'wget'
 brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
-brew 'nvm' # Node version manager
 brew 'fnm' # 🚀 Fast and simple Node.js version manager, built in Rust
 brew 'firebase-cli'
 brew 'watchman'
@@ -29,11 +28,12 @@ brew 'ruby-build'
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
 brew 'wrk'
 brew 'ctop'
-brew 'zsh'
 brew 'vim'
 brew 'neovim'
 brew 'tmux'
 brew 'tmuxinator'
+brew 'zsh'
+brew 'starship'
 brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
 
 # File managers
@@ -51,12 +51,9 @@ brew 'docker'
 # brew 'docker-machine'
 
 # Searching tools
-# brew 'ack'
 brew 'the_silver_searcher'
-# ripgrep recursively searches directories for a regex pattern
-brew 'ripgrep'
-# fd is a simple, fast and user-friendly alternative to find.
-brew 'fd'
+brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
+brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 
 # bat supports syntax highlighting for a large number of programming and markup languages
 brew 'bat'
