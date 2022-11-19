@@ -51,13 +51,6 @@ brew bundle --global
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-###### Install `zsh-nvm` plugin:
-It allows load `nvm` lazely
-
-```
-git clone https://github.com/lukechilds/zsh-nvm ~/.oh-my-zsh/custom/plugins/zsh-nvm
-```
-
 ##### Install terminfo file
 ```
 tic -x ~/.xterm-256color-italic.terminfo
@@ -66,15 +59,13 @@ tic -x ~/.xterm-256color-italic.terminfo
 
 To download, compile, and install the latest release of node, do this:
 ```
-nvm install node # "node" is an alias for the latest version
+fnm install node # "node" is an alias for the latest version
 ```
 
 To install a specific version of node:
 ```
-nvm install 14.7.0 # or 16.3.0, 12.22.1, etc
+fnm install 14.7.0 # or 16.3.0, 12.22.1, etc
 ```
-
-If `nvm` not found see post-install instructions from homebrew how to set `NVM_DIR` correctly: `brew info nvm`.
 
 ##### VIM
 
