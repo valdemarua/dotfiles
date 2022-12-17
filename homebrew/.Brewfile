@@ -58,6 +58,7 @@ brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 # bat supports syntax highlighting for a large number of programming and markup languages
 brew 'bat'
 brew 'tldr'
+brew 'exa' # a modern replacement for ls.
 
 # For Nokogiri gem
 brew 'libxml2'
