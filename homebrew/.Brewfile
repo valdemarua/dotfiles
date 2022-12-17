@@ -28,13 +28,16 @@ brew 'ruby-build'
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
 brew 'wrk'
 brew 'ctop'
-brew 'vim'
-brew 'neovim'
 brew 'tmux'
 brew 'tmuxinator'
 brew 'zsh'
 brew 'starship'
 brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
+
+# Editors
+brew 'vim'
+brew 'neovim'
+brew 'helix'
 
 # File managers
 brew 'mc'
