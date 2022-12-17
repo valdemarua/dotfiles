@@ -36,6 +36,7 @@ cd ~/dotfiles && stow \
   term \
   vim \
   nvim \
+  helix \
   tmux \
   pry
 ```

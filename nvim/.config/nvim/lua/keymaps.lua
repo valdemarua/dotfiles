@@ -42,6 +42,10 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- Alternate Toggler
+     vim.keymap.set("n", "+", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>"
+    )
+
 -- Vim test
 vim.keymap.set('n', '<leader>t', ':TestNearest<CR>', {})
 vim.keymap.set('n', '<leader>T', ':TestFile<CR>', {})
