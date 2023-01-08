@@ -24,3 +24,6 @@ opt.number = true
 opt.relativenumber = true
 
 opt.scrolloff = 6 -- Number of lines to keep above and below the cursor
+
+-- for nvim-cmp
+opt.completeopt = {'menu', 'menuone', 'noselect'}

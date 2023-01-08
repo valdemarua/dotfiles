@@ -27,6 +27,18 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- Autocompletion
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip'
+    },
+  }
+
   -- ruby, rails, rspec
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
