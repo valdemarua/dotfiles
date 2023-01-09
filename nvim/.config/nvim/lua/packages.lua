@@ -40,6 +40,14 @@ return require('packer').startup(function(use)
     },
   }
 
+  use { "use"}
+  -- LSP
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
+
   -- ruby, rails, rspec
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
