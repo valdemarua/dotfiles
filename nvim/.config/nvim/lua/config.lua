@@ -27,3 +27,7 @@ opt.scrolloff = 6 -- Number of lines to keep above and below the cursor
 
 -- for nvim-cmp
 opt.completeopt = {'menu', 'menuone', 'noselect'}
+
+-- Search
+opt.ignorecase = true  -- Ignore case
+opt.smartcase = true   -- Use case-sensitive search if one or more character is uppercase

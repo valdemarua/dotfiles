@@ -275,7 +275,6 @@ let test#javascript#jest#executable = 'NPM_TOKEN=bla yarn jest'
 " let g:test#javascript#jest#file_pattern = '\v\.test\.js$'
 " let g:test#javascript#jest#file_pattern = '\v(spec|test))\.(js|jsx|coffee|ts|tsx)$'
 
-
 " ALE settings
 "
 " let g:ale_fixers = ['reek', 'scss_lint', 'eslint']
@@ -300,7 +299,6 @@ end
 " let g:ale_fixers = ['standardrb', 'rubocop', 'reek', 'scss_lint', 'eslint']
 
 " Only run linters named in ale_linters settings.
-
 
 let g:ale_linters_explicit = 1
 
@@ -391,7 +389,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -415,8 +412,10 @@ nnoremap <Leader>ss :execute '/' . expand('<cword>')<CR>
 "
 " Buffers and windows
 "
+
 " Close buffer
 " nnoremap <nowait><leader>q :bw<Enter>
+nnoremap <nowait><leader>q <c-w>q
 
 " Fugitive mappings
 nnoremap <Leader>gb :Git blame<CR>
