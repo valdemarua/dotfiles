@@ -173,7 +173,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'brooth/far.vim'
   Plug 'freitass/todo.txt-vim'
   Plug 'mbbill/undotree'
-  Plug 'wakatime/vim-wakatime'
 call plug#end()
 
 " Want utf8 at all times

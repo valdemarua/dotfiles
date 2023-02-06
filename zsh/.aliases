@@ -73,5 +73,3 @@ alias hg='history | grep'
 
 # Lazygit
 alias lg='lazygit'
-
-alias cat='bat'
