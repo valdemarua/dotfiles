@@ -14,8 +14,10 @@ require("alternate-toggler").setup {
     ['""'] = "''",
     ["+"] = "-",
     ["==="] = "!==",
-    ["to"] = "not_to",
     ["if"] = "unless",
-    ["let"] = "const"
+    ["to"] = "not_to",
+    ["build"] = "create",
+    ["create"] = "build_stubbed",
+    ["build_stubbed"] = "build",
   }
 }
