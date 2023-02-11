@@ -1,5 +1,6 @@
 require("config")
 require("packages")
+require("lazynvim")
 require("keymaps")
 require("colors")
 require("plugins/alternate-toggler")
