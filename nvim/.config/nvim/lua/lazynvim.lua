@@ -12,5 +12,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "folke/which-key.nvim"
+  "folke/which-key.nvim",
+  {
+
+    "nvim-telescope/telescope.nvim", version = '0.1.0',
+    dependencies ={{'nvim-lua/plenary.nvim'}
+  }
+}
 })
