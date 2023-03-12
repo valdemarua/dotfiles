@@ -4,7 +4,7 @@ require("mason-lspconfig").setup()
 -- nvim-lsp setup
 require('lspconfig')['tsserver'].setup{}
 
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
       runtime = {
