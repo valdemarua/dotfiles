@@ -23,7 +23,7 @@ opt.cursorline = true -- Highlight the text line of the cursor
 opt.number = true
 opt.relativenumber = true
 
-opt.scrolloff = 6 -- Number of lines to keep above and below the cursor
+opt.scrolloff = 4 -- Number of lines to keep above and below the cursor
 
 -- for nvim-cmp
 opt.completeopt = {'menu', 'menuone', 'noselect'}

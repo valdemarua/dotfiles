@@ -122,6 +122,7 @@ cask 'java'
 cask 'iterm2'
 cask 'alacritty'
 cask 'kitty'
+cask 'wezterm' # GPU-accelerated cross-platform terminal emulator and multiplexer
 #cask 'hyper'
 #cask 'warp' # Rust-based terminal
 

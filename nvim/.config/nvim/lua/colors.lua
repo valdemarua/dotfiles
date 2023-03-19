@@ -1,3 +1,5 @@
-vim.g.tokyonight_style = "storm"
+require("tokyonight").setup({
+  style = "storm"
+})
 
 vim.cmd[[colorscheme tokyonight]]
