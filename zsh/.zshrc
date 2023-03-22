@@ -21,6 +21,7 @@ alias th="tmux new -s $TMUX_SESSION_NAME"
 
 # Use brew installed ruby as system ruby version
 export PATH="/usr/local/opt/ruby/bin/:$PATH"
+export PATH="${HOME}/.cargo/bin/:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/valdemarua/.oh-my-zsh
