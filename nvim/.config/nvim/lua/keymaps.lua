@@ -55,3 +55,7 @@ vim.keymap.set("n", "<leader>T", ":TestFile<CR>", {})
 vim.keymap.set("n", "<leader>a", ":TestSuite<CR>", {})
 vim.keymap.set("n", "<leader>l", ":TestLast<CR>", {})
 vim.keymap.set("n", "<leader>g", ":TestVisit<CR>", {})
+
+-- Fugitive
+map("n", "<Leader>gb", ":Git blame<CR>", opts)
+map("n", "<Leader>gs", ":Git status<CR>", opts)
