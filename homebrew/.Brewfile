@@ -34,6 +34,9 @@ brew 'zsh'
 brew 'starship'
 brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
 
+# Ruby dependencies
+brew 'shared-mime-info' # For mimemagic gem
+
 # Editors
 brew 'vim'
 brew 'neovim'
