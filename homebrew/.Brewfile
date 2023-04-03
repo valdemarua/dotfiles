@@ -33,6 +33,7 @@ brew 'tmuxinator'
 brew 'zsh'
 brew 'starship'
 brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
+brew 'fzf' # 🌸 A command-line fuzzy finder
 
 # Ruby dependencies
 brew 'shared-mime-info' # For mimemagic gem
