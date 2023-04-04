@@ -77,4 +77,12 @@ require("lazy").setup({
 			require("nvim-autopairs").setup()
 		end,
 	},
+	-- Want to turn fooBar into foo_bar? Press crs (coerce to snake_case).
+	-- MixedCase (crm), camelCase (crc), snake_case (crs), UPPER_CASE (cru),
+	-- dash-case (cr-), dot.case (cr.), space case (cr<space>),
+	-- and Title Case (crt) are all just 3 keystrokes away.
+	{
+		"tpope/vim-abolish",
+		event = { "BufReadPre", "BufNewFile" },
+	},
 })
