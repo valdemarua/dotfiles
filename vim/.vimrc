@@ -212,7 +212,7 @@ set backspace=indent,eol,start
 " NERDTree options
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI = 1 " Does not show Press ? for help
-map <C-n><C-f> :NERDTreeFind<CR>
+" map <C-n><C-f> :NERDTreeFind<CR>
 let g:NERDTreeIgnore = ['^node_modules$']
 
 "map ff :CommandT<CR>
