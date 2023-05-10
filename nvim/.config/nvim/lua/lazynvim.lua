@@ -85,4 +85,5 @@ require("lazy").setup({
 		"tpope/vim-abolish",
 		event = { "BufReadPre", "BufNewFile" },
 	},
+	"dstein64/vim-startuptime",
 })
