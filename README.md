@@ -27,19 +27,20 @@ git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
 ```
 cd ~/dotfiles && stow \
   alacritty \
-  kitty \
-  wezterm \
   amethyst \
-  git \
   gem \
-  homebrew \
-  zsh \
-  term \
-  vim \
-  nvim \
+  git \
   helix \
+  homebrew \
+  kitty \
+  nvim \
+  pry \
+  term \
   tmux \
-  pry
+  vim \
+  wezterm \
+  zellij \
+  zsh \
 ```
 
 ##### Install packages

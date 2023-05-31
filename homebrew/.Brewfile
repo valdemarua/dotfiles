@@ -30,6 +30,7 @@ brew 'wrk'
 brew 'ctop'
 brew 'tmux'
 brew 'tmuxinator'
+brew 'zellij'
 brew 'zsh'
 brew 'starship'
 brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
