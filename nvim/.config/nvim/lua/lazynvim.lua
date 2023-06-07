@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"folke/which-key.nvim",
+	{ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "folke/tokyonight.nvim", lazy = false },
 	{ "nvim-telescope/telescope.nvim", version = "0.1.0", dependencies = { { "nvim-lua/plenary.nvim" } } },
 	{ "rmagatti/alternate-toggler" },
