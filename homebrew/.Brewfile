@@ -85,6 +85,7 @@ brew 'memcached', restart_service: false
 brew 'imagemagick@6'
 #brew 'imagemagick'
 brew 'graphicsmagick'
+brew 'vips' # A fast image processing library with low memory needs.
 
 #
 # Databases
