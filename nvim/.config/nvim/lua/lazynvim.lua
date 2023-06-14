@@ -87,4 +87,5 @@ require("lazy").setup({
 		event = { "BufReadPre", "BufNewFile" },
 	},
 	"dstein64/vim-startuptime",
+	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 })
