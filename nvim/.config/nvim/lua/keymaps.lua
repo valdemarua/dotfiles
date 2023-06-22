@@ -15,7 +15,7 @@ map("n", "<leader>c", ":nohl<CR>")
 -- Reload configuration without restart nvim
 map("n", "<leader>r", ":so %<CR>")
 -- Open nvim config
-map("n", "<Leader>rc", ":vs ~/.config/nvim/init.lua<CR>")
+map("n", "<leader>rc", ":vs ~/.config/nvim/init.lua<CR>")
 
 -- Close buffer with <leader> and q
 map("n", "<leader>q", "<c-w>q")
@@ -30,7 +30,7 @@ map("n", "<CR>", "o<Esc>", {})
 
 -- nvim-tree
 map("n", "<c-n>", ":NvimTreeToggle<CR>", {})
-map("n", "<c-f>", ":NvimTreeFindFile<CR>", {})
+map("n", "<leader>nf", ":NvimTreeFindFile<CR>", {})
 
 -- Move around splits using Ctrl + {h, j, k, l}
 local opts = { noremap = true }
@@ -42,6 +42,7 @@ map("n", "<c-l>", "<c-w>l", opts)
 -- Telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>p", builtin.find_files, {})
+vim.keymap.set("n", "<leader>fs", builtin.grep_string, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
@@ -59,3 +60,6 @@ vim.keymap.set("n", "<leader>g", ":TestVisit<CR>", {})
 -- Fugitive
 map("n", "<Leader>gb", ":Git blame<CR>", opts)
 map("n", "<Leader>gs", ":Git status<CR>", opts)
+
+-- LSP
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
