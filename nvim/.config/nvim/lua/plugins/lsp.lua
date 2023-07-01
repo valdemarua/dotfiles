@@ -1,12 +1,12 @@
 require("mason").setup()
-require("mason-lspconfig").setup {
+require("mason-lspconfig").setup({
   ensure_installed = { "tsserver", "lua_ls", "tailwindcss" },
-}
+})
 
 -- nvim-lsp setup
-require("lspconfig")["tsserver"].setup {}
+require("lspconfig")["tsserver"].setup({})
 
-require("lspconfig").lua_ls.setup {
+require("lspconfig").lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
@@ -27,9 +27,9 @@ require("lspconfig").lua_ls.setup {
       },
     },
   },
-}
+})
 
-require("lspconfig").tailwindcss.setup {}
+require("lspconfig").tailwindcss.setup({})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -64,7 +64,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<space>f", function()
-      vim.lsp.buf.format { async = true }
+      vim.lsp.buf.format({ async = true })
     end, opts)
   end,
 })
