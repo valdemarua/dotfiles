@@ -60,6 +60,3 @@ vim.keymap.set("n", "<leader>g", ":TestVisit<CR>", {})
 -- Fugitive
 map("n", "<Leader>gb", ":Git blame<CR>", opts)
 map("n", "<Leader>gs", ":Git status<CR>", opts)
-
--- LSP
-vim.keymap.set("n", "K", vim.lsp.buf.hover)

@@ -41,6 +41,7 @@ cd ~/dotfiles && stow \
   wezterm \
   zellij \
   zsh \
+  lua
 ```
 
 ##### Install packages
