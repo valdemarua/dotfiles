@@ -17,7 +17,13 @@ require("lazy").setup({
 	"folke/which-key.nvim",
 	{ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "folke/tokyonight.nvim", lazy = false },
-	{ "nvim-telescope/telescope.nvim", version = "0.1.0", dependencies = { { "nvim-lua/plenary.nvim" } } },
+	{
+		"nvim-telescope/telescope.nvim",
+		version = "0.1.0",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+		},
+	},
 	{ "rmagatti/alternate-toggler" },
 	{ "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "terrortylor/nvim-comment" },
@@ -89,4 +95,5 @@ require("lazy").setup({
 	"dstein64/vim-startuptime",
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	{ "lukas-reineke/indent-blankline.nvim" },
+	{ "AndrewRadev/splitjoin.vim" },
 })
