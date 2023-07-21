@@ -25,6 +25,7 @@ brew 'tig'
 brew 'jesseduffield/lazygit/lazygit'
 brew 'rbenv'
 brew 'ruby-build'
+brew 'rubyfmt'
 brew 'pyenv'
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
 brew 'wrk'
