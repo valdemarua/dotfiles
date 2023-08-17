@@ -35,6 +35,9 @@ brew 'tmuxinator'
 brew 'zellij'
 brew 'zsh'
 brew 'starship'
+
+# Comand Line Tools
+brew 'jq' # Lightweight and flexible command-line JSON processor
 brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
 brew 'fzf' # 🌸 A command-line fuzzy finder
 
