@@ -107,6 +107,7 @@ brew 'mongodb-community@5.0'
 # Database clients
 #
 brew 'pgcli' # This is a postgres client that does auto-completion and syntax highlighting.
+brew 'pspg' # Unix pager (with very rich functionality) designed for work with tables.
 
 # Video and audio converters
 brew 'ffmpeg'
