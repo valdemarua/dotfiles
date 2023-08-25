@@ -17,6 +17,7 @@ config.color_scheme = "AdventureTime"
 
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt" -- 'AlwaysPrompt'
+config.use_dead_keys = false
 
 config.font_size = 14.0
 
