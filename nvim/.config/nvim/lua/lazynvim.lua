@@ -65,6 +65,7 @@ require("lazy").setup({
     version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
   },
   { "cappyzawa/trim.nvim" },
   -- ruby, rails, rspec
@@ -106,7 +107,6 @@ require("lazy").setup({
   { "nvim-lualine/lualine.nvim",          dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "lukas-reineke/indent-blankline.nvim" },
   { "AndrewRadev/splitjoin.vim" },
-  { "rafamadriz/friendly-snippets" },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
