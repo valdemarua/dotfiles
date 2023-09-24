@@ -1,9 +1,9 @@
 local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Change leader to a space
@@ -25,8 +25,9 @@ map("n", "<leader>w", ":w<CR>")
 map("n", "<c-s>", ":w<CR>", {})
 map("i", "<c-s>", "<Esc>:w<CR>a", {})
 
--- Add new line by with Enter in normal mode
+-- Add new line below and above current line with Enter in normal mode
 map("n", "<CR>", "o<Esc>", {})
+map("n", "<S-CR>", "O<Esc>", {})
 
 -- nvim-tree
 map("n", "<c-n>", ":NvimTreeToggle<CR>", {})
@@ -45,7 +46,7 @@ vim.keymap.set("n", "<leader>p", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fs", builtin.grep_string, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+vim.keymap.set("n", "<leader>fh", builtin.oldfiles, {})
 
 -- Alternate Toggler
 vim.keymap.set("n", "+", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
