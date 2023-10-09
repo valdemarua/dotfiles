@@ -24,6 +24,7 @@ require("lazy").setup({
       { "nvim-lua/plenary.nvim" },
     },
   },
+  { "stevearc/dressing.nvim",           opts = {} },
   {
     "benfowler/telescope-luasnip.nvim",
     module = "telescope._extensions.luasnip", -- if you wish to lazy-load
@@ -106,7 +107,14 @@ require("lazy").setup({
   "dstein64/vim-startuptime",
   { "nvim-lualine/lualine.nvim",          dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "lukas-reineke/indent-blankline.nvim" },
-  { "AndrewRadev/splitjoin.vim" },
+  {
+    "Wansmer/treesj",
+    keys = { "<space>m", "<space>j", "<space>s" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("treesj").setup()
+    end,
+  },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
