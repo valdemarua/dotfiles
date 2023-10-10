@@ -31,3 +31,5 @@ opt.completeopt = { "menu", "menuone", "noselect" }
 -- Search
 opt.ignorecase = true -- Ignore case
 opt.smartcase = true  -- Use case-sensitive search if one or more character is uppercase
+
+opt.cmdheight = 0     -- Hide command line

@@ -27,6 +27,16 @@ config.font_size = 14.0
 -- config.font = wezterm.font("Fira Code")
 -- config.font = wezterm.font("JetBrains Mono")
 config.font = wezterm.font("Rec Mono Linear")
+-- config.font = wezterm.font("Source Code Pro")
+
+config.use_fancy_tab_bar = false
+
+config.window_padding = {
+  left = 2,
+  right = 2,
+  top = 2,
+  bottom = 0,
+}
 
 -- and finally, return the configuration to wezterm
 return config
