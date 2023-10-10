@@ -30,6 +30,7 @@ config.font = wezterm.font("Rec Mono Linear")
 -- config.font = wezterm.font("Source Code Pro")
 
 config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = false
 
 config.window_padding = {
   left = 2,
