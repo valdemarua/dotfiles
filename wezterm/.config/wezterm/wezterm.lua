@@ -13,7 +13,9 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = "AdventureTime"
+-- config.color_scheme = "AdventureTime"
+config.color_scheme = "Tokyo Night Moon"
+-- config.color_scheme = "Tokyo Night Day"
 
 config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt" -- 'AlwaysPrompt'
