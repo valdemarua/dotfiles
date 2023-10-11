@@ -41,16 +41,16 @@ config.window_padding = {
   bottom = 0,
 }
 
-config.colors = {
-  tab_bar = {
-    active_tab = {
-      bg_color = "white",
-      fg_color = "blue",
-      intensity = "Half",
-      italic = true,
-    },
-  },
-}
+-- config.colors = {
+--   tab_bar = {
+--     active_tab = {
+--       bg_color = "white",
+--       fg_color = "blue",
+--       intensity = "Bold",
+--       italic = false,
+--     },
+--   },
+-- }
 
 -- and finally, return the configuration to wezterm
 return config
