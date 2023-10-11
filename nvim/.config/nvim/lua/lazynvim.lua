@@ -19,7 +19,7 @@ require("lazy").setup({
   { "folke/tokyonight.nvim", lazy = false },
   {
     "nvim-telescope/telescope.nvim",
-    version = "0.1.0",
+    version = "0.1.4",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
