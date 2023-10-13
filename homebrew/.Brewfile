@@ -126,7 +126,6 @@ brew 'ansible'
 #cask 'cyberduck'
 cask '1password'
 cask 'dbngin'
-cask 'cloudapp'
 cask 'evernote'
 
 cask 'alfred'
@@ -154,7 +153,7 @@ cask 'dropbox'
 
 # Development
 # cask 'fastlane'
-cask 'virtualbox'
+cask 'virtualbox-beta' # Beta version supports Arm processors
 cask 'vagrant'
 # cask 'chefdk'
 # cask 'android-studio'
@@ -180,6 +179,7 @@ cask 'google-chrome'
 cask 'firefox'
 cask 'tor-browser'
 cask 'min'
+cask 'arc' # Chromium based browser
 
 cask 'vlc'
 # cask 'android-file-transfer'
