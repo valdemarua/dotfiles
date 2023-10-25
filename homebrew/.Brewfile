@@ -16,6 +16,7 @@ brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
 brew 'fnm' # 🚀 Fast and simple Node.js version manager, built in Rust
+brew 'prettierd'
 brew 'firebase-cli'
 brew 'watchman'
 brew 'git-lfs'
