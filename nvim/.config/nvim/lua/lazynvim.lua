@@ -38,6 +38,10 @@ require("lazy").setup({
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "neovim/nvim-lspconfig" },
+  {
+    'stevearc/conform.nvim',
+    opts = {},
+  },
   -- null-ls
   {
     "jose-elias-alvarez/null-ls.nvim",
