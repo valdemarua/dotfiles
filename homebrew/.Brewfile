@@ -113,7 +113,6 @@ brew 'pspg' # Unix pager (with very rich functionality) designed for work with t
 # Video and audio converters
 brew 'ffmpeg'
 brew 'ffmpegthumbnailer'
-brew 'libav'
 
 #cask 'java8'
 #cask 'adoptopenjdk8'
