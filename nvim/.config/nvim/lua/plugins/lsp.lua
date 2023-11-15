@@ -1,23 +1,42 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = { "tsserver", "cssls", "cssmodules_ls", "lua_ls", "tailwindcss", "html" },
+  ensure_installed = {
+    "cssls",
+    "cssmodules_ls",
+    "html",
+    "lua_ls",
+    "tailwindcss",
+    "tsserver",
+  },
 })
 
+local lspconfig = require("lspconfig")
+
 -- Enable tsserver
-require("lspconfig")["tsserver"].setup({})
+lspconfig.tsserver.setup({})
+
+-- Enable html
+-- Enable (broadcasting) snippet capability for completion
+local html_capabilities = vim.lsp.protocol.make_client_capabilities()
+html_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.html.setup({
+  capabilities = html_capabilities,
+  filetypes = { "html", "eruby" },
+})
 
 -- Enable cssls
 -- Enable (broadcasting) snippet capability for completion
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local css_capabilities = vim.lsp.protocol.make_client_capabilities()
+css_capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require("lspconfig").cssls.setup({ capabilities = capabilities })
+lspconfig.cssls.setup({ capabilities = css_capabilities })
 
 -- Enable cssmodules_ls
-require("lspconfig").cssmodules_ls.setup({})
+lspconfig.cssmodules_ls.setup({})
 
 -- Enable lua_ls
-require("lspconfig").lua_ls.setup({
+lspconfig.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
@@ -41,7 +60,7 @@ require("lspconfig").lua_ls.setup({
 })
 
 -- Enable tailwindcss
-require("lspconfig").tailwindcss.setup({})
+lspconfig.tailwindcss.setup({})
 
 -- Global mappings
 --

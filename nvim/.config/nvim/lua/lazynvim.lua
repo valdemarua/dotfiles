@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "folke/which-key.nvim",
-  { "folke/trouble.nvim",    dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "folke/tokyonight.nvim", lazy = false },
   {
     "nvim-telescope/telescope.nvim",
@@ -24,13 +24,13 @@ require("lazy").setup({
       { "nvim-lua/plenary.nvim" },
     },
   },
-  { "stevearc/dressing.nvim",           opts = {} },
+  { "stevearc/dressing.nvim", opts = {} },
   {
     "benfowler/telescope-luasnip.nvim",
     module = "telescope._extensions.luasnip", -- if you wish to lazy-load
   },
   { "rmagatti/alternate-toggler" },
-  { "nvim-tree/nvim-tree.lua",          dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "terrortylor/nvim-comment" },
   { "cappyzawa/trim.nvim" },
   { "nvim-treesitter/nvim-treesitter" },
@@ -39,7 +39,7 @@ require("lazy").setup({
   { "williamboman/mason-lspconfig.nvim" },
   { "neovim/nvim-lspconfig" },
   {
-    'stevearc/conform.nvim',
+    "stevearc/conform.nvim",
     opts = {},
   },
   -- null-ls
@@ -83,7 +83,7 @@ require("lazy").setup({
     "kylechui/nvim-surround",
     version = "*",
     config = function()
-      require("nvim-surround").setup({})
+      require("nvim-surround").setup()
     end,
   },
   -- git
@@ -109,8 +109,14 @@ require("lazy").setup({
     event = { "BufReadPre", "BufNewFile" },
   },
   "dstein64/vim-startuptime",
-  { "nvim-lualine/lualine.nvim",          dependencies = { "nvim-tree/nvim-web-devicons" } },
-  { "lukas-reineke/indent-blankline.nvim" },
+  { "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      -- alternative characters: ¦, ┆, │, ⎸, ▏
+      require("ibl").setup({ indent = { char = "┆" } })
+    end,
+  },
   {
     "Wansmer/treesj",
     keys = { "<space>m", "<space>j", "<space>s" },
@@ -143,6 +149,12 @@ require("lazy").setup({
         desc =
         "Toggle Flash Search"
       },
+    },
+    {
+      "NvChad/nvim-colorizer.lua",
+      config = function()
+        require("colorizer").setup({})
+      end,
     },
   },
 })

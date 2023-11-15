@@ -25,7 +25,7 @@ require("lualine").setup({
     lualine_b = { "diff", "diagnostics" },
     lualine_c = { "filename" },
     -- lualine_x = { 'encoding', 'fileformat', 'filetype' },
-    lualine_x = { "encoding", { "filetype", icon_only = true } },
+    lualine_x = { "encoding", { "filetype", icon_only = false } },
     lualine_y = { "progress" },
     lualine_z = { "location" },
   },
@@ -41,5 +41,5 @@ require("lualine").setup({
   winbar = {},
   inactive_winbar = {},
   -- extensions = {},
-  extensions = { 'nvim-tree' },
+  extensions = { "nvim-tree" },
 })
