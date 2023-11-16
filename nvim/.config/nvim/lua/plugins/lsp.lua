@@ -3,6 +3,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "cssls",
     "cssmodules_ls",
+    "gopls",
     "html",
     "lua_ls",
     "tailwindcss",
@@ -61,6 +62,15 @@ lspconfig.lua_ls.setup({
 
 -- Enable tailwindcss
 lspconfig.tailwindcss.setup({})
+
+-- Enable gopls
+lspconfig.gopls.setup({
+  settings = {
+    gopls = {
+      usePlaceholders = true,
+    },
+  },
+})
 
 -- Global mappings
 --
