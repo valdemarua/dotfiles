@@ -4,6 +4,7 @@ tap 'homebrew/cask-fonts' # Fonts
 tap 'homebrew/cask-drivers' # For logitech-options
 tap 'mongodb/brew'
 tap 'elastic/tap'
+tap 'abhimanyu003/sttr'
 
 brew 'mas' # Mac App Store manager
 brew 'stow'
@@ -72,10 +73,10 @@ brew 'the_silver_searcher'
 brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
 brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 
-# bat supports syntax highlighting for a large number of programming and markup languages
-brew 'bat'
+brew 'bat' # bat supports syntax highlighting for a large number of programming and markup languages
 brew 'tldr'
 brew 'exa' # a modern replacement for ls.
+brew 'sttr' # cross-platform, cli app to perform various operations on string
 
 # For Nokogiri gem
 brew 'libxml2'
