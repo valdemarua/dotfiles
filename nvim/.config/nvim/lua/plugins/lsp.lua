@@ -8,6 +8,7 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "tailwindcss",
     "tsserver",
+    "erb-lint",
   },
 })
 

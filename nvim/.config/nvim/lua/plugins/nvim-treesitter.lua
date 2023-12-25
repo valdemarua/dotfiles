@@ -20,6 +20,7 @@ nvim_treesitter.setup({
     "vim",
     "yaml",
     "ruby",
+    "embedded_template",
     "markdown",
     "markdown_inline",
     "go",
@@ -39,4 +40,5 @@ nvim_treesitter.setup({
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  embedded_template = { enable = true },
 })
