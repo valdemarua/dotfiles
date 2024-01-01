@@ -1,4 +1,4 @@
-tap 'homebrew/cask'
+# tap 'homebrew/cask'
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask-fonts' # Fonts
 tap 'homebrew/cask-drivers' # For logitech-options
