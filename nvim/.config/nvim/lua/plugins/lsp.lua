@@ -25,6 +25,9 @@ html_capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.html.setup({
   capabilities = html_capabilities,
   filetypes = { "html", "eruby" },
+  init_options = {
+    provideFormatter = false, -- It adds bad indentation in erb templates
+  },
 })
 
 -- Enable cssls
