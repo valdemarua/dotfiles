@@ -42,16 +42,6 @@ require("lazy").setup({
     "stevearc/conform.nvim",
     opts = {},
   },
-  -- null-ls
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    -- config = function()
-    --   require("null-ls").setup()
-    -- end,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-  },
   -- CMP
   {
     "hrsh7th/nvim-cmp",
