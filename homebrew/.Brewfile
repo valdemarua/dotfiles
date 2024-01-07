@@ -20,11 +20,14 @@ brew 'fnm' # 🚀 Fast and simple Node.js version manager, built in Rust
 brew 'prettierd'
 brew 'firebase-cli'
 brew 'watchman'
-brew 'git-lfs'
 brew 'svn' # Needed for some brew formulas
+
+# Git tools
+brew 'git-lfs'
 brew 'tig'
-# simple terminal UI for git commands
-brew 'jesseduffield/lazygit/lazygit'
+brew 'jesseduffield/lazygit/lazygit' # simple terminal UI for git commands
+brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
+
 brew 'rbenv'
 brew 'ruby-build'
 brew 'rubyfmt'
