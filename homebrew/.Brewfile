@@ -220,6 +220,8 @@ cask 'ticktick' # To-do & task list manager
 # https://dictionaries.io/
 cask 'dictionaries'
 
+cask 'obs' # Open-source software for live streaming and screen recording
+
 # Fonts
 cask 'font-camingocode'
 cask 'font-lato'
