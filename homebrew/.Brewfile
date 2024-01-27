@@ -102,7 +102,7 @@ brew 'vips' # A fast image processing library with low memory needs.
 # Databases
 #
 #brew 'postgresql'
-brew 'postgresql@12'
+brew 'postgresql@16'
 brew 'mysql@5.7', restart_service: false
 # brew 'elasticsearch', restart_service: false
 # brew 'elastic/tap/elasticsearch-full'

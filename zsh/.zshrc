@@ -132,7 +132,7 @@ eval "$(rbenv init -)"
 export PATH="${HOMEBREW_PREFIX}/opt/imagemagick@6/bin:$PATH"
 export PATH="${HOMEBREW_PREFIX}/opt/mysql@5.7/bin:$PATH"
 export PATH="${HOMEBREW_PREFIX}/opt/imagemagick@6/bin:$PATH"
-export PATH="${HOMEBREW_PREFIX}/opt/postgresql@12/bin:$PATH"
+export PATH="${HOMEBREW_PREFIX}/opt/postgresql@16/bin:$PATH"
 
 # Python
 export PATH="${HOME}/.pyenv/shims:${PATH}"
