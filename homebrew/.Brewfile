@@ -3,6 +3,7 @@ tap 'homebrew/cask-versions'
 tap 'homebrew/cask-fonts' # Fonts
 tap 'homebrew/cask-drivers' # For logitech-options
 tap 'mongodb/brew'
+tap 'oven-sh/bun'
 # tap 'elastic/tap'
 tap 'abhimanyu003/sttr'
 
@@ -17,6 +18,7 @@ brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
 brew 'fnm' # 🚀 Fast and simple Node.js version manager, built in Rust
+brew 'bun' # Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one
 brew 'prettierd'
 brew 'firebase-cli'
 brew 'watchman'
