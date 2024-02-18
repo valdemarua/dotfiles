@@ -190,7 +190,6 @@ cask 'google-chrome'
 cask 'firefox'
 cask 'tor-browser'
 cask 'min'
-cask 'arc' # Chromium based browser
 
 cask 'vlc'
 # cask 'android-file-transfer'
