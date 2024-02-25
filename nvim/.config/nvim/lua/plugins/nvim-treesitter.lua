@@ -42,3 +42,9 @@ nvim_treesitter.setup({
   },
   embedded_template = { enable = true },
 })
+
+-- use this to enable highlighting in eruby.yaml files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "eruby.yaml",
+  command = "set filetype=yaml",
+})

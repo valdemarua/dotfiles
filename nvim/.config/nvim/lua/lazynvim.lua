@@ -34,6 +34,13 @@ require("lazy").setup({
   { "terrortylor/nvim-comment" },
   { "cappyzawa/trim.nvim" },
   { "nvim-treesitter/nvim-treesitter" },
+  {
+    -- for better support of eruby.yaml
+    "cuducos/yaml.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
   -- LSP
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
