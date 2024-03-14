@@ -4,7 +4,6 @@ tap 'homebrew/cask-fonts' # Fonts
 tap 'homebrew/cask-drivers' # For logitech-options
 tap 'mongodb/brew'
 tap 'oven-sh/bun'
-# tap 'elastic/tap'
 tap 'abhimanyu003/sttr'
 
 brew 'mas' # Mac App Store manager
@@ -106,8 +105,6 @@ brew 'vips' # A fast image processing library with low memory needs.
 #brew 'postgresql'
 brew 'postgresql@16'
 brew 'mysql@5.7', restart_service: false
-# brew 'elasticsearch', restart_service: false
-# brew 'elastic/tap/elasticsearch-full'
 brew 'opensearch'
 # Install mongodb from tap mongodb/brew
 brew 'mongodb-community@5.0'
@@ -199,7 +196,7 @@ cask 'the-unarchiver'
 # cask 'sourcetree'
 # cask 'sketch'
 # cask 'sketch-toolbox'
-# cask 'figma'
+cask 'figma'
 # cask 'bittorrent'
 cask 'telegram'
 # cask 'launchrocket'
