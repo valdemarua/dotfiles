@@ -49,6 +49,17 @@ require("lazy").setup({
     "stevearc/conform.nvim",
     opts = {},
   },
+  -- Refactoring
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("refactoring").setup()
+    end,
+  },
   -- CMP
   {
     "hrsh7th/nvim-cmp",
