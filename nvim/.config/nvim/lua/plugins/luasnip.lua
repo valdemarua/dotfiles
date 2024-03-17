@@ -20,3 +20,20 @@ vim.keymap.set({ "i", "s" }, "<C-E>", function()
     ls.change_choice(1)
   end
 end, { silent = true })
+
+vim.keymap.set("n", "<Leader>es", function()
+  require("luasnip.loaders").edit_snippet_files({
+    extend = function(ft, paths)
+      if #paths == 0 then
+        return {
+          {
+            "$CONFIG/" .. ft .. ".snippets",
+            string.format("%s/%s.snippets", "~/.config/nvim/snippets", ft),
+          },
+        }
+      end
+
+      return {}
+    end,
+  })
+end, { desc = "Edit snippet" })
