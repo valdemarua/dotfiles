@@ -11,8 +11,7 @@ require("conform").setup({
     typescriptreact = { { "prettierd", "prettier" } },
     css = { { "prettierd", "prettier" } },
     scss = { { "prettierd", "prettier" } },
-    -- typescript = { { "prettier" } },
-    ruby = { "rubocop" },
+    ruby = { { "standardrb", "rubocop" } },
   },
   format_on_save = {
     -- These options will be passed to conform.format()
