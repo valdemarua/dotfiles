@@ -22,4 +22,16 @@ local conds_expand = require("luasnip.extras.conditions.expand")
 
 return {
   s("v", { i(1, "name"), t(" := "), i(2, "value") }),
+
+  s(
+    "tr",
+    fmt(
+      [[
+    t.Run("{}", func(t *testing.T) {{
+      {}
+    }})
+  ]],
+      { i(1, "testname"), i(2, "") }
+    )
+  ),
 }

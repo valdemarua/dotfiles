@@ -137,6 +137,10 @@ export PATH="${HOMEBREW_PREFIX}/opt/postgresql@16/bin:$PATH"
 # Python
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 
+# Go
+export GOPATH="${HOME}/go"
+export PATH="${GOPATH}/bin:${PATH}"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #
