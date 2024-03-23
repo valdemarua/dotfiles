@@ -15,31 +15,49 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "folke/which-key.nvim",
-  { "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
+  },
   { "folke/tokyonight.nvim", lazy = false },
   {
     "nvim-telescope/telescope.nvim",
-    version = "0.1.4",
+    version = "0.1.6",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
   },
-  { "stevearc/dressing.nvim", opts = {} },
+  {
+    "stevearc/dressing.nvim",
+    opts = {},
+    event = "VeryLazy",
+  },
   {
     "benfowler/telescope-luasnip.nvim",
     module = "telescope._extensions.luasnip", -- if you wish to lazy-load
   },
-  { "rmagatti/alternate-toggler" },
+  {
+    "rmagatti/alternate-toggler",
+    event = "VeryLazy",
+  },
   { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "terrortylor/nvim-comment" },
-  { "cappyzawa/trim.nvim" },
-  { "nvim-treesitter/nvim-treesitter" },
+  {
+    "cappyzawa/trim.nvim",
+    event = "VeryLazy",
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
+  },
   {
     -- for better support of eruby.yaml
     "cuducos/yaml.nvim",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
+    event = "VeryLazy",
   },
   -- LSP
   { "williamboman/mason.nvim" },
@@ -48,10 +66,12 @@ require("lazy").setup({
   {
     "stevearc/conform.nvim",
     opts = {},
+    event = "VeryLazy",
   },
   -- Refactoring
   {
     "ThePrimeagen/refactoring.nvim",
+    event = "InsertEnter",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
@@ -63,6 +83,7 @@ require("lazy").setup({
   -- CMP
   {
     "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
@@ -79,14 +100,26 @@ require("lazy").setup({
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
     dependencies = { "rafamadriz/friendly-snippets" },
+    event = "VeryLazy",
   },
-  { "cappyzawa/trim.nvim" },
   -- ruby, rails, rspec
-  "tpope/vim-rails",
-  "vim-ruby/vim-ruby",
-  "keith/rspec.vim",
+  {
+    "tpope/vim-rails",
+    event = "VeryLazy",
+  },
+  {
+    "vim-ruby/vim-ruby",
+    event = "VeryLazy",
+  },
+  {
+    "keith/rspec.vim",
+    event = "VeryLazy",
+  },
   -- to run rspec, jest and other tests
-  "vim-test/vim-test",
+  {
+    "vim-test/vim-test",
+    event = "VeryLazy",
+  },
   {
     "kylechui/nvim-surround",
     version = "*",
@@ -96,12 +129,16 @@ require("lazy").setup({
     end,
   },
   -- git
-  "tpope/vim-fugitive",
+  {
+    "tpope/vim-fugitive",
+    event = "VeryLazy",
+  },
   {
     "lewis6991/gitsigns.nvim",
     config = function()
       require("gitsigns").setup()
     end,
+    event = "VeryLazy",
   },
   {
     "windwp/nvim-autopairs",
@@ -124,6 +161,7 @@ require("lazy").setup({
       -- alternative characters: ¦, ┆, │, ⎸, ▏
       require("ibl").setup({ indent = { char = "┆" } })
     end,
+    event = "VeryLazy",
   },
   {
     "Wansmer/treesj",
@@ -151,6 +189,7 @@ require("lazy").setup({
       config = function()
         require("colorizer").setup({})
       end,
+      event = "VeryLazy",
     },
   },
 })
