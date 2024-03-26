@@ -52,6 +52,13 @@ require("lazy").setup({
     event = "VeryLazy",
   },
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+  {
     -- for better support of eruby.yaml
     "cuducos/yaml.nvim",
     dependencies = {
@@ -95,12 +102,12 @@ require("lazy").setup({
   },
   {
     "L3MON4D3/LuaSnip",
+    event = "InsertEnter",
     -- follow latest release.
     version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).
     build = "make install_jsregexp",
     dependencies = { "rafamadriz/friendly-snippets" },
-    event = "VeryLazy",
   },
   -- ruby, rails, rspec
   {
