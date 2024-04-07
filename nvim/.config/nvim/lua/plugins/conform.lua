@@ -11,13 +11,16 @@ require("conform").setup({
     typescriptreact = { { "prettierd", "prettier" } },
     css = { { "prettierd", "prettier" } },
     scss = { { "prettierd", "prettier" } },
-    ruby = { { "standardrb", "rubocop" } },
+    -- ruby = { { "standardrb", "rubocop" } },
+    ruby = { { "rubocop", "standardrb" } },
   },
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 1000,
+    timeout_ms = 800,
     lsp_fallback = true,
   },
+  log_level = vim.log.levels.ERROR,
+  notify_on_error = true,
 })
 
 -- format on save
