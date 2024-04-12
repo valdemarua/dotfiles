@@ -42,7 +42,23 @@ require("lazy").setup({
     event = "VeryLazy",
   },
   { "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
-  { "terrortylor/nvim-comment" },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    -- opts = { enable_autocmd = false },
+    config = function()
+      require("ts_context_commentstring").setup({
+        enable_autocmd = false,
+      })
+    end,
+  },
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
+    end,
+  },
   {
     "cappyzawa/trim.nvim",
     event = "VeryLazy",
@@ -83,9 +99,9 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
-    config = function()
-      require("refactoring").setup()
-    end,
+    -- config = function()
+    --   require("refactoring").setup()
+    -- end,
   },
   -- CMP
   {
