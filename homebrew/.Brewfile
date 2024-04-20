@@ -55,7 +55,6 @@ brew 'shared-mime-info' # For mimemagic gem
 brew 'vim'
 brew 'neovim'
 brew 'helix'
-brew 'zed'
 
 # File managers
 brew 'mc'
@@ -169,6 +168,7 @@ cask 'vagrant'
 # cask 'android-sdk'
 cask 'visual-studio-code'
 cask 'sublime-text'
+cask 'zed'
 # cask 'alcatraz'
 # cask 'gitter'
 # cask 'grammarly'
