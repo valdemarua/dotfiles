@@ -55,6 +55,7 @@ brew 'shared-mime-info' # For mimemagic gem
 brew 'vim'
 brew 'neovim'
 brew 'helix'
+brew 'zed'
 
 # File managers
 brew 'mc'
