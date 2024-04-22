@@ -81,6 +81,7 @@ brew 'bat' # bat supports syntax highlighting for a large number of programming 
 brew 'tldr'
 brew 'exa' # a modern replacement for ls.
 brew 'sttr' # cross-platform, cli app to perform various operations on string
+brew 'gnu-sed' # GNU "sed" has been installed as "gsed".
 
 # For Nokogiri gem
 brew 'libxml2'
