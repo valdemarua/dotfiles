@@ -91,6 +91,10 @@ require("lazy").setup({
     opts = {},
     event = "VeryLazy",
   },
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPre", "BufNewFile" },
+  },
   -- Refactoring
   {
     "ThePrimeagen/refactoring.nvim",
