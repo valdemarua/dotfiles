@@ -1,6 +1,7 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
+    -- language servers
     "cssls",
     "cssmodules_ls",
     "gopls",
@@ -8,6 +9,8 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "tailwindcss",
     "tsserver",
+    -- linters
+    -- "rubocop",
   },
 })
 
