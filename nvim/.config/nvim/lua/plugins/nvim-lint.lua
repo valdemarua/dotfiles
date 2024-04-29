@@ -3,6 +3,10 @@ local lint = require("lint")
 lint.linters_by_ft = {
   -- markdown = { "vale" },
   ruby = { "rubocop" },
+  javascript = { "biomejs" },
+  typescript = { "biomejs" },
+  javasriptreact = { "biomejs" },
+  typescriptreact = { "biomejs" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
