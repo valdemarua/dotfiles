@@ -14,6 +14,7 @@ require("alternate-toggler").setup({
     ['""'] = "''",
     ["+"] = "-",
     ["==="] = "!==",
+    ["let"] = "const",
     ["if"] = "unless",
     --	["unless"] = "if",
     ["to"] = "not_to",
