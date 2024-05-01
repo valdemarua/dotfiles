@@ -21,7 +21,7 @@ config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt" -- 'AlwaysPrompt'
 config.use_dead_keys = false
 
--- config.font = wezterm.font "Noto Color Emoji"
+-- config.font = wezterm.font("Noto Color Emoji")
 -- config.font = wezterm.font("Fira Code")
 -- config.font = wezterm.font("JetBrains Mono")
 config.font = wezterm.font("Fantasque Sans Mono")
