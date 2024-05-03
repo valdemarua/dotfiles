@@ -21,6 +21,7 @@ local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
 
 return {
+  s("hac", { t("have_content("), i(1, ""), t(")") }),
   s("hat", { t("have_attributes("), i(1, ""), t(")") }),
-  s("itis", fmt("it {{ is_expected.to {}({})}}", { i(1, "belong_to"), i(2, "") })),
+  s("itis", fmt("it {{ is_expected.to {}({}) }}", { i(1, "belong_to"), i(2, "") })),
 }
