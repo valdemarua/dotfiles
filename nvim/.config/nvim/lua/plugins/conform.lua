@@ -1,3 +1,5 @@
+local file_exists = require("utils").file_exists
+
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
@@ -14,7 +16,18 @@ require("conform").setup({
     css = { { "prettierd", "prettier" } },
     scss = { { "prettierd", "prettier" } },
     -- ruby = { { "standardrb", "rubocop" } },
-    ruby = { { "rubocop", "standardrb" } },
+    -- ruby = { { "rubocop", "standardrb" } },
+    ruby = function(bufnr)
+      if file_exists(".rubocop.yml", bufnr) then
+        return { "rubocop" }
+      end
+
+      if file_exists(".standard.yml", bufnr) then
+        return { "standardrb" }
+      end
+
+      return {}
+    end,
   },
   format_on_save = {
     -- These options will be passed to conform.format()
