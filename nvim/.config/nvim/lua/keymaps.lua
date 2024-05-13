@@ -1,66 +1,61 @@
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local set = vim.keymap.set
 
 -- Change leader to a space
 vim.g.mapleader = " "
 
 -- Clear search highlighting with <leader> and c
-map("n", "<leader>c", ":nohl<CR>")
+set("n", "<leader>c", ":nohl<CR>")
 
 -- Reload configuration without restart nvim
-map("n", "<leader>r", ":so %<CR>")
+set("n", "<leader>r", ":so %<CR>")
 -- Open nvim config
-map("n", "<leader>rc", ":vs ~/.config/nvim/init.lua<CR>")
+set("n", "<leader>rc", ":vs ~/.config/nvim/init.lua<CR>")
 
 -- Close buffer with <leader> and q
-map("n", "<leader>q", "<c-w>q")
-map("n", "<leader>w", ":w<CR>")
+set("n", "<leader>q", "<c-w>q")
+set("n", "<leader>w", ":w<CR>")
 
 -- Save buffer with Ctrl+s
-map("n", "<c-s>", ":w<CR>", {})
-map("i", "<c-s>", "<Esc>:w<CR>a", {})
+set("n", "<c-s>", ":w<CR>", {})
+set("i", "<c-s>", "<Esc>:w<CR>a", {})
 
 -- Add new line below and above current line with Enter in normal mode
-map("n", "<CR>", "o<Esc>", {})
-map("n", "<S-CR>", "O<Esc>", {})
+set("n", "<CR>", "o<Esc>", {})
+set("n", "<S-CR>", "O<Esc>", {})
 
 -- nvim-tree
-map("n", "<c-n>", ":NvimTreeToggle<CR>", {})
-map("n", "<leader>nf", ":NvimTreeFindFile<CR>", {})
+set("n", "<c-n>", ":NvimTreeToggle<CR>", {})
+set("n", "<leader>nf", ":NvimTreeFindFile<CR>", {})
 
 -- Move around splits using Ctrl + {h, j, k, l}
-local opts = { noremap = true }
-map("n", "<c-h>", "<c-w>h", opts)
-map("n", "<c-j>", "<c-w>j", opts)
-map("n", "<c-k>", "<c-w>k", opts)
-map("n", "<c-l>", "<c-w>l", opts)
+set("n", "<c-h>", "<c-w>h")
+set("n", "<c-j>", "<c-w>j")
+set("n", "<c-k>", "<c-w>k")
+set("n", "<c-l>", "<c-w>l")
 
 -- Telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>p", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fs", builtin.grep_string, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.oldfiles, {})
+set("n", "<leader>p", builtin.find_files)
+set("n", "<leader>fs", builtin.grep_string)
+set("n", "<leader>fg", builtin.live_grep)
+set("n", "<leader>fb", builtin.buffers)
+set("n", "<leader>fh", builtin.oldfiles)
 
 -- Alternate Toggler
-vim.keymap.set("n", "+", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
+set("n", "+", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
 
 -- Vim test
-vim.keymap.set("n", "<leader>t", ":TestNearest<CR>", {})
-vim.keymap.set("n", "<leader>T", ":TestFile<CR>", {})
-vim.keymap.set("n", "<leader>a", ":TestSuite<CR>", {})
-vim.keymap.set("n", "<leader>l", ":TestLast<CR>", {})
-vim.keymap.set("n", "<leader>g", ":TestVisit<CR>", {})
+set("n", "<leader>t", ":TestNearest<CR>")
+set("n", "<leader>T", ":TestFile<CR>")
+set("n", "<leader>a", ":TestSuite<CR>")
+set("n", "<leader>l", ":TestLast<CR>")
+set("n", "<leader>g", ":TestVisit<CR>")
 
 -- Fugitive
-map("n", "<Leader>gb", ":Git blame<CR>", opts)
-map("n", "<Leader>gs", ":Git status<CR>", opts)
+set("n", "<Leader>gb", ":Git blame<CR>")
+set("n", "<Leader>gs", ":Git status<CR>")
 
 -- For use default preset and it work with dot
-vim.keymap.set("n", "<leader>m", require("treesj").toggle)
+set("n", "<leader>m", require("treesj").toggle)
+
+set("n", "<leader>sr", ":%s/")
