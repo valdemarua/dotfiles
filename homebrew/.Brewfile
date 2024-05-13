@@ -78,7 +78,8 @@ brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
 brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 
 brew 'bat' # bat supports syntax highlighting for a large number of programming and markup languages
-brew 'tldr'
+brew 'tldr' # Count your code, quickly.
+brew 'tokei'
 brew 'exa' # a modern replacement for ls.
 brew 'sttr' # cross-platform, cli app to perform various operations on string
 brew 'gnu-sed' # GNU "sed" has been installed as "gsed".
