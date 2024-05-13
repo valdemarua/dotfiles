@@ -21,7 +21,20 @@ local conds = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
 
 return {
-  s("hac", { t("have_content("), i(1, ""), t(")") }),
+  s("hco", { t("have_content("), i(1, ""), t(")") }),
   s("hat", { t("have_attributes("), i(1, ""), t(")") }),
+  s("hst", {
+    t("expect(response).to have_http_status("),
+    c(1, {
+      i(1, ":ok"),
+      i(1, ":created"),
+      i(1, ":bad_request"),
+      i(1, ":unauthorized"),
+      i(1, ":forbidden"),
+      i(1, ":not_found"),
+      i(1, ":unprocessable_entity"),
+    }),
+    t(")"),
+  }),
   s("itis", fmt("it {{ is_expected.to {}({}) }}", { i(1, "belong_to"), i(2, "") })),
 }
