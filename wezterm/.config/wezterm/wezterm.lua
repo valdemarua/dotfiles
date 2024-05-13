@@ -21,6 +21,16 @@ config.window_decorations = "RESIZE"
 config.window_close_confirmation = "NeverPrompt" -- 'AlwaysPrompt'
 config.use_dead_keys = false
 
+config.keys = {
+  -- Turn off the default CMD-m Hide action, allowing CMD-m to
+  -- be potentially recognized and handled by the tab
+  {
+    key = "m",
+    mods = "CMD",
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+}
+
 -- config.font = wezterm.font("Noto Color Emoji")
 -- config.font = wezterm.font("Fira Code")
 -- config.font = wezterm.font("JetBrains Mono")
