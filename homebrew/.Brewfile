@@ -78,8 +78,8 @@ brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
 brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 
 brew 'bat' # bat supports syntax highlighting for a large number of programming and markup languages
-brew 'tldr' # Count your code, quickly.
-brew 'tokei'
+brew 'tldr'
+brew 'tokei' # Count your code, quickly.
 brew 'exa' # a modern replacement for ls.
 brew 'sttr' # cross-platform, cli app to perform various operations on string
 brew 'gnu-sed' # GNU "sed" has been installed as "gsed".
@@ -87,6 +87,11 @@ brew 'gnu-sed' # GNU "sed" has been installed as "gsed".
 # For Nokogiri gem
 brew 'libxml2'
 brew 'libxslt'
+# Dependendices for rmagick, minimagick, image_processing gems
+brew 'imagemagick@6'
+#brew 'imagemagick'
+brew 'graphicsmagick'
+brew 'vips' # A fast image processing library with low memory needs.
 
 # For erd and railroady gem
 brew 'graphviz'
@@ -96,10 +101,6 @@ brew 'coreutils'
 
 brew 'redis', restart_service: false
 brew 'memcached', restart_service: false
-brew 'imagemagick@6'
-#brew 'imagemagick'
-brew 'graphicsmagick'
-brew 'vips' # A fast image processing library with low memory needs.
 
 #
 # Databases
