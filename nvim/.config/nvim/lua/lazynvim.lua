@@ -218,5 +218,6 @@ require("lazy").setup({
       end,
       event = "VeryLazy",
     },
+    { "mrjones2014/smart-splits.nvim" },
   },
 })
