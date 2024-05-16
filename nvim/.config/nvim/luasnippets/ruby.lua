@@ -27,6 +27,9 @@ local ms = ls.multi_snippet
 local k = require("luasnip.nodes.key_indexer").new_key
 
 return {
+  s("bt", { t("belongs_to :"), i(1, "object") }),
+  s("hm", { t("has_many :"), i(1, "object") }),
+  s("hmt", { t("has_many :"), i(1, "object"), t(", through: :"), i(2, "object") }),
   s("hco", { t("have_content("), i(1, ""), t(")") }),
   s("hat", { t("have_attributes("), i(1, ""), t(")") }),
   s("hst", {
@@ -43,4 +46,5 @@ return {
     t(")"),
   }),
   s("itis", fmt("it {{ is_expected.to {}({}) }}", { i(1, "belong_to"), i(2, "") })),
+  s("itv", fmt("it {{ is_expected.to {}({}) }}", { i(1, "validate_presence_of"), i(2, "") })),
 }
