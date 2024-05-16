@@ -2,6 +2,8 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local split_nav = require("smartsplits").split_nav
+
 -- This table will hold the configuration.
 local config = {}
 
@@ -23,6 +25,17 @@ config.window_close_confirmation = "NeverPrompt" -- 'AlwaysPrompt'
 config.use_dead_keys = false
 
 config.keys = {
+  -- move between split panes
+  split_nav("move", "h"),
+  split_nav("move", "j"),
+  split_nav("move", "k"),
+  split_nav("move", "l"),
+  -- resize panes
+  split_nav("resize", "h"),
+  split_nav("resize", "j"),
+  split_nav("resize", "k"),
+  split_nav("resize", "l"),
+
   -- Turn off the default CMD-m Hide action, allowing CMD-m to
   -- be potentially recognized and handled by the tab
   {
@@ -65,6 +78,7 @@ if config.font.font[1].family == "Fantasque Sans Mono" then
   config.font_size = 16.0
 end
 
+config.line_height = 0.9 -- 1.0 - default
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = false
 config.hide_tab_bar_if_only_one_tab = true
