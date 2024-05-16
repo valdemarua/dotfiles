@@ -54,7 +54,10 @@ set("n", "<leader>m", require("treesj").toggle)
 
 set("n", "<leader>sr", ":%s/")
 
--- smart-splits
+-- Smart-splits
+-- resizing splits
+-- these keymaps will also accept a range,
+-- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
 set("n", "<A-h>", require("smart-splits").resize_left)
 set("n", "<A-j>", require("smart-splits").resize_down)
 set("n", "<A-k>", require("smart-splits").resize_up)
