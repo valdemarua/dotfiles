@@ -47,7 +47,6 @@ alias rs="rails s"
 alias rc="rails c"
 
 # NPM
-
 alias nrd="npm run dev"
 alias nrl="npm run lint"
 
@@ -55,7 +54,7 @@ alias t="tree"
 
 # Homebrew
 # --global – Read the Brewfile from ~/.Brewfile
-alias bb="brew bundle --global"
+alias bb="brew bundle --global; brew cleanup"
 
 # VIM
 alias v="vim"

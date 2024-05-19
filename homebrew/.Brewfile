@@ -122,9 +122,6 @@ brew 'pspg' # Unix pager (with very rich functionality) designed for work with t
 brew 'ffmpeg'
 brew 'ffmpegthumbnailer'
 
-#cask 'java8'
-#cask 'adoptopenjdk8'
-
 brew 'tailscale'
 brew 'ansible'
 
@@ -137,7 +134,7 @@ cask 'dbngin'
 cask 'evernote'
 
 cask 'alfred'
-cask 'java'
+cask 'java@beta'
 
 ################################################
 # Terminal emulators
@@ -164,7 +161,7 @@ cask 'dropbox'
 
 # Development
 # cask 'fastlane'
-cask 'virtualbox-beta' # Beta version supports Arm processors
+cask 'virtualbox@beta' # Beta version supports Arm processors
 cask 'vagrant'
 # cask 'chefdk'
 # cask 'android-studio'
