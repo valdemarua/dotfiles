@@ -45,7 +45,13 @@ return {
     }),
     t(")"),
   }),
-  s("itis", fmt("it {{ is_expected.to {}({}) }}", { i(1, "belong_to"), i(2, "") })),
+  s(
+    "itis",
+    fmt("it {{ is_expected.to {}({}) }}", {
+      c(1, { i(1, "belong_to"), i(1, "have_many") }),
+      i(2, ""),
+    })
+  ),
   s("itv", fmt("it {{ is_expected.to {}({}) }}", { i(1, "validate_presence_of"), i(2, "") })),
   s("itn", fmt("it {{ is_expected.to normalize({}).from({}).to({}) }}", { i(1, ""), i(2, ""), i(3, "") })),
 }
