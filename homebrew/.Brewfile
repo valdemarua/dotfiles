@@ -10,6 +10,7 @@ brew 'mas' # Mac App Store manager
 brew 'stow'
 brew 'ssh-copy-id'
 brew 'htop'
+brew 'btop'
 brew 'tree'
 brew 'openssl'
 brew 'wget'
