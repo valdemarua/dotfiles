@@ -29,6 +29,21 @@ export ZSH=/Users/valdemarua/.oh-my-zsh
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
 
+# zsh keybindings
+#
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# zsh options
+#
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
