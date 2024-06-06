@@ -4,10 +4,10 @@ local lint = require("lint")
 lint.linters_by_ft = {
   -- markdown = { "vale" },
   -- ruby = { "rubocop" },
-  javascript = { "biomejs" },
-  typescript = { "biomejs" },
-  javasriptreact = { "biomejs" },
-  typescriptreact = { "biomejs" },
+  -- javascript = { "biomejs" },
+  -- typescript = { "biomejs" },
+  -- javasriptreact = { "biomejs" },
+  -- typescriptreact = { "biomejs" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
   callback = function()
     -- try_lint without arguments runs the linters defined in `linters_by_ft`
     -- for the current filetype
-    lint.try_lint() -- run all default linters by filetype
+    -- lint.try_lint() -- run all default linters by filetype
 
     -- run  linters conditionally
     if vim.bo.filetype == "ruby" then
@@ -27,6 +27,17 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 
       if file_exists(".standard.yml", 0) then -- 0 - current buffer
         lint.try_lint("standardrb")
+      end
+    end
+
+    if
+      vim.bo.filetype == "javascript"
+      or vim.bo.filetype == "typescript"
+      or vim.bo.filetype == "javasriptreact"
+      or vim.bo.filetype == "typescriptreact"
+    then
+      if file_exists("biome.json", 0) then -- 0 - current buffer
+        lint.try_lint("biomejs")
       end
     end
 
