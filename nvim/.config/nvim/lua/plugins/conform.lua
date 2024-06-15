@@ -6,7 +6,14 @@ require("conform").setup({
     -- Conform will run multiple formatters sequentially
     -- python = { "isort", "black" },
     -- Use a sub-list to run only the first available formatter
-    javascript = { { "prettierd", "prettier" } },
+    -- javascript = { { "prettierd", "prettier" } },
+    javascript = function(bufnr)
+      if file_exists(".prettierrc.json", bufnr) then
+        return { { "prettierd", "prettier" } }
+      end
+
+      return {}
+    end,
     json = { { "prettierd", "prettier" } },
     jsonc = { { "prettierd", "prettier" } },
     javascriptreact = { { "prettierd", "prettier" } },
