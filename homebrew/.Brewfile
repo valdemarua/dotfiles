@@ -80,10 +80,11 @@ brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 
 brew 'bat' # bat supports syntax highlighting for a large number of programming and markup languages
 brew 'tldr'
-brew 'tokei' # Count your code, quickly.
-brew 'exa' # a modern replacement for ls.
-brew 'sttr' # cross-platform, cli app to perform various operations on string
+brew 'tokei'   # Count your code, quickly.
+brew 'exa'     # A modern replacement for ls.
+brew 'sttr'    # Cross-platform, cli app to perform various operations on string
 brew 'gnu-sed' # GNU "sed" has been installed as "gsed".
+bfew 'dust'    # A more intuitive version of du in rust
 
 # For Nokogiri gem
 brew 'libxml2'
