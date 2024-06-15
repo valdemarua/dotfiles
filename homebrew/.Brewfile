@@ -84,8 +84,8 @@ brew 'tokei'   # Count your code, quickly.
 brew 'exa'     # A modern replacement for ls.
 brew 'sttr'    # Cross-platform, cli app to perform various operations on string
 brew 'gnu-sed' # GNU "sed" has been installed as "gsed".
-bfew 'dust'    # A more intuitive version of du in rust
-bfew 'duf'     # Disk Usage/Free Utility - a better 'df' alternative
+brew 'dust'    # A more intuitive version of du in rust
+brew 'duf'     # Disk Usage/Free Utility - a better 'df' alternative
 
 # For Nokogiri gem
 brew 'libxml2'
