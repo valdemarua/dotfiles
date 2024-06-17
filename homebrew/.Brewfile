@@ -217,6 +217,7 @@ cask 'amethyst' # Tiling window manager for macOS
 # Logitech Options - Drivers for MX Master 3
 cask 'logitech-options'
 cask 'ticktick' # To-do & task list manager
+cask 'chatgpt'
 
 # Dictionaries extends your Mac, by adding bidirectional translation, spellchecking and pronunciation for over 80 languages.
 # https://dictionaries.io/
