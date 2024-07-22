@@ -213,6 +213,7 @@ cask 'viber'
 # cask 'tower'
 
 cask 'amethyst' # Tiling window manager for macOS
+cask 'raycast'
 
 # Logitech Options - Drivers for MX Master 3
 cask 'logitech-options'
