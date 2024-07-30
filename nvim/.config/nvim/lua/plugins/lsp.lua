@@ -9,6 +9,7 @@ require("mason-lspconfig").setup({
     "lua_ls",
     "tailwindcss",
     "tsserver",
+    "ruby_lsp",
     -- linters
     -- "rubocop",
   },
@@ -77,6 +78,9 @@ lspconfig.gopls.setup({
     },
   },
 })
+
+-- Enable ruby-lsp
+lspconfig.ruby_lsp.setup({})
 
 -- Global mappings
 --
