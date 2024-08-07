@@ -1,20 +1,3 @@
-require("mason").setup()
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    -- language servers
-    "cssls",
-    "cssmodules_ls",
-    "gopls",
-    "html",
-    "lua_ls",
-    "tailwindcss",
-    "tsserver",
-    "ruby_lsp",
-    -- linters
-    -- "rubocop",
-  },
-})
-
 local lspconfig = require("lspconfig")
 
 -- Enable tsserver

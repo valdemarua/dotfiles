@@ -24,6 +24,7 @@ require("conform").setup({
     scss = { { "prettierd", "prettier" } },
     -- ruby = { { "standardrb", "rubocop" } },
     -- ruby = { { "rubocop", "standardrb" } },
+    eruby = { "erb_format" },
     ruby = function(bufnr)
       if file_exists(".rubocop.yml", bufnr) then
         return { "rubocop" }
@@ -36,12 +37,32 @@ require("conform").setup({
       return {}
     end,
   },
+  formatters = {
+    erb_format = {
+      args = { "--stdin", "--print-width", "120" },
+    },
+    --   rubocop = {
+    --     command = "bundle",
+    --     args = {
+    --       "exec",
+    --       "rubocop",
+    --       "--server",
+    --       "-a",
+    --       "-f",
+    --       "quiet",
+    --       "--stderr",
+    --       "--stdin",
+    --       "$FILENAME",
+    --     },
+    --     exit_codes = { 0, 1 },
+    --   },
+  },
   format_on_save = {
     -- These options will be passed to conform.format()
     timeout_ms = 800,
     lsp_fallback = true,
   },
-  log_level = vim.log.levels.ERROR,
+  log_level = vim.log.levels.DEBUG,
   notify_on_error = true,
 })
 

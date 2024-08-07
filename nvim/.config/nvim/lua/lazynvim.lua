@@ -82,9 +82,11 @@ require("lazy").setup({
     },
     event = "VeryLazy",
   },
-  -- LSP
+  -- Mason
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
+  { "WhoIsSethDaniel/mason-tool-installer.nvim" },
+  -- LSP
   { "neovim/nvim-lspconfig" },
   {
     "stevearc/conform.nvim",
