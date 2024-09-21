@@ -1,7 +1,7 @@
 local lspconfig = require("lspconfig")
 
 -- Enable tsserver
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 
 -- Enable html
 -- Enable (broadcasting) snippet capability for completion

@@ -41,7 +41,7 @@ set("n", "+", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
 -- Vim test
 set("n", "<leader>t", ":TestNearest<CR>")
 set("n", "<leader>T", ":TestFile<CR>")
-set("n", "<leader>a", ":TestSuite<CR>")
+-- set("n", "<leader>a", ":TestSuite<CR>")
 set("n", "<leader>l", ":TestLast<CR>")
 set("n", "<leader>g", ":TestVisit<CR>")
 

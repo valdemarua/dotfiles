@@ -26,7 +26,7 @@ require("mason-tool-installer").setup({
     "html",
     "lua_ls",
     "tailwindcss",
-    "tsserver",
+    "ts_ls",
     "ruby_lsp",
 
     -- Formatters
