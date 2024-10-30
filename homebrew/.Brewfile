@@ -81,7 +81,7 @@ brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 brew 'bat' # bat supports syntax highlighting for a large number of programming and markup languages
 brew 'tldr'
 brew 'tokei'   # Count your code, quickly.
-brew 'exa'     # A modern replacement for ls.
+brew 'eza'     # A modern alternative to ls
 brew 'sttr'    # Cross-platform, cli app to perform various operations on string
 brew 'gnu-sed' # GNU "sed" has been installed as "gsed".
 brew 'dust'    # A more intuitive version of du in rust
@@ -176,11 +176,6 @@ cask 'cursor'
 # cask 'alcatraz'
 # cask 'gitter'
 # cask 'grammarly'
-
-# To play AceStreams
-cask 'soda-player'
-# I think kodi can play some NFL streams. Not use it anymore
-# cask 'kodi'
 
 # cask 'omnidisksweeper'
 cask 'imageoptim'
