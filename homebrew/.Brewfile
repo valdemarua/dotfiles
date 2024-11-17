@@ -215,7 +215,10 @@ cask 'raycast'
 # Logitech Options - Drivers for MX Master 3
 cask 'logitech-options'
 cask 'ticktick' # To-do & task list manager
+
+# AI
 cask 'chatgpt'
+cask 'claude'
 
 # Dictionaries extends your Mac, by adding bidirectional translation, spellchecking and pronunciation for over 80 languages.
 # https://dictionaries.io/
