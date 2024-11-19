@@ -1,17 +1,33 @@
+[core]
+  pager = delta
+
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-name = valdemarua
-email = valdemarua@users.noreply.github.com
+  # Please adapt and uncomment the following lines:
+  name = valdemarua
+  email = valdemarua@users.noreply.github.com
+
 [diff]
   # https://git-scm.com/docs/git-diff#Documentation/git-diff.txt-plain
 	colorMoved = plain # color moved text shorter than 20 characters
   tool = vimdiff
+
 [difftool]
   prompt = false
+
 [merge]
   tool = vimdiff
+  conflictstyle = zdiff3 # delta's configuration
+
 [pull]
 	rebase = true
+
 [fetch]
 	prune = true
+
+[interactive]
+  diffFilter = dilta --color-only
+
+[delta]
+  navigate = true # use n and N to move between diff sections
+  dark = true
