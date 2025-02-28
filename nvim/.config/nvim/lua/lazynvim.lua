@@ -144,10 +144,32 @@ require("lazy").setup({
     "keith/rspec.vim",
     event = "VeryLazy",
   },
-  -- to run rspec, jest and other tests
   {
-    "vim-test/vim-test",
-    event = "VeryLazy",
+    "nvim-neotest/neotest",
+    -- lazy = true,
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "olimorris/neotest-rspec",
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-rspec"),
+        },
+      })
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "suketa/nvim-dap-ruby",
+    },
+    config = function()
+      require("dap-ruby").setup()
+    end,
   },
   {
     "kylechui/nvim-surround",

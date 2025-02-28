@@ -39,10 +39,18 @@ set("n", "<leader>fh", builtin.oldfiles)
 set("n", "+", "<cmd>lua require('alternate-toggler').toggleAlternate()<CR>")
 
 -- Vim test
-set("n", "<leader>t", ":TestNearest<CR>")
-set("n", "<leader>T", ":TestFile<CR>")
+-- set("n", "<leader>t", ":TestNearest<CR>")
+-- set("n", "<leader>T", ":TestFile<CR>")
+-- -- set("n", "<leader>a", ":TestSuite<CR>")
+-- set("n", "<leader>l", ":TestLast<CR>")
+-- set("n", "<leader>g", ":TestVisit<CR>")
+-- Neotest
+set("n", "<leader>t", '<cmd>lua require("neotest").run.run()<CR>')
+set("n", "<leader>T", '<cmd>lua require("neotest").run.run(vim.fn.expand("%"))<CR>')
 -- set("n", "<leader>a", ":TestSuite<CR>")
-set("n", "<leader>l", ":TestLast<CR>")
+set("n", "<leader>l", '<cmd>lua require("neotest").run.run_last()<CR>')
+set("n", "<leader>a", '<cmd>lua require("neotest").run.attach()<CR>')
+-- set("n", "<leader>A", '<cmd>lua require("neotest").run.run({strategy = "dap"})<CR>')
 set("n", "<leader>g", ":TestVisit<CR>")
 
 -- Fugitive
