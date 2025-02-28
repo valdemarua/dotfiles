@@ -9,19 +9,19 @@ require("conform").setup({
     -- javascript = { { "prettierd", "prettier" } },
     javascript = function(bufnr)
       if file_exists(".prettierrc.json", bufnr) then
-        return { { "prettierd", "prettier" } }
+        return { "prettierd", "prettier", stop_after_first = true }
       end
 
       return {}
     end,
-    json = { { "prettierd", "prettier" } },
-    jsonc = { { "prettierd", "prettier" } },
-    javascriptreact = { { "prettierd", "prettier" } },
+    json = { "prettierd", "prettier", stop_after_first = true },
+    jsonc = { "prettierd", "prettier", stop_after_first = true },
+    javascriptreact = { "prettierd", "prettier", stop_after_first = true },
     -- javascript = { { "prettier" } },
-    typescript = { { "prettierd", "prettier" } },
-    typescriptreact = { { "prettierd", "prettier" } },
-    css = { { "prettierd", "prettier" } },
-    scss = { { "prettierd", "prettier" } },
+    typescript = { "prettierd", "prettier", stop_after_first = true },
+    typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+    css = { "prettierd", "prettier", stop_after_first = true },
+    scss = { "prettierd", "prettier", stop_after_first = true },
     -- ruby = { { "standardrb", "rubocop" } },
     -- ruby = { { "rubocop", "standardrb" } },
     eruby = { "erb_format" },
