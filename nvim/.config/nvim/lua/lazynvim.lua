@@ -250,6 +250,28 @@ require("lazy").setup({
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
+      provider = "claude",
+      providers = {
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          -- model = "claude-sonnet-4-20250514",
+          model = "claude-3-7-sonnet-20250219",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 20480,
+          },
+        },
+        moonshot = {
+          endpoint = "https://api.moonshot.ai/v1",
+          model = "kimi-k2-0711-preview",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 32768,
+          },
+        },
+      },
       -- add any opts here
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
