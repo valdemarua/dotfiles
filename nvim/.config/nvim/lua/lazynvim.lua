@@ -250,16 +250,19 @@ require("lazy").setup({
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
+      mode = "legacy", -- agentic | legacy
       provider = "claude",
       providers = {
         claude = {
           endpoint = "https://api.anthropic.com",
           -- model = "claude-sonnet-4-20250514",
           model = "claude-3-7-sonnet-20250219",
+          -- model = "claude-3-5-sonnet-20241022",
           timeout = 30000, -- Timeout in milliseconds
           extra_request_body = {
             temperature = 0.75,
             max_tokens = 20480,
+            -- max_tokens = 8192, -- for Claude 3.5
           },
         },
         moonshot = {
