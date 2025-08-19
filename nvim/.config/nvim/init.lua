@@ -1,7 +1,7 @@
 vim.loader.enable()
 
 require("config")
--- require("packages")
+require("config.lazy")
 require("lazynvim")
 require("keymaps")
 require("colors")
