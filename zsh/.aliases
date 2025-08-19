@@ -65,7 +65,9 @@ alias zrc="vim ~/.zshrc"
 alias zshrc="vim ~/.zshrc"
 # NVIM
 alias nv="nvim"
+alias n="nvim"
 alias nvv="nvim ."
+alias nn="nvim ."
 
 # Search history
 alias hg='history | grep'
