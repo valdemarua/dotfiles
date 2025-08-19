@@ -275,6 +275,12 @@ require("lazy").setup({
           },
         },
       },
+      windows = {
+        input = {
+          prefix = "> ",
+          height = 20,
+        },
+      },
       -- add any opts here
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
