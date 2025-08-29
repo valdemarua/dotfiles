@@ -55,6 +55,7 @@ brew 'shared-mime-info' # For mimemagic gem
 # Editors
 brew 'vim'
 brew 'neovim'
+brew 'neovide'
 brew 'helix'
 
 # File managers
@@ -67,7 +68,7 @@ brew 'hugo'
 
 brew 'go'
 brew 'rust'
-brew 'elixir'
+# brew 'elixir'
 brew 'luarocks' # LuaRocks is the package manager for the Lua programming language.
 brew 'docker'
 # brew 'docker-compose'
