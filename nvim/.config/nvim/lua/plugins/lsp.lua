@@ -1,17 +1,5 @@
 local lspconfig = require("lspconfig")
 
--- Configure border for floating windows
-local border = {
-  { "╭", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╮", "FloatBorder" },
-  { "│", "FloatBorder" },
-  { "╯", "FloatBorder" },
-  { "─", "FloatBorder" },
-  { "╰", "FloatBorder" },
-  { "│", "FloatBorder" },
-}
-
 -- Enable tsserver
 lspconfig.ts_ls.setup({})
 
@@ -77,14 +65,19 @@ lspconfig.gopls.setup({
 -- Enable ruby-lsp
 lspconfig.ruby_lsp.setup({})
 
+vim.diagnostic.config({
+  virtual_text = true,
+})
+
+vim.o.winborder = "rounded"
+
 -- Global mappings
 --
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<space>e", function()
-  vim.diagnostic.open_float({ border = border })
-end)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 -- vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
@@ -100,13 +93,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local opts = { buffer = ev.buf }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "K", function()
-      vim.lsp.buf.hover({ border = border })
-    end, opts)
+    -- vim.keymap.set("n", "K", function()
+    --   vim.lsp.buf.hover({ border = border })
+    -- end, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "<C-k>", function()
-      vim.lsp.buf.signature_help({ border = border })
-    end, opts)
+    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help)
     vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set("n", "<space>wl", function()
