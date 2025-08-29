@@ -69,8 +69,6 @@ vim.diagnostic.config({
   virtual_text = true,
 })
 
-vim.o.winborder = "rounded"
-
 -- Global mappings
 --
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

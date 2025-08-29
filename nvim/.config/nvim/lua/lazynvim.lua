@@ -247,7 +247,7 @@ require("lazy").setup({
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    lazy = false,
+    lazy = true,
     version = false, -- set this if you want to always pull the latest change
     opts = {
       mode = "legacy", -- agentic | legacy
