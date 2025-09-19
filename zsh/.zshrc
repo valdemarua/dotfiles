@@ -28,6 +28,8 @@ export ZSH=/Users/valdemarua/.oh-my-zsh
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # zsh keybindings
 #
@@ -155,8 +157,6 @@ export PATH="${HOME}/.pyenv/shims:${PATH}"
 # Go
 export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:${PATH}"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #
 # fnm
