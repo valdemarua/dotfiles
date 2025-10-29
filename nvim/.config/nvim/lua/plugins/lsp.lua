@@ -1,69 +1,120 @@
-local lspconfig = require("lspconfig")
-
--- Enable tsserver
-lspconfig.ts_ls.setup({})
-
--- Enable html
--- Enable (broadcasting) snippet capability for completion
-local html_capabilities = vim.lsp.protocol.make_client_capabilities()
-html_capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lspconfig.html.setup({
-  capabilities = html_capabilities,
-  filetypes = { "html", "eruby" },
-  init_options = {
-    provideFormatter = false, -- It adds bad indentation in erb templates
-  },
-})
-
--- Enable cssls
--- Enable (broadcasting) snippet capability for completion
-local css_capabilities = vim.lsp.protocol.make_client_capabilities()
-css_capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lspconfig.cssls.setup({ capabilities = css_capabilities })
-
--- Enable cssmodules_ls
-lspconfig.cssmodules_ls.setup({})
-
--- Enable lua_ls
-lspconfig.lua_ls.setup({
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { "vim" },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
+local lsps = {
+  { "ts_ls" },
+  { "html" },
+  { "cssls" },
+  { "cssmodules_ls" },
+  {
+    "lua_ls",
+    {
+      settings = {
+        Lua = {
+          runtime = {
+            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            version = "LuaJIT",
+          },
+          diagnostics = {
+            -- Get the language server to recognize the `vim` global
+            globals = { "vim" },
+          },
+          workspace = {
+            -- Make the server aware of Neovim runtime files
+            library = vim.api.nvim_get_runtime_file("", true),
+          },
+          -- Do not send telemetry data containing a randomized but unique identifier
+          telemetry = {
+            enable = false,
+          },
+        },
       },
     },
   },
-})
-
--- Enable tailwindcss
-lspconfig.tailwindcss.setup({})
-
--- Enable gopls
-lspconfig.gopls.setup({
-  settings = {
-    gopls = {
-      usePlaceholders = true,
+  { "tailwindcss" },
+  { "gopls", {
+    settings = {
+      gopls = {
+        usePlaceholders = true,
+      },
     },
-  },
-})
+  } },
+  { "ruby_lsp" },
+}
 
--- Enable ruby-lsp
-lspconfig.ruby_lsp.setup({})
+for _, lsp in pairs(lsps) do
+  local name, config = lsp[1], lsp[2]
+
+  vim.lsp.enable(name)
+
+  if config then
+    vim.lsp.config(name, config)
+  end
+end
+
+-- local lspconfig = require("lspconfig")
+--
+-- -- Enable tsserver
+-- lspconfig.ts_ls.setup({})
+--
+-- -- Enable html
+-- -- Enable (broadcasting) snippet capability for completion
+-- local html_capabilities = vim.lsp.protocol.make_client_capabilities()
+-- html_capabilities.textDocument.completion.completionItem.snippetSupport = true
+--
+-- lspconfig.html.setup({
+--   capabilities = html_capabilities,
+--   filetypes = { "html", "eruby" },
+--   init_options = {
+--     provideFormatter = false, -- It adds bad indentation in erb templates
+--   },
+-- })
+--
+-- -- Enable cssls
+-- -- Enable (broadcasting) snippet capability for completion
+-- local css_capabilities = vim.lsp.protocol.make_client_capabilities()
+-- css_capabilities.textDocument.completion.completionItem.snippetSupport = true
+--
+-- lspconfig.cssls.setup({ capabilities = css_capabilities })
+--
+-- -- Enable cssmodules_ls
+-- lspconfig.cssmodules_ls.setup({})
+--
+-- -- Enable lua_ls
+-- lspconfig.lua_ls.setup({
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+--         version = "LuaJIT",
+--       },
+--       diagnostics = {
+--         -- Get the language server to recognize the `vim` global
+--         globals = { "vim" },
+--       },
+--       workspace = {
+--         -- Make the server aware of Neovim runtime files
+--         library = vim.api.nvim_get_runtime_file("", true),
+--       },
+--       -- Do not send telemetry data containing a randomized but unique identifier
+--       telemetry = {
+--         enable = false,
+--       },
+--     },
+--   },
+-- })
+--
+-- -- Enable tailwindcss
+-- lspconfig.tailwindcss.setup({})
+--
+-- -- Enable gopls
+-- lspconfig.gopls.setup({
+--   settings = {
+--     gopls = {
+--       usePlaceholders = true,
+--     },
+--   },
+-- })
+--
+-- -- Enable ruby-lsp
+-- lspconfig.ruby_lsp.setup({})
 
 vim.diagnostic.config({
   virtual_text = true,
