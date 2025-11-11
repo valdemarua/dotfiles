@@ -220,12 +220,13 @@ cask 'ticktick' # To-do & task list manager
 # AI
 cask 'chatgpt'
 cask 'claude'
+cask 'ollama'
 
 # Dictionaries extends your Mac, by adding bidirectional translation, spellchecking and pronunciation for over 80 languages.
 # https://dictionaries.io/
 cask 'dictionaries'
 
-cask 'obs' # Open-source software for live streaming and screen recording
+# cask 'obs' # Open-source software for live streaming and screen recording
 
 # Fonts
 cask 'font-camingocode'
