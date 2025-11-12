@@ -220,6 +220,8 @@ cask 'ticktick' # To-do & task list manager
 # AI
 cask 'chatgpt'
 cask 'claude'
+cask 'claude-code'
+cask 'codex' # OpenAI's coding agent that runs in your terminal
 cask 'ollama'
 
 # Dictionaries extends your Mac, by adding bidirectional translation, spellchecking and pronunciation for over 80 languages.
