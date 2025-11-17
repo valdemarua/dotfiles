@@ -116,6 +116,8 @@ brew 'opensearch'
 # Install mongodb from tap mongodb/brew
 brew 'mongodb-community@5.0'
 
+brew 'opencode' # AI coding agent, built for the terminal
+
 #
 # Database clients
 #
