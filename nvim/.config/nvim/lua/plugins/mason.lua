@@ -30,6 +30,7 @@ require("mason-tool-installer").setup({
     "tailwindcss",
     "ts_ls",
     "ruby_lsp",
+    "biome",
 
     -- Formatters
     "erb-formatter",
