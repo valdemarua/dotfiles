@@ -29,6 +29,7 @@ brew 'git-lfs'
 brew 'tig'
 brew 'jesseduffield/lazygit/lazygit' # simple terminal UI for git commands
 brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
+brew 'bfg' # Remove large files or passwords from Git history like git-filter-branch
 
 brew 'mise'
 brew 'rbenv'
