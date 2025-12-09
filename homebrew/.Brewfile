@@ -152,6 +152,7 @@ cask 'iterm2'
 cask 'alacritty'
 cask 'kitty'
 cask 'wezterm' # GPU-accelerated cross-platform terminal emulator and multiplexer
+cask 'ghostty' # 👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 #cask 'hyper'
 #cask 'warp' # Rust-based terminal
 
