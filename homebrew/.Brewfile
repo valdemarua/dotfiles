@@ -1,7 +1,7 @@
 # tap 'homebrew/cask'
-tap 'homebrew/cask-versions'
-tap 'homebrew/cask-fonts' # Fonts
-tap 'homebrew/cask-drivers' # For logitech-options
+# tap 'homebrew/cask-versions'
+# tap 'homebrew/cask-fonts' # Fonts
+# tap 'homebrew/cask-drivers' # For logitech-options
 tap 'mongodb/brew'
 tap 'oven-sh/bun'
 tap 'abhimanyu003/sttr'
@@ -164,7 +164,7 @@ cask 'keycastr'
 cask 'ngrok'
 
 cask 'google-drive'
-cask 'google-cloud-sdk'
+cask 'gcloud-cli'
 
 cask 'dropbox'
 
@@ -227,7 +227,7 @@ cask 'chatgpt'
 cask 'claude'
 cask 'claude-code'
 cask 'codex' # OpenAI's coding agent that runs in your terminal
-cask 'ollama'
+cask 'ollama-app'
 
 # Dictionaries extends your Mac, by adding bidirectional translation, spellchecking and pronunciation for over 80 languages.
 # https://dictionaries.io/
