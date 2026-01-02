@@ -2,7 +2,6 @@
 # tap 'homebrew/cask-versions'
 # tap 'homebrew/cask-fonts' # Fonts
 # tap 'homebrew/cask-drivers' # For logitech-options
-tap 'mongodb/brew'
 tap 'oven-sh/bun'
 tap 'abhimanyu003/sttr'
 
@@ -111,12 +110,9 @@ brew 'memcached', restart_service: false
 #
 # Databases
 #
-#brew 'postgresql'
 brew 'postgresql@16'
 brew 'mysql@5.7', restart_service: false
 brew 'opensearch'
-# Install mongodb from tap mongodb/brew
-brew 'mongodb-community@5.0'
 
 brew 'opencode' # AI coding agent, built for the terminal
 
