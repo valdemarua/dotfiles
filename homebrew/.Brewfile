@@ -76,7 +76,6 @@ brew 'colima' # Container runtimes on macOS (and Linux) with minimal setup
 # brew 'docker-machine'
 
 # Searching tools
-brew 'the_silver_searcher'
 brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
 brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 
