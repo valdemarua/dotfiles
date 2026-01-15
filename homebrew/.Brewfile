@@ -10,6 +10,7 @@ brew 'stow'
 brew 'ssh-copy-id'
 brew 'htop'
 brew 'btop'
+brew 'ctop'
 brew 'tree'
 brew 'openssl'
 brew 'wget'
@@ -29,13 +30,13 @@ brew 'tig'
 brew 'jesseduffield/lazygit/lazygit' # simple terminal UI for git commands
 brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
 
+brew 'mise'
 brew 'rbenv'
 brew 'ruby-build'
 brew 'rubyfmt'
-brew 'pyenv'
+
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
 brew 'wrk'
-brew 'ctop'
 brew 'tmux'
 brew 'tmuxinator'
 brew 'zellij'
