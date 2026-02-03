@@ -33,7 +33,7 @@ brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
 brew 'mise'
 brew 'rbenv'
 brew 'ruby-build'
-brew 'rubyfmt'
+# brew 'rubyfmt'
 
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
 brew 'wrk'
@@ -113,8 +113,6 @@ brew 'memcached', restart_service: false
 brew 'postgresql@16'
 brew 'mysql@5.7', restart_service: false
 brew 'opensearch'
-
-brew 'opencode' # AI coding agent, built for the terminal
 
 #
 # Database clients
@@ -221,8 +219,12 @@ cask 'ticktick' # To-do & task list manager
 # AI
 cask 'chatgpt'
 cask 'claude'
+
 cask 'claude-code'
 cask 'codex' # OpenAI's coding agent that runs in your terminal
+brew 'gemini-cli' # Interact with Google Gemini AI models from the command-line
+brew 'opencode' # AI coding agent, built for the terminal
+
 cask 'ollama-app'
 
 # Dictionaries extends your Mac, by adding bidirectional translation, spellchecking and pronunciation for over 80 languages.
