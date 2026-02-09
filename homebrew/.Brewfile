@@ -222,10 +222,11 @@ cask 'claude'
 
 cask 'claude-code'
 cask 'codex' # OpenAI's coding agent that runs in your terminal
+cask 'ollama-app'
+cask 'codex-app' # OpenAI's Codex desktop app for managing coding agents
+
 brew 'gemini-cli' # Interact with Google Gemini AI models from the command-line
 brew 'opencode' # AI coding agent, built for the terminal
-
-cask 'ollama-app'
 
 # Dictionaries extends your Mac, by adding bidirectional translation, spellchecking and pronunciation for over 80 languages.
 # https://dictionaries.io/
