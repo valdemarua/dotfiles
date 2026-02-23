@@ -189,6 +189,7 @@ cask 'tor-browser'
 cask 'min'
 
 cask 'vlc'
+cask 'plex'
 # cask 'android-file-transfer'
 cask 'steam'
 # cask 'unrarx'
@@ -217,13 +218,12 @@ cask 'logitech-options'
 cask 'ticktick' # To-do & task list manager
 
 # AI
-cask 'chatgpt'
 cask 'claude'
-
 cask 'claude-code'
+cask 'chatgpt'
 cask 'codex' # OpenAI's coding agent that runs in your terminal
-cask 'ollama-app'
 cask 'codex-app' # OpenAI's Codex desktop app for managing coding agents
+cask 'ollama-app'
 
 brew 'gemini-cli' # Interact with Google Gemini AI models from the command-line
 brew 'opencode' # AI coding agent, built for the terminal
