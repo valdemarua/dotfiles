@@ -190,6 +190,7 @@ cask 'min'
 
 cask 'vlc'
 cask 'plex'
+cask 'plex-media-server'
 # cask 'android-file-transfer'
 cask 'steam'
 # cask 'unrarx'

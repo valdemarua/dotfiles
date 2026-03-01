@@ -45,6 +45,10 @@ alias ss="spring stop"
 
 alias rs="rails s"
 alias rc="rails c"
+alias rdm="rails db:migrate"
+alias rdms="rails db:migrate:status"
+alias rdr="rails db:rollback"
+alias rT="rails -T"
 
 # NPM
 alias nrd="npm run dev"
