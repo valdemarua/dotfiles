@@ -235,15 +235,15 @@ require("lazy").setup({
       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
-    {
-      "NvChad/nvim-colorizer.lua",
-      config = function()
-        require("colorizer").setup({})
-      end,
-      event = "VeryLazy",
-    },
-    { "mrjones2014/smart-splits.nvim" },
   },
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({})
+    end,
+    event = "VeryLazy",
+  },
+  { "mrjones2014/smart-splits.nvim" },
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
