@@ -1,0 +1,20 @@
+[font]
+size = 15.0
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true
+opacity = 0.95
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 180
+lines = 60
+
+[window.padding]
+x = 5
+y = 2
+
+[window.position]
+x = 10
+y = 60
