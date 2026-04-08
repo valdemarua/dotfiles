@@ -33,6 +33,7 @@ cd ~/dotfiles && stow \
   helix \
   homebrew \
   kitty \
+  mise \
   nvim \
   pry \
   term \
@@ -60,16 +61,19 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 tic -x ~/.xterm-256color-italic.terminfo
 ```
-##### Node.js
+##### Node.js / Ruby / Go / Bun
 
-To download, compile, and install the latest release of node, do this:
+Tool versions are managed by [mise](https://mise.jdx.dev). It reads `.ruby-version`, `.nvmrc`, and `.node-version` files automatically.
+
+To install the versions specified in the current project:
 ```
-fnm install node # "node" is an alias for the latest version
+mise install
 ```
 
-To install a specific version of node:
+To install a specific tool and version:
 ```
-fnm install 14.7.0 # or 16.3.0, 12.22.1, etc
+mise use --global node@lts
+mise use --global ruby@3.3
 ```
 
 ##### VIM

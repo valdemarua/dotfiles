@@ -105,7 +105,7 @@ setopt hist_find_no_dups
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git macos ruby rbenv vagrant bundler tmuxinator)
+plugins=(git macos ruby vagrant bundler tmuxinator)
 
 # User configuration
 
@@ -143,9 +143,6 @@ source $HOME/.aliases
 # Init zoxide
 eval "$(zoxide init zsh)"
 
-# Init rbenv
-eval "$(rbenv init -)"
-
 export PATH="${HOMEBREW_PREFIX}/opt/imagemagick@6/bin:$PATH"
 export PATH="${HOMEBREW_PREFIX}/opt/mysql@5.7/bin:$PATH"
 export PATH="${HOMEBREW_PREFIX}/opt/imagemagick@6/bin:$PATH"
@@ -158,10 +155,6 @@ export PATH="${HOME}/.pyenv/shims:${PATH}"
 export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:${PATH}"
 
-#
-# fnm
-#
-eval "$(fnm env --use-on-cd)"
 
 #
 # Functions
@@ -170,6 +163,9 @@ timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
+
+# Init mise
+eval "$(mise activate zsh)"
 
 # Init starship prompt
 eval "$(starship init zsh)"
