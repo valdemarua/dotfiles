@@ -15,6 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   "folke/which-key.nvim",
+  "folke/zen-mode.nvim",
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -23,7 +24,6 @@ require("lazy").setup({
   { "folke/tokyonight.nvim", lazy = false },
   {
     "nvim-telescope/telescope.nvim",
-    version = "0.1.8",
     dependencies = {
       { "nvim-lua/plenary.nvim" },
     },
@@ -66,13 +66,25 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     event = "VeryLazy",
+    branch = "main",
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
+    branch = "main",
+    init = function()
+      -- Disable entire built-in ftplugin mappings to avoid conflicts.
+      -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+      vim.g.no_plugin_maps = true
+
+      -- Or, disable per filetype (add as you like)
+      -- vim.g.no_python_maps = true
+      -- vim.g.no_ruby_maps = true
+      -- vim.g.no_rust_maps = true
+      -- vim.g.no_go_maps = true
+    end,
+    config = function()
+      -- put your config here
+    end,
   },
   {
     -- for better support of eruby.yaml
