@@ -48,6 +48,7 @@ brew 'jq' # Lightweight and flexible command-line JSON processor
 brew 'zoxide' # zoxide is a blazing fast replacement for your cd command, inspired by z and z.lua.
 brew 'fzf' # 🌸 A command-line fuzzy finder
 brew 'chafa' # Versatile and fast Unicode/ASCII/ANSI graphics renderer
+brew 'tree-sitter-cli' # Parser generator tool
 
 # Ruby dependencies
 brew 'shared-mime-info' # For mimemagic gem
