@@ -76,6 +76,7 @@ brew 'docker-compose'
 # brew 'container' # A tool for creating and running Linux containers using lightweight virtual machines on a Mac. It is written in Swift, and optimized for Apple silicon.
 brew 'colima' # Container runtimes on macOS (and Linux) with minimal setup
 # brew 'docker-machine'
+brew 'playwright-cli'
 
 # Searching tools
 brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
@@ -173,7 +174,6 @@ cask 'visual-studio-code'
 cask 'sublime-text'
 cask 'zed'
 cask 'cursor'
-cask 'notion'
 # cask 'alcatraz'
 # cask 'gitter'
 # cask 'grammarly'
@@ -205,7 +205,6 @@ cask 'telegram'
 # cask 'launchrocket'
 cask 'slack'
 cask 'zoom'
-# cask 'skype'
 cask 'viber'
 # cask 'gifrocket'
 # cask 'studio-3t'
@@ -215,9 +214,9 @@ cask 'viber'
 cask 'amethyst' # Tiling window manager for macOS
 cask 'raycast'
 
-# Logitech Options - Drivers for MX Master 3
-cask 'logitech-options'
+cask 'logitech-options' # Logitech Options - Drivers for MX Master 3
 cask 'ticktick' # To-do & task list manager
+cask 'notion'
 
 # AI
 cask 'claude'
