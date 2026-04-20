@@ -2,6 +2,12 @@
 # Read .ruby-version, .nvmrc, .node-version etc.
 idiomatic_version_file_enable_tools = ["ruby", "node"]
 
+[settings.ruby]
+compile = false
+
+[settings.node]
+compile = false
+
 [tools]
 # Global default versions — override per-project with .ruby-version / .nvmrc / .tool-versions
 # ruby = "3.3"
