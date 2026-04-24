@@ -77,6 +77,7 @@ brew 'docker-compose'
 brew 'colima' # Container runtimes on macOS (and Linux) with minimal setup
 # brew 'docker-machine'
 brew 'playwright-cli'
+brew 'gh' # GitHub command-line tool
 
 # Searching tools
 brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
