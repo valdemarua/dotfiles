@@ -109,13 +109,11 @@ require("lazy").setup({
     "mfussenegger/nvim-lint",
     event = { "BufReadPre", "BufNewFile" },
   },
-  -- Refactoring
   {
     "ThePrimeagen/refactoring.nvim",
     event = "InsertEnter",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "lewis6991/async.nvim",
     },
     -- config = function()
     --   require("refactoring").setup()
