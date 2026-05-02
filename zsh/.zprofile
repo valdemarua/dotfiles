@@ -17,3 +17,5 @@ if [[ -o interactive ]]; then
     #
     [ -f "/usr/local/bin/brew" ] && eval "$(/usr/local/bin/brew shellenv)"
 fi
+
+export HOMEBREW_CASK_OPTS="--fontdir=/Library/Fonts"
