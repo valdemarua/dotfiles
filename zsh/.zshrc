@@ -109,9 +109,6 @@ plugins=(git macos ruby vagrant bundler tmuxinator)
 
 # User configuration
 
-# Homebrew folder should be before /usr/bin
-# This is the path to homebrew for Apple Silicon machines
-export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -143,10 +140,6 @@ source $HOME/.aliases
 # Init zoxide
 eval "$(zoxide init zsh)"
 
-export PATH="${HOMEBREW_PREFIX}/opt/imagemagick@6/bin:$PATH"
-export PATH="${HOMEBREW_PREFIX}/opt/mysql@5.7/bin:$PATH"
-export PATH="${HOMEBREW_PREFIX}/opt/imagemagick@6/bin:$PATH"
-export PATH="${HOMEBREW_PREFIX}/opt/postgresql@16/bin:$PATH"
 
 # Python
 export PATH="${HOME}/.pyenv/shims:${PATH}"
