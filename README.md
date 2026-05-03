@@ -30,6 +30,7 @@ cd ~/dotfiles && stow \
   amethyst \
   gem \
   git \
+  ghostty \
   helix \
   homebrew \
   kitty \
