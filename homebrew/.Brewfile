@@ -93,6 +93,7 @@ brew 'sttr'    # Cross-platform, cli app to perform various operations on string
 brew 'gnu-sed' # GNU "sed" has been installed as "gsed".
 brew 'dust'    # A more intuitive version of du in rust
 brew 'duf'     # Disk Usage/Free Utility - a better 'df' alternative
+brew 'watch'   # Executes a program periodically, showing output fullscreen
 
 # For Nokogiri gem
 brew 'libxml2'
