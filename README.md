@@ -52,6 +52,17 @@ cd ~/dotfiles && stow \
 brew bundle --global
 ```
 
+For machine-specific packages, profile Brewfiles are versioned in `homebrew/`:
+
+- `homebrew/.Brewfile.work` — work-only tools
+
+After stowing, symlink the relevant profile to activate it:
+```
+ln -s ~/.Brewfile.work ~/.Brewfile.local
+```
+
+The `bb` alias will automatically detect `~/.Brewfile.local` and install it on top of the main Brewfile. The symlink itself is gitignored — only the profile file is versioned.
+
 #### Next steps
 ##### Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
 ```

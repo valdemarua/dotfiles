@@ -1,0 +1,4 @@
+# Work-specific packages
+# Symlink to activate on work machines:
+#   ln -s ~/.Brewfile.work ~/.Brewfile.local
+
