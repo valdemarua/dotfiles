@@ -2,3 +2,4 @@
 # Symlink to activate on work machines:
 #   ln -s ~/.Brewfile.work ~/.Brewfile.local
 
+brew "openshift-cli"
