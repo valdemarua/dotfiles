@@ -58,7 +58,14 @@ alias t="tree"
 
 # Homebrew
 # --global – Read the Brewfile from ~/.Brewfile
-alias bb='brew bundle --global; [ -f ~/.Brewfile.local ] && echo "~/.Brewfile.local found, installing local packages..." && brew bundle --file ~/.Brewfile.local; brew cleanup'
+bb() {
+  brew bundle --global || return
+  if [ -f ~/.Brewfile.local ]; then
+    echo "~/.Brewfile.local found, installing local packages..."
+    brew bundle --file ~/.Brewfile.local || return
+  fi
+  brew cleanup
+}
 
 # VIM
 alias v="vim"
