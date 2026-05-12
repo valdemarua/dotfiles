@@ -58,12 +58,23 @@ alias t="tree"
 
 # Homebrew
 # --global – Read the Brewfile from ~/.Brewfile
+# ~/.Brewfile.local is machine-specific and gitignored — symlink from ~/.Brewfile.work or similar
 bb() {
-  brew bundle --global || return
-  if [ -f ~/.Brewfile.local ]; then
-    echo "~/.Brewfile.local found, installing local packages..."
-    brew bundle --file ~/.Brewfile.local || return
+  local interrupted=false
+  trap 'interrupted=true' INT  # catch Ctrl+C so we can stop gracefully
+
+  brew bundle --global
+
+  if ! $interrupted; then
+    # install local/profile-specific packages if the file exists
+    if [ -f ~/.Brewfile.local ]; then
+      echo "~/.Brewfile.local found, installing local packages..."
+      brew bundle --file ~/.Brewfile.local
+    fi
   fi
+
+  trap - INT  # restore default SIGINT handler
+  $interrupted && return 1
   brew cleanup
 }
 
