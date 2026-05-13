@@ -106,6 +106,54 @@ Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+### Aliases (`zsh/.aliases`)
+
+| Alias | Expands to | Description |
+|-------|------------|-------------|
+| **Shell** | | |
+| `so` | `source ~/.zshrc` | Reload shell config |
+| `cl` | `clear` | Clear terminal |
+| **Navigation** | | |
+| `cds` | `cd ~/Sites` | Jump to Sites |
+| `cdp` | `cd ~/Projects` | Jump to Projects |
+| `cdb` | `cd ~/Dropbox` | Jump to Dropbox |
+| `cdv` | `cd ~/Dropbox/vagrant` | Jump to Vagrant dir |
+| `cdd` | `cd ~/Downloads` | Jump to Downloads |
+| `dtf` | `cd ~/dotfiles` | Jump to dotfiles |
+| **Homebrew** | | |
+| `bb` | `brew bundle ...` | Install `~/.Brewfile` + `~/.Brewfile.local` if present, then `brew cleanup` |
+| **Rails** | | |
+| `rs` | `rails s` | Start Rails server |
+| `rc` | `rails c` | Open Rails console |
+| `rdm` | `rails db:migrate` | Run migrations |
+| `rdms` | `rails db:migrate:status` | Show migration status |
+| `rdr` | `rails db:rollback` | Rollback last migration |
+| `rT` | `rails -T` | List Rake tasks |
+| `ra` | `rubocop -a` | Run Rubocop with auto-correct |
+| `bs` | `bin/setup` | Run project setup script |
+| `bw` | `bin/webpack-dev-server` | Start Webpack dev server |
+| `ss` | `spring stop` | Stop Spring preloader |
+| **Capistrano** | | |
+| `capp` | `bundle exec cap production deploy` | Deploy to production |
+| `caps` | `bundle exec cap staging deploy` | Deploy to staging |
+| `capv` | `bundle exec cap vagrant deploy` | Deploy to Vagrant |
+| `cappdp` | `bundle exec cap production db:pull` | Pull production DB |
+| **Overmind** | | |
+| `os` | `overmind start` | Start all Procfile processes |
+| `osd` | `overmind s -f Procfile.dev` | Start dev Procfile processes |
+| **npm** | | |
+| `nrd` | `npm run dev` | Run dev script |
+| `nrl` | `npm run lint` | Run lint script |
+| **Editors** | | |
+| `v` / `vv` | `vim` / `vim .` | Open Vim |
+| `n` / `nv` / `nn` / `nvv` | `nvim` / `nvim .` | Open Neovim |
+| `vrc` / `vimrc` | `vim ~/.vimrc` | Edit Vim config |
+| `zrc` / `zshrc` | `vim ~/.zshrc` | Edit Zsh config |
+| **Tools** | | |
+| `t` | `tree` | Directory tree |
+| `lg` | `lazygit` | Open Lazygit |
+| `hg` | `history \| grep` | Search shell history |
+
 ### Scripts (`bin/`)
 
 `~/dotfiles/bin` is on `$PATH` automatically after stowing `zsh`. No additional setup needed.
