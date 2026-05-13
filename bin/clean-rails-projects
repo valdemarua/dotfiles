@@ -1,0 +1,178 @@
+#!/usr/bin/env bash
+# clean-rails-projects — free disk space used by Rails generated files
+#
+# Run this from (or point it at) a directory that contains multiple Rails
+# project subdirectories, e.g.:
+#
+#   cd ~/Sites && clean-rails-projects
+#   clean-rails-projects ~/Sites
+#   clean-rails-projects --dry-run   # preview without changing anything
+#
+# Output: per-project breakdown of freed space, plus a total summary.
+#
+# Extending: add entries to TRUNCATE_DIRS or REMOVE_DIRS near the top of
+# the file — no logic changes needed.
+
+set -euo pipefail
+
+# ---------------------------------------------------------------------------
+# Configuration — edit these to add new cleanup targets
+# ---------------------------------------------------------------------------
+
+# Dirs where matching files are ZEROED OUT (truncated to 0 bytes) rather
+# than deleted. Truncating is safer than deleting when Rails is running:
+# the process keeps its open file handle and keeps writing; deletion would
+# leave an unlinked file that still consumes disk until the process exits.
+#
+# Pattern matched: *.log and *.log.* (covers rotated logs like
+# development.log.0, bullet.log, etc.)
+TRUNCATE_DIRS=("log")
+
+# Dirs that are REMOVED ENTIRELY (rm -rf). These hold compiled/generated
+# assets that build tools recreate on the next run, so it's safe to delete.
+#
+# public/packs       — Webpacker / Shakapacker compiled JS bundles
+# public/packs-test  — same, but built for the test environment
+REMOVE_DIRS=("public/packs" "public/packs-test" "tmp/cache" "tmp/screenshots")
+
+# ---------------------------------------------------------------------------
+# Argument parsing
+# ---------------------------------------------------------------------------
+
+DRY_RUN=false
+TARGET_DIR="."
+
+for arg in "$@"; do
+  case "$arg" in
+    -n|--dry-run) DRY_RUN=true ;;
+    -*) printf "Unknown option: %s\n" "$arg" >&2; exit 1 ;;
+    *) TARGET_DIR="$arg" ;;
+  esac
+done
+
+# ---------------------------------------------------------------------------
+# Terminal colors (disabled automatically when output is piped/redirected)
+# ---------------------------------------------------------------------------
+
+if [ -t 1 ]; then
+  BOLD='\033[1m'; DIM='\033[2m'; GREEN='\033[0;32m'
+  CYAN='\033[0;36m'; YELLOW='\033[1;33m'; RESET='\033[0m'
+else
+  BOLD=''; DIM=''; GREEN=''; CYAN=''; YELLOW=''; RESET=''
+fi
+
+# ---------------------------------------------------------------------------
+# Helper functions
+# ---------------------------------------------------------------------------
+
+# Convert a raw byte count to a human-readable string (e.g. "1.4 GB").
+# Uses awk so there's no dependency on numfmt (GNU) or python.
+human_bytes() {
+  awk -v b="$1" 'BEGIN {
+    if      (b >= 1073741824) printf "%.1f GB", b / 1073741824
+    else if (b >= 1048576)    printf "%.1f MB", b / 1048576
+    else if (b >= 1024)       printf "%.1f KB", b / 1024
+    else                      printf "%d B",    b
+  }'
+}
+
+# Return the size of a single file in bytes.
+# stat syntax differs between macOS (BSD) and Linux (GNU), so we try both.
+file_size() {
+  stat -f %z "$1" 2>/dev/null || stat -c %s "$1" 2>/dev/null || echo 0
+}
+
+# Return the approximate size of a directory in bytes.
+# du -sk reports in 1 KB blocks (same on macOS and Linux), so multiply by
+# 1024. This is slightly imprecise (block alignment) but fast for large trees
+# where iterating every file would be too slow.
+dir_size() {
+  local kb
+  kb=$(du -sk "$1" 2>/dev/null | awk '{print $1}')
+  echo $(( ${kb:-0} * 1024 ))
+}
+
+# ---------------------------------------------------------------------------
+# Main loop
+# ---------------------------------------------------------------------------
+
+total_bytes=0
+total_projects=0
+
+# Strip a trailing slash so basename and path concatenation behave correctly.
+TARGET_DIR="${TARGET_DIR%/}"
+abs_dir="$(cd "$TARGET_DIR" 2>/dev/null && pwd || echo "$TARGET_DIR")"
+
+printf "${BOLD}Cleaning Rails projects in %s${RESET}\n" "$abs_dir"
+$DRY_RUN && printf "${YELLOW}[dry run — no files will be modified]${RESET}\n"
+printf "\n"
+
+for project_dir in "$TARGET_DIR"/*/; do
+  [ -d "$project_dir" ] || continue  # skip non-directories (symlinks, etc.)
+
+  project_bytes=0
+  project_detail=""  # accumulates per-target lines for indented output below
+
+  # --- Truncate log files -----------------------------------------------
+  for rel_dir in "${TRUNCATE_DIRS[@]}"; do
+    target="${project_dir}${rel_dir}"
+    [ -d "$target" ] || continue
+
+    dir_bytes=0
+    file_count=0
+
+    # -print0 / read -d '' handles filenames with spaces or newlines safely.
+    # *.log.* catches rotated logs: development.log.0, bullet.log.1, etc.
+    while IFS= read -r -d '' f; do
+      size=$(file_size "$f")
+      dir_bytes=$(( dir_bytes + size ))
+      file_count=$(( file_count + 1 ))
+      $DRY_RUN || truncate -s 0 "$f"
+    done < <(find "$target" -maxdepth 2 -type f \( -name "*.log" -o -name "*.log.*" \) -print0 2>/dev/null)
+
+    [ "$file_count" -eq 0 ] && continue
+
+    project_bytes=$(( project_bytes + dir_bytes ))
+    project_detail="${project_detail}    ${DIM}${rel_dir}: $(human_bytes "$dir_bytes") (${file_count} files)${RESET}\n"
+  done
+
+  # --- Remove asset directories -----------------------------------------
+  for rel_dir in "${REMOVE_DIRS[@]}"; do
+    target="${project_dir}${rel_dir}"
+    [ -d "$target" ] || continue
+
+    dir_bytes=$(dir_size "$target")
+    [ "$dir_bytes" -eq 0 ] && continue  # empty dir — nothing worth reporting
+
+    $DRY_RUN || rm -rf "$target"
+
+    project_bytes=$(( project_bytes + dir_bytes ))
+    project_detail="${project_detail}    ${DIM}${rel_dir}: $(human_bytes "$dir_bytes")${RESET}\n"
+  done
+
+  [ "$project_bytes" -eq 0 ] && continue  # project had nothing to clean
+
+  project_name=$(basename "$project_dir")
+  total_bytes=$(( total_bytes + project_bytes ))
+  total_projects=$(( total_projects + 1 ))
+
+  # Print project name + total saved, then the per-target breakdown indented below.
+  printf "  ${CYAN}%-32s${RESET}  ${GREEN}%s${RESET}\n" "$project_name" "$(human_bytes "$project_bytes")"
+  printf "$project_detail"
+done
+
+printf "\n"
+
+if [ "$total_projects" -eq 0 ]; then
+  printf "  Nothing to clean.\n"
+  exit 0
+fi
+
+# Summary line
+printf '─%.0s' {1..52}; printf '\n'
+printf "  ${BOLD}%d %s  |  %s freed${RESET}\n" \
+  "$total_projects" \
+  "$([ "$total_projects" -eq 1 ] && echo project || echo projects)" \
+  "$(human_bytes "$total_bytes")"
+
+$DRY_RUN && printf "\n  Run without --dry-run to clean these files.\n"

@@ -105,3 +105,11 @@ Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
+### Scripts (`bin/`)
+
+`~/dotfiles/bin` is on `$PATH` automatically after stowing `zsh`. No additional setup needed.
+
+| Script | Usage | Description |
+|--------|-------|-------------|
+| `clean-rails-projects` | `clean-rails-projects [--dry-run] [DIR]` | Frees disk space in Rails project subdirectories. Truncates log files (`log/*.log`, `log/*.log.*`) and removes `public/packs`, `public/packs-test`, `tmp/cache`, and `tmp/screenshots`. Defaults to the current directory. Use `--dry-run` / `-n` to preview without making changes. |
