@@ -7,6 +7,7 @@ zstyle ':omz:update' frequency 14
 ZSH_DISABLE_COMPFIX=true
 
 export EDITOR='vim'
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
 #export TERM="xterm-256color"
 # Use this terminfo file to enable italic
@@ -141,14 +142,12 @@ source $HOME/.aliases
 # Init zoxide
 eval "$(zoxide init zsh)"
 
-
 # Python
 export PATH="${HOME}/.pyenv/shims:${PATH}"
 
 # Go
 export GOPATH="${HOME}/go"
 export PATH="${GOPATH}/bin:${PATH}"
-
 
 #
 # Functions
