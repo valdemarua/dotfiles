@@ -34,6 +34,7 @@ brew 'bfg' # Remove large files or passwords from Git history like git-filter-br
 brew 'mise'
 brew 'rbenv'
 brew 'ruby-build'
+brew 'uv' # Extremely fast Python package installer and resolver, written in Rust
 # brew 'rubyfmt'
 
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
