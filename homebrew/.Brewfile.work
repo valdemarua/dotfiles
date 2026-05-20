@@ -3,3 +3,5 @@
 #   ln -s ~/.Brewfile.work ~/.Brewfile.local
 
 brew "openshift-cli"
+
+cask "intellij-idea"
