@@ -37,7 +37,6 @@ cd ~/dotfiles && stow \
   mise \
   nvim \
   pry \
-  term \
   tmux \
   vim \
   wezterm \
@@ -69,10 +68,6 @@ The `bb` alias will automatically detect `~/.Brewfile.local` and install it on t
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-##### Install terminfo file
-```
-tic -x ~/.xterm-256color-italic.terminfo
-```
 ##### Node.js / Ruby / Go / Bun
 
 Tool versions are managed by [mise](https://mise.jdx.dev). It reads `.ruby-version`, `.nvmrc`, and `.node-version` files automatically.

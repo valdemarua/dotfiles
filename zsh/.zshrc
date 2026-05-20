@@ -9,12 +9,6 @@ ZSH_DISABLE_COMPFIX=true
 export EDITOR='vim'
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
 
-#export TERM="xterm-256color"
-# Use this terminfo file to enable italic
-export TERM="xterm-256color-italic"
-# Use classic terminfo in ssh sessions
-alias ssh="TERM=xterm-256color ssh"
-
 export TMUX_SESSION_NAME="humanize"
 export LC_ALL=en_US.UTF-8
 
