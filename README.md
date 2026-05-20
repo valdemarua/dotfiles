@@ -37,6 +37,7 @@ cd ~/dotfiles && stow \
   mise \
   nvim \
   pry \
+  ssh \
   tmux \
   vim \
   wezterm \
