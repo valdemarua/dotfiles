@@ -9,6 +9,7 @@ compile = false
 compile = false
 
 [tools]
+ruby = "4"
 # Global default versions — override per-project with .ruby-version / .nvmrc / .tool-versions
 # ruby = "3.3"
 # node = "lts"
