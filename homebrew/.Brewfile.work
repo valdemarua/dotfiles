@@ -4,4 +4,8 @@
 
 brew "openshift-cli"
 
+# Legacy VM tooling for old Vagrant-based workflows
+# cask "virtualbox@beta" # Beta version supports Arm processors
+# cask "vagrant"
+
 cask "intellij-idea"

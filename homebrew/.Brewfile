@@ -171,8 +171,6 @@ cask 'dropbox'
 
 # Development
 # cask 'fastlane'
-cask 'virtualbox@beta' # Beta version supports Arm processors
-cask 'vagrant'
 # cask 'chefdk'
 # cask 'android-studio'
 # cask 'android-sdk'
