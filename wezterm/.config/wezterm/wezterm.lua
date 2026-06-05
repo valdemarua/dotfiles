@@ -1,6 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
-local act = wezterm.action
+local action = wezterm.action
 
 local split_nav = require("smartsplits").split_nav
 
@@ -45,12 +45,12 @@ config.keys = {
     action = wezterm.action.DisableDefaultAssignment,
   },
   -- activate pane selection mode with the default alphabet (labels are "a", "s", "d", "f" and so on)
-  { key = "8", mods = "CTRL", action = act.PaneSelect },
+  { key = "8", mods = "CTRL", action = action.PaneSelect },
   -- activate pane selection mode with numeric labels
   {
     key = "9",
     mods = "CTRL",
-    action = act.PaneSelect({
+    action = action.PaneSelect({
       alphabet = "1234567890",
     }),
   },
@@ -58,9 +58,15 @@ config.keys = {
   {
     key = "0",
     mods = "CTRL",
-    action = act.PaneSelect({
+    action = action.PaneSelect({
       mode = "SwapWithActive",
     }),
+  },
+  -- to fix Shift + Enter issue in Codex
+  {
+    key = "Enter",
+    mods = "SHIFT",
+    action = action.SendString("\x0a"),
   },
 }
 
