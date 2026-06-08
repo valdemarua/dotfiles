@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# unfreeze — resume all processes stopped by macOS due to resource pressure
+#
+# macOS sends SIGSTOP to background apps (browsers, terminals, etc.) when
+# they consume too many resources. This sends SIGCONT to every process you
+# own, waking them all up.
+
+kill -CONT -1
+echo "All frozen apps resumed."
