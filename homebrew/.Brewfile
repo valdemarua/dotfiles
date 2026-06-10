@@ -65,7 +65,6 @@ brew 'ranger'
 # Static site generators
 brew 'hugo'
 
-brew 'go'
 brew 'rust'
 # brew 'elixir'
 brew 'luarocks' # LuaRocks is the package manager for the Lua programming language.
