@@ -9,3 +9,4 @@ brew "openshift-cli"
 # cask "vagrant"
 
 cask "intellij-idea"
+cask "cursor"
