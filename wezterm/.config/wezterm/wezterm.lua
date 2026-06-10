@@ -62,6 +62,18 @@ config.keys = {
       mode = "SwapWithActive",
     }),
   },
+  -- split current pane into left/right (vertical divider)
+  {
+    key = "d",
+    mods = "CMD",
+    action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+  },
+  -- split current pane into top/bottom (horizontal divider)
+  {
+    key = "d",
+    mods = "SHIFT|CMD",
+    action = action.SplitVertical({ domain = "CurrentPaneDomain" }),
+  },
   -- to fix Shift + Enter issue in Codex
   {
     key = "Enter",
