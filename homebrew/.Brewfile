@@ -28,7 +28,7 @@ brew 'git-lfs'
 brew 'tig'
 brew 'jesseduffield/lazygit/lazygit' # simple terminal UI for git commands
 brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
-brew 'bfg' # Remove large files or passwords from Git history like git-filter-branch
+brew 'git-filter-repo' # Quickly rewrite git repository history
 
 brew 'mise'
 brew 'uv' # Extremely fast Python package installer and resolver, written in Rust
@@ -116,7 +116,6 @@ brew 'memcached', restart_service: false
 #
 brew 'postgresql@16'
 brew 'mysql@5.7', restart_service: false
-brew 'opensearch'
 
 #
 # Database clients
@@ -137,9 +136,6 @@ brew 'ansible'
 #cask 'cyberduck'
 cask '1password'
 cask 'dbngin'
-
-cask 'alfred'
-cask 'java@beta'
 
 ################################################
 # Terminal emulators
