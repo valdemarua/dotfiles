@@ -17,7 +17,6 @@ brew 'wget'
 brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
-brew 'fnm' # 🚀 Fast and simple Node.js version manager, built in Rust
 brew 'bun' # Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one
 brew 'prettierd'
 brew 'firebase-cli'
@@ -32,10 +31,7 @@ brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
 brew 'bfg' # Remove large files or passwords from Git history like git-filter-branch
 
 brew 'mise'
-brew 'rbenv'
-brew 'ruby-build'
 brew 'uv' # Extremely fast Python package installer and resolver, written in Rust
-# brew 'rubyfmt'
 
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
 brew 'wrk'
