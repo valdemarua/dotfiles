@@ -2,8 +2,8 @@
 # tap 'homebrew/cask-versions'
 # tap 'homebrew/cask-fonts' # Fonts
 # tap 'homebrew/cask-drivers' # For logitech-options
-tap 'oven-sh/bun'
 tap 'abhimanyu003/sttr'
+tap 'manaflow-ai/cmux'
 
 brew 'mas' # Mac App Store manager
 brew 'stow'
@@ -17,7 +17,6 @@ brew 'wget'
 brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
-brew 'bun' # Incredibly fast JavaScript runtime, bundler, test runner, and package manager – all in one
 brew 'prettierd'
 brew 'firebase-cli'
 brew 'watchman'
@@ -145,6 +144,7 @@ cask 'alacritty'
 cask 'kitty'
 cask 'wezterm@nightly' # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask 'ghostty' # 👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
+cask 'cmux' # Ghostty-based macOS terminal with vertical tabs and notifications for AI coding agents
 #cask 'hyper'
 #cask 'warp' # Rust-based terminal
 
