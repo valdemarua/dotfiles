@@ -69,6 +69,7 @@ brew 'rust'
 brew 'luarocks' # LuaRocks is the package manager for the Lua programming language.
 brew 'docker'
 brew 'docker-compose'
+brew 'docker-buildx'
 # brew 'container' # A tool for creating and running Linux containers using lightweight virtual machines on a Mac. It is written in Swift, and optimized for Apple silicon.
 brew 'colima' # Container runtimes on macOS (and Linux) with minimal setup
 brew 'kubernetes-cli' # Kubernetes command-line interface
