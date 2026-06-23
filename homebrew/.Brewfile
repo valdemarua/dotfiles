@@ -145,6 +145,7 @@ cask 'kitty'
 cask 'wezterm@nightly' # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask 'ghostty' # 👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.
 cask 'cmux' # Ghostty-based macOS terminal with vertical tabs and notifications for AI coding agents
+cask 'supacode' # Worktree coding agents command center.
 #cask 'hyper'
 #cask 'warp' # Rust-based terminal
 
