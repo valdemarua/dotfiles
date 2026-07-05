@@ -76,6 +76,7 @@ brew 'helm' # Kubernetes package manager. Formerly known as: kubernetes-helm
 # brew 'docker-machine'
 brew 'playwright-cli'
 brew 'gh' # GitHub command-line tool
+brew '4ier/tap/notion-cli'
 
 # Searching tools
 brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
