@@ -61,15 +61,31 @@ alias t="tree"
 # ~/.Brewfile.local is machine-specific and gitignored — symlink from ~/.Brewfile.work or similar
 bb() {
   local interrupted=false
+  local global_status=0
+  local local_status=0
   trap 'interrupted=true' INT  # catch Ctrl+C so we can stop gracefully
 
   brew bundle --global
+  global_status=$?
 
-  if ! $interrupted; then
+  if $interrupted; then
+    echo "brew bundle interrupted."
+  elif [ $global_status -ne 0 ]; then
+    echo "brew bundle --global failed; skipping ~/.Brewfile.local and brew cleanup." >&2
+    trap - INT  # restore default SIGINT handler
+    return $global_status
+  else
     # install local/profile-specific packages if the file exists
     if [ -f ~/.Brewfile.local ]; then
       echo "~/.Brewfile.local found, installing local packages..."
       brew bundle --file ~/.Brewfile.local
+      local_status=$?
+
+      if [ $local_status -ne 0 ]; then
+        echo "brew bundle --file ~/.Brewfile.local failed; skipping brew cleanup." >&2
+        trap - INT  # restore default SIGINT handler
+        return $local_status
+      fi
     fi
   fi
 
