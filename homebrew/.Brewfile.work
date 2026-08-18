@@ -10,3 +10,4 @@ brew "openshift-cli"
 
 cask "intellij-idea"
 cask "cursor"
+cask "slack"
