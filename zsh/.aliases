@@ -65,7 +65,7 @@ bb() {
   local local_status=0
   trap 'interrupted=true' INT  # catch Ctrl+C so we can stop gracefully
 
-  brew bundle --global
+  brew bundle --global --upgrade
   global_status=$?
 
   if $interrupted; then
@@ -75,10 +75,10 @@ bb() {
     trap - INT  # restore default SIGINT handler
     return $global_status
   else
-    # install local/profile-specific packages if the file exists
+    # Upgrade local/profile-specific packages if the file exists.
     if [ -f ~/.Brewfile.local ]; then
-      echo "~/.Brewfile.local found, installing local packages..."
-      brew bundle --file ~/.Brewfile.local
+      echo "~/.Brewfile.local found, upgrading local packages..."
+      brew bundle --file ~/.Brewfile.local --upgrade
       local_status=$?
 
       if [ $local_status -ne 0 ]; then
@@ -91,7 +91,8 @@ bb() {
 
   trap - INT  # restore default SIGINT handler
   $interrupted && return 1
-  brew cleanup
+  echo "Removing cached Homebrew downloads..."
+  brew cleanup --prune=all
 }
 
 # VIM

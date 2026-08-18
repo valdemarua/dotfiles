@@ -61,7 +61,9 @@ After stowing, symlink the relevant profile to activate it:
 ln -s ~/.Brewfile.work ~/.Brewfile.local
 ```
 
-The `bb` alias will automatically detect `~/.Brewfile.local` and install it on top of the main Brewfile. The symlink itself is gitignored — only the profile file is versioned.
+The `bb` function upgrades everything in the main Brewfile, automatically detects
+`~/.Brewfile.local` and upgrades that profile too, then removes all cached Homebrew
+downloads. The symlink itself is gitignored — only the profile file is versioned.
 
 #### Next steps
 ##### Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
@@ -117,7 +119,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 | `cdd` | `cd ~/Downloads` | Jump to Downloads |
 | `dtf` | `cd ~/dotfiles` | Jump to dotfiles |
 | **Homebrew** | | |
-| `bb` | `brew bundle ...` | Install `~/.Brewfile` + `~/.Brewfile.local` if present, then `brew cleanup` |
+| `bb` | `brew bundle ...` | Upgrade `~/.Brewfile` + `~/.Brewfile.local` if present, then purge Homebrew's download cache |
 | **Rails** | | |
 | `rs` | `rails s` | Start Rails server |
 | `rc` | `rails c` | Open Rails console |
