@@ -29,7 +29,13 @@ brew 'jesseduffield/lazygit/lazygit' # simple terminal UI for git commands
 brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
 brew 'git-filter-repo' # Quickly rewrite git repository history
 
-brew 'mise'
+# Language runtimes and package managers
+brew 'mise' # Project-local runtime version selection; global tools remain Homebrew-owned
+brew 'ruby'
+brew 'node'
+brew 'go'
+brew 'rust'
+brew 'bun'
 brew 'uv' # Extremely fast Python package installer and resolver, written in Rust
 
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.
@@ -39,6 +45,7 @@ brew 'tmuxinator'
 brew 'zellij'
 brew 'zsh'
 brew 'starship'
+brew 'direnv'
 
 # Comand Line Tools
 brew 'jq' # Lightweight and flexible command-line JSON processor
@@ -64,7 +71,6 @@ brew 'ranger'
 # Static site generators
 brew 'hugo'
 
-brew 'rust'
 brew 'luarocks' # LuaRocks is the package manager for the Lua programming language.
 brew 'docker'
 brew 'docker-compose'
