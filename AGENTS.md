@@ -1,6 +1,6 @@
 # AGENTS
 
-Developer dotfiles for macOS, managed with [GNU Stow](https://www.gnu.org/software/stow/).
+Developer dotfiles for macOS and Linux, managed with [GNU Stow](https://www.gnu.org/software/stow/).
 Cloned to `~/dotfiles` and symlinked into `$HOME` via `stow <package>`.
 
 ## Repository structure
@@ -20,6 +20,11 @@ dotfiles/
   homebrew/
     .Brewfile          → ~/.Brewfile
     .Brewfile.work     → ~/.Brewfile.work
+  mise/
+    .config/mise/
+      config.toml       → shared mise settings
+      config.linux.toml → Linux-only tool manifest
+      miserc.toml       → enables platform config discovery
   bin/                 ← not a Stow package; added directly to $PATH
   install.sh           ← post-stow setup (MAS apps, Lua tools, Cargo binaries)
   mac-preferences.sh   ← macOS system defaults
@@ -34,6 +39,8 @@ dotfiles/
 | `zsh/.zprofile` | Sources `~/.homebrew` (sets up Homebrew environment at login) |
 | `homebrew/.Brewfile` | Global Homebrew bundle installed on every machine |
 | `homebrew/.Brewfile.work` | Work-specific packages; symlink to `~/.Brewfile.local` to activate |
+| `mise/.config/mise/config.toml` | Shared mise settings; does not declare global tools |
+| `mise/.config/mise/config.linux.toml` | Linux-only runtimes and user-level CLI tools |
 | `bin/clean-rails-projects` | Frees disk space from Rails project directories (logs, compiled assets) |
 | `install.sh` | Post-Stow setup: MAS apps, `luarocks install`, `cargo install` |
 | `mac-preferences.sh` | macOS `defaults write` preferences |
@@ -85,9 +92,18 @@ ln -s ~/.Brewfile.work ~/.Brewfile.local
 
 ## Runtime version management
 
-Ruby, Node.js, Go, and Bun versions are managed by [mise](https://mise.jdx.dev).
-It reads `.ruby-version`, `.nvmrc`, and `.node-version` in project directories automatically.
-Install versions for the current project with `mise install`.
+On Linux, Ruby, Node.js, Go, Rust, Bun, and user-level CLI tools are managed by
+[mise](https://mise.jdx.dev). On macOS, Homebrew remains the owner of global tools;
+mise may still read project-local `.ruby-version`, `.nvmrc`, and `.node-version`
+files. Platform-specific global tools belong in `config.linux.toml`, not
+`config.toml`. Install configured versions with `mise install`.
+
+## Platform support
+
+- Keep shared configuration portable between macOS and Linux.
+- Put Linux-only mise tools in `mise/.config/mise/config.linux.toml`.
+- Keep Homebrew packages and macOS applications in `homebrew/.Brewfile`.
+- The Linux setup intentionally Stows only the packages listed in the README.
 
 ## No build step
 

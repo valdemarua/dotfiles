@@ -1,0 +1,2 @@
+# Load config files for the current operating system, such as config.linux.toml.
+auto_env = true

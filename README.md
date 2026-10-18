@@ -1,29 +1,29 @@
-### Installation
-_________
+## Installation
 
-#### On fresh Mac OS
-##### Install XCode Command Line Tools
+### macOS
+
+#### Install Xcode Command Line Tools
 ```
 xcode-select --install
 ```
 
-##### Install Homebrew
+#### Install Homebrew
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 Don't forget to add Homebrew to your PATH. See instructions in installation log.
 
-##### Install Stow
+#### Install Stow
 ```
 brew install stow
 ```
 
-##### Clone dotfiles
+#### Clone dotfiles
 ```
 git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
 ```
 
-##### Link config files with Stow
+#### Link config files with Stow
 ```
 cd ~/dotfiles && stow \
   alacritty \
@@ -47,7 +47,7 @@ cd ~/dotfiles && stow \
   lua
 ```
 
-##### Install packages
+#### Install packages
 ```
 brew bundle --global
 ```
@@ -65,28 +65,101 @@ The `bb` function upgrades everything in the main Brewfile, automatically detect
 `~/.Brewfile.local` and upgrades that profile too, then removes all cached Homebrew
 downloads. The symlink itself is gitignored — only the profile file is versioned.
 
-#### Next steps
-##### Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+### Ubuntu/Linux
+
+The server provisioning playbook owns operating-system packages and services. Starting
+with the dotfiles checkout, the user environment is installed manually from this
+repository. Homebrew is not installed on Linux.
+
+The following system tools must already be available (normally installed by Ansible):
+`curl`, `git`, `stow`, `zsh`, and the native libraries required by language runtimes.
+
+#### Install mise
+
+Install the official user-scoped binary:
+
+```sh
+curl -fsSL https://mise.run | sh
 ```
 
-##### Node.js / Ruby / Go / Bun
+#### Clone dotfiles
 
-Tool versions are managed by [mise](https://mise.jdx.dev). It reads `.ruby-version`, `.nvmrc`, and `.node-version` files automatically.
+```sh
+git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
+```
+
+#### Link the Linux configuration
+
+Only link packages used by the headless development environment:
+
+```sh
+cd ~/dotfiles && stow --restow \
+  git \
+  mise \
+  nvim \
+  starship \
+  tmux \
+  zsh
+```
+
+Do not Stow the `homebrew`, desktop terminal, window-manager, or `ssh` packages on
+the server.
+
+#### Install Linux tools
+
+```sh
+~/.local/bin/mise install
+```
+
+`mise/.config/mise/config.linux.toml` is loaded only on Linux. It installs the
+language runtimes, command-line development tools, and coding agents that Homebrew
+owns on macOS. Verify the selected files and tools with:
+
+```sh
+~/.local/bin/mise config ls
+~/.local/bin/mise ls --current
+~/.local/bin/mise doctor
+```
+
+To update mise and all Linux user-level tools together:
+
+```sh
+mise self-update && mise upgrade --global --minimum-release-age 3d
+```
+
+Hermes uses its own official installer and updater because it manages a dedicated
+Python environment; it is not part of the mise manifest.
+
+### Next steps
+
+#### Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
+
+Install it without starting a new shell or replacing the managed `.zshrc`:
+
+```sh
+RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+#### Node.js / Ruby / Go / Bun
+
+Project runtime versions can be managed by [mise](https://mise.jdx.dev) on both
+platforms. It reads `.ruby-version`, `.nvmrc`, and `.node-version` files
+automatically. Global macOS tools remain managed by Homebrew; the global Linux
+tool manifest is `mise/.config/mise/config.linux.toml`.
 
 To install the versions specified in the current project:
 ```
 mise install
 ```
 
-To install a specific tool and version:
+To select a version for the current project:
 ```
-mise use --global node@lts
-mise use --global ruby@3.3
+mise use node@lts
+mise use ruby@3.3
 ```
 
-##### VIM
+#### VIM
 
 Install [vim-plug](https://github.com/junegunn/vim-plug)
 ```
@@ -97,7 +170,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 Call `:PlugInstall` in VIM to install plugins.
 
-##### TMUX
+#### TMUX
 
 Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 ```

@@ -1,0 +1,30 @@
+# Homebrew owns these tools on macOS. This manifest is loaded only on Linux.
+[tools]
+# Language runtimes
+ruby = "4"
+node = "lts"
+go = "latest"
+rust = "stable"
+bun = "latest"
+
+# Package and development tooling
+uv = "latest"
+gh = "latest"
+neovim = "latest"
+tmux = "latest"
+direnv = "latest"
+jq = "latest"
+fzf = "latest"
+zoxide = "latest"
+starship = "latest"
+ripgrep = "latest"
+fd = "latest"
+bat = "latest"
+eza = "latest"
+delta = "latest"
+lazygit = "latest"
+
+# Coding agents
+claude = "latest"
+codex = "latest"
+opencode = "latest"
