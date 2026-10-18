@@ -115,7 +115,7 @@ setopt hist_find_no_dups
 plugins=(git ruby bundler)
 
 if [[ "$OSTYPE" == darwin* ]]; then
-  plugins+=(macos vagrant tmuxinator)
+  plugins+=(macos)
 fi
 
 # User configuration
