@@ -29,13 +29,8 @@ brew 'jesseduffield/lazygit/lazygit' # simple terminal UI for git commands
 brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
 brew 'git-filter-repo' # Quickly rewrite git repository history
 
-# Language runtimes and package managers
-brew 'mise' # Project-local runtime version selection; global tools remain Homebrew-owned
-brew 'ruby'
-brew 'node'
-brew 'go'
-brew 'rust'
-brew 'bun'
+# Runtime and package managers
+brew 'mise'
 brew 'uv' # Extremely fast Python package installer and resolver, written in Rust
 
 brew 'overmind' # Overmind is a process manager for Procfile-based applications and tmux.

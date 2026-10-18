@@ -1,12 +1,5 @@
-# Homebrew owns these tools on macOS. This manifest is loaded only on Linux.
+# Homebrew owns these CLI tools on macOS. This manifest is loaded only on Linux.
 [tools]
-# Language runtimes
-ruby = "4"
-node = "lts"
-go = "latest"
-rust = "stable"
-bun = "latest"
-
 # Package and development tooling
 uv = "latest"
 gh = "latest"

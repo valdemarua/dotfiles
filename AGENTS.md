@@ -39,8 +39,8 @@ dotfiles/
 | `zsh/.zprofile` | Initializes Homebrew paths on macOS login shells |
 | `homebrew/.Brewfile` | Global Homebrew bundle installed on every machine |
 | `homebrew/.Brewfile.work` | Work-specific packages; symlink to `~/.Brewfile.local` to activate |
-| `mise/.config/mise/config.toml` | Shared mise settings; does not declare global tools |
-| `mise/.config/mise/config.linux.toml` | Linux-only runtimes and user-level CLI tools |
+| `mise/.config/mise/config.toml` | Shared mise settings and language runtimes |
+| `mise/.config/mise/config.linux.toml` | Linux-only user-level CLI tools |
 | `bin/clean-rails-projects` | Frees disk space from Rails project directories (logs, compiled assets) |
 | `install.sh` | Post-Stow setup: MAS apps, `luarocks install`, `cargo install` |
 | `mac-preferences.sh` | macOS `defaults write` preferences |
@@ -92,11 +92,11 @@ ln -s ~/.Brewfile.work ~/.Brewfile.local
 
 ## Runtime version management
 
-On Linux, Ruby, Node.js, Go, Rust, Bun, and user-level CLI tools are managed by
-[mise](https://mise.jdx.dev). On macOS, Homebrew remains the owner of global tools;
-mise may still read project-local `.ruby-version`, `.nvmrc`, and `.node-version`
-files. Platform-specific global tools belong in `config.linux.toml`, not
-`config.toml`. Install configured versions with `mise install`.
+Ruby, Node.js, Go, Rust, and Bun are managed by [mise](https://mise.jdx.dev) on
+both macOS and Linux. On macOS, Homebrew owns the other global CLI tools; on Linux,
+mise owns the user-level CLI tools in `config.linux.toml`. mise also reads
+project-local `.ruby-version`, `.nvmrc`, and `.node-version` files. Install
+configured versions with `mise install`.
 
 ## Platform support
 

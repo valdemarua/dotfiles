@@ -111,9 +111,10 @@ the server.
 ~/.local/bin/mise install
 ```
 
-`mise/.config/mise/config.linux.toml` is loaded only on Linux. It installs the
-language runtimes, command-line development tools, and coding agents that Homebrew
-owns on macOS. Verify the selected files and tools with:
+The shared mise config installs language runtimes on both macOS and Linux.
+`mise/.config/mise/config.linux.toml` additionally installs command-line development
+tools and coding agents on Linux that Homebrew owns on macOS. Verify the selected
+files and tools with:
 
 ```sh
 ~/.local/bin/mise config ls
@@ -143,10 +144,10 @@ RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
 
 #### Node.js / Ruby / Go / Bun
 
-Project runtime versions can be managed by [mise](https://mise.jdx.dev) on both
-platforms. It reads `.ruby-version`, `.nvmrc`, and `.node-version` files
-automatically. Global macOS tools remain managed by Homebrew; the global Linux
-tool manifest is `mise/.config/mise/config.linux.toml`.
+Language runtimes are managed by [mise](https://mise.jdx.dev) on both platforms.
+It reads `.ruby-version`, `.nvmrc`, and `.node-version` files automatically.
+Global macOS CLI tools remain managed by Homebrew; the Linux CLI tool manifest is
+`mise/.config/mise/config.linux.toml`.
 
 To install the versions specified in the current project:
 ```

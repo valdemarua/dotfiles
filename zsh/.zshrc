@@ -17,10 +17,6 @@ export TMUX_SESSION_NAME="humanize"
 
 alias th="tmux new -s $TMUX_SESSION_NAME"
 
-if [[ -n "${HOMEBREW_PREFIX:-}" && -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]]; then
-  export PATH="${HOMEBREW_PREFIX}/opt/ruby/bin:${PATH}"
-fi
-
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/dotfiles/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.

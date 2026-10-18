@@ -7,3 +7,11 @@ compile = false
 
 [settings.node]
 compile = false
+
+# Language runtimes are managed by mise on both macOS and Linux.
+[tools]
+ruby = "4"
+node = "lts"
+go = "latest"
+rust = "stable"
+bun = "latest"
