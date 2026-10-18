@@ -36,7 +36,7 @@ dotfiles/
 |------|---------|
 | `zsh/.zshrc` | Main Zsh config — PATH, Oh My Zsh plugins, prompt, tool initialization |
 | `zsh/.aliases` | Aliases and shell functions (`bb`, Rails shortcuts, editor shortcuts) |
-| `zsh/.zprofile` | Sources `~/.homebrew` (sets up Homebrew environment at login) |
+| `zsh/.zprofile` | Initializes Homebrew paths on macOS login shells |
 | `homebrew/.Brewfile` | Global Homebrew bundle installed on every machine |
 | `homebrew/.Brewfile.work` | Work-specific packages; symlink to `~/.Brewfile.local` to activate |
 | `mise/.config/mise/config.toml` | Shared mise settings; does not declare global tools |

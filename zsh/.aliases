@@ -56,44 +56,46 @@ alias nrl="npm run lint"
 
 alias t="tree"
 
-# Homebrew
-# --global – Read the Brewfile from ~/.Brewfile
-# ~/.Brewfile.local is machine-specific and gitignored — symlink from ~/.Brewfile.work or similar
-bb() {
-  local interrupted=false
-  local global_status=0
-  local local_status=0
-  trap 'interrupted=true' INT  # catch Ctrl+C so we can stop gracefully
+# Homebrew (macOS only)
+if command -v brew >/dev/null 2>&1; then
+  # --global – Read the Brewfile from ~/.Brewfile
+  # ~/.Brewfile.local is machine-specific and gitignored — symlink from ~/.Brewfile.work or similar
+  bb() {
+    local interrupted=false
+    local global_status=0
+    local local_status=0
+    trap 'interrupted=true' INT  # catch Ctrl+C so we can stop gracefully
 
-  brew bundle --global --upgrade
-  global_status=$?
+    brew bundle --global --upgrade
+    global_status=$?
 
-  if $interrupted; then
-    echo "brew bundle interrupted."
-  elif [ $global_status -ne 0 ]; then
-    echo "brew bundle --global failed; skipping ~/.Brewfile.local and brew cleanup." >&2
-    trap - INT  # restore default SIGINT handler
-    return $global_status
-  else
-    # Upgrade local/profile-specific packages if the file exists.
-    if [ -f ~/.Brewfile.local ]; then
-      echo "~/.Brewfile.local found, upgrading local packages..."
-      brew bundle --file ~/.Brewfile.local --upgrade
-      local_status=$?
+    if $interrupted; then
+      echo "brew bundle interrupted."
+    elif [ $global_status -ne 0 ]; then
+      echo "brew bundle --global failed; skipping ~/.Brewfile.local and brew cleanup." >&2
+      trap - INT  # restore default SIGINT handler
+      return $global_status
+    else
+      # Upgrade local/profile-specific packages if the file exists.
+      if [ -f ~/.Brewfile.local ]; then
+        echo "~/.Brewfile.local found, upgrading local packages..."
+        brew bundle --file ~/.Brewfile.local --upgrade
+        local_status=$?
 
-      if [ $local_status -ne 0 ]; then
-        echo "brew bundle --file ~/.Brewfile.local failed; skipping brew cleanup." >&2
-        trap - INT  # restore default SIGINT handler
-        return $local_status
+        if [ $local_status -ne 0 ]; then
+          echo "brew bundle --file ~/.Brewfile.local failed; skipping brew cleanup." >&2
+          trap - INT  # restore default SIGINT handler
+          return $local_status
+        fi
       fi
     fi
-  fi
 
-  trap - INT  # restore default SIGINT handler
-  $interrupted && return 1
-  echo "Removing cached Homebrew downloads..."
-  brew cleanup --prune=all
-}
+    trap - INT  # restore default SIGINT handler
+    $interrupted && return 1
+    echo "Removing cached Homebrew downloads..."
+    brew cleanup --prune=all
+  }
+fi
 
 # VIM
 alias v="vim"

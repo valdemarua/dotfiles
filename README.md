@@ -192,7 +192,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 | `cdd` | `cd ~/Downloads` | Jump to Downloads |
 | `dtf` | `cd ~/dotfiles` | Jump to dotfiles |
 | **Homebrew** | | |
-| `bb` | `brew bundle ...` | Upgrade `~/.Brewfile` + `~/.Brewfile.local` if present, then purge Homebrew's download cache |
+| `bb` | `brew bundle ...` | On macOS, upgrade `~/.Brewfile` + `~/.Brewfile.local` if present, then purge Homebrew's download cache |
 | **Rails** | | |
 | `rs` | `rails s` | Start Rails server |
 | `rc` | `rails c` | Open Rails console |

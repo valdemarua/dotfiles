@@ -7,25 +7,36 @@ zstyle ':omz:update' frequency 14
 ZSH_DISABLE_COMPFIX=true
 
 export EDITOR='vim'
-export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+  export LC_ALL=en_US.UTF-8
+fi
 
 export TMUX_SESSION_NAME="humanize"
-export LC_ALL=en_US.UTF-8
 
 alias th="tmux new -s $TMUX_SESSION_NAME"
 
-# Use brew installed ruby as system ruby version
-export PATH="/usr/local/opt/ruby/bin/:$PATH"
-export PATH="${HOME}/.cargo/bin/:$PATH"
-export PATH="${HOME}/dotfiles/bin:$PATH"
+if [[ -n "${HOMEBREW_PREFIX:-}" && -d "${HOMEBREW_PREFIX}/opt/ruby/bin" ]]; then
+  export PATH="${HOMEBREW_PREFIX}/opt/ruby/bin:${PATH}"
+fi
+
+export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/dotfiles/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/valdemarua/.oh-my-zsh
+export ZSH="${HOME}/.oh-my-zsh"
+
+# Activate mise before tools provided by the Linux-only manifest are initialized.
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
 
 # zsh keybindings
 #
@@ -101,15 +112,24 @@ setopt hist_find_no_dups
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git macos ruby vagrant bundler tmuxinator)
+plugins=(git ruby bundler)
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  plugins+=(macos vagrant tmuxinator)
+fi
 
 # User configuration
 
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
+if [[ -r "${ZSH}/oh-my-zsh.sh" ]]; then
+  source "${ZSH}/oh-my-zsh.sh"
+fi
+
+if [[ -r "${HOME}/.aliases" ]]; then
+  source "${HOME}/.aliases"
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -134,7 +154,9 @@ source $HOME/.aliases
 #
 
 # Init zoxide
-eval "$(zoxide init zsh)"
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
 
 # Python
 export PATH="${HOME}/.pyenv/shims:${PATH}"
@@ -151,11 +173,10 @@ timezsh() {
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
 
-# Init mise
-eval "$(mise activate zsh)"
-
 # Init starship prompt
-eval "$(starship init zsh)"
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
