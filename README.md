@@ -165,6 +165,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 Start tmux and press `C-s I` to install the configured plugins, including the
 smart-splits backend.
 
+Use `tm` to attach to or create the default `main` session. Pass a name when you
+want a separate session, for example `tm work`. This is opt-in: `ssh dev1`
+continues to open a normal shell, where you can run `tm` when wanted.
+
 ### Aliases (`zsh/.aliases`)
 
 | Alias | Expands to | Description |
@@ -172,6 +176,9 @@ smart-splits backend.
 | **Shell** | | |
 | `so` | `source ~/.zshrc` | Reload shell config |
 | `cl` | `clear` | Clear terminal |
+| **Tmux** | | |
+| `tm [session]` | `tmux new-session -A -s "${session:-main}"` | Attach to or create a session; defaults to `main` |
+| `th` | `tm humanize` | Attach to or create the `humanize` session |
 | **Navigation** | | |
 | `cds` | `cd ~/Sites` | Jump to Sites |
 | `cdp` | `cd ~/Projects` | Jump to Projects |

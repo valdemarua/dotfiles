@@ -12,6 +12,12 @@ alias so="source ~/.zshrc"
 # Common
 alias cl=clear
 
+# Tmux
+tm() {
+  tmux new-session -A -s "${1:-main}"
+}
+alias th="tm humanize"
+
 # Dirs
 alias cdb="cd ~/Dropbox"
 alias cdv="cd ~/Dropbox/vagrant"

@@ -13,10 +13,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export LC_ALL=en_US.UTF-8
 fi
 
-export TMUX_SESSION_NAME="humanize"
-
-alias th="tmux new -s $TMUX_SESSION_NAME"
-
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/dotfiles/bin:${PATH}"
 
 # Path to your oh-my-zsh installation.
