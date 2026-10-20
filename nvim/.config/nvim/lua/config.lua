@@ -34,6 +34,6 @@ opt.smartcase = true -- Use case-sensitive search if one or more character is up
 
 -- opt.cmdheight = 0 -- Hide command line
 
-opt.laststatus = 3 -- For Avante plugin
+opt.laststatus = 3 -- Use one global statusline
 
 vim.o.winborder = "rounded"
