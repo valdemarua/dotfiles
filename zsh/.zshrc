@@ -123,6 +123,10 @@ if [[ -r "${HOME}/.aliases" ]]; then
   source "${HOME}/.aliases"
 fi
 
+if [[ -r "${HOME}/.functions" ]]; then
+  source "${HOME}/.functions"
+fi
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -152,14 +156,6 @@ fi
 
 # Binaries installed with `go install`; Go defaults GOPATH to ${HOME}/go.
 export PATH="${PATH}:${HOME}/go/bin"
-
-#
-# Functions
-#
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
 
 # Init starship prompt
 if command -v starship >/dev/null 2>&1; then

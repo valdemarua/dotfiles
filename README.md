@@ -118,7 +118,7 @@ mise doctor
 To update mise and all Linux user-level tools together:
 
 ```sh
-mise self-update && mise upgrade --global --minimum-release-age 3d
+mu
 ```
 
 Hermes uses its own official installer and updater because it manages a dedicated
@@ -169,7 +169,11 @@ Use `tm` to attach to or create the default `main` session. Pass a name when you
 want a separate session, for example `tm work`. This is opt-in: `ssh dev1`
 continues to open a normal shell, where you can run `tm` when wanted.
 
-### Aliases (`zsh/.aliases`)
+### Aliases and functions
+
+Simple shortcuts live in `zsh/.aliases`; shell functions live in `zsh/.functions`.
+Both are loaded by `.zshrc`. After pulling a change that adds a new Zsh file,
+run `stow -R zsh` from the dotfiles directory, then `exec zsh` to reload.
 
 | Alias | Expands to | Description |
 |-------|------------|-------------|
@@ -188,6 +192,8 @@ continues to open a normal shell, where you can run `tm` when wanted.
 | `dtf` | `cd ~/dotfiles` | Jump to dotfiles |
 | **Homebrew** | | |
 | `bb` | `brew bundle ...` | On macOS, upgrade `~/.Brewfile` + `~/.Brewfile.local` if present, then purge Homebrew's download cache |
+| **mise** | | |
+| `mu` | `mise self-update && mise upgrade --global` | Update mise, then upgrade globally configured tools |
 | **Rails** | | |
 | `rs` | `rails s` | Start Rails server |
 | `rc` | `rails c` | Open Rails console |

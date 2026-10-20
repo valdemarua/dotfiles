@@ -13,6 +13,7 @@ dotfiles/
   zsh/
     .zshrc             → ~/.zshrc
     .aliases           → ~/.aliases
+    .functions         → ~/.functions
     .zprofile          → ~/.zprofile
     .homebrew          → ~/.homebrew
   nvim/
@@ -35,7 +36,8 @@ dotfiles/
 | File | Purpose |
 |------|---------|
 | `zsh/.zshrc` | Main Zsh config — PATH, Oh My Zsh plugins, prompt, tool initialization |
-| `zsh/.aliases` | Aliases and shell functions (`bb`, Rails shortcuts, editor shortcuts) |
+| `zsh/.aliases` | Simple command aliases (Rails shortcuts, editor shortcuts) |
+| `zsh/.functions` | Shell functions (`tm`, `bb`, `mu`, `timezsh`) |
 | `zsh/.zprofile` | Initializes Homebrew paths on macOS login shells |
 | `homebrew/.Brewfile` | Global Homebrew bundle installed on every machine |
 | `homebrew/.Brewfile.work` | Work-specific packages; symlink to `~/.Brewfile.local` to activate |
@@ -68,7 +70,7 @@ Run `bb` to install (it bundles both the global Brewfile and `~/.Brewfile.local`
 | Type | Where |
 |------|-------|
 | Single-line aliases | `zsh/.aliases` |
-| Multi-line shell functions | `zsh/.aliases` (see `bb()` as a model) |
+| Shell functions | `zsh/.functions` (sourced by `.zshrc`) |
 | Standalone utility scripts | `bin/` (executable bash scripts) |
 
 `bin/` is not a Stow package. `$HOME/dotfiles/bin` is added to `$PATH` directly in `.zshrc`,
