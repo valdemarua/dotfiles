@@ -67,20 +67,12 @@ downloads. The symlink itself is gitignored — only the profile file is version
 
 ### Ubuntu/Linux
 
-The server provisioning playbook owns operating-system packages and services. Starting
-with the dotfiles checkout, the user environment is installed manually from this
-repository. Homebrew is not installed on Linux.
+The server provisioning playbook owns operating-system packages and services. The
+dotfiles bootstrap script installs the user environment. Homebrew is not installed
+on Linux.
 
 The following system tools must already be available (normally installed by Ansible):
 `curl`, `git`, `stow`, `zsh`, and the native libraries required by language runtimes.
-
-#### Install mise
-
-Install the official user-scoped binary:
-
-```sh
-curl -fsSL https://mise.run | sh
-```
 
 #### Clone dotfiles
 
@@ -88,27 +80,28 @@ curl -fsSL https://mise.run | sh
 git clone https://github.com/valdemarua/dotfiles.git ~/dotfiles
 ```
 
-#### Link the Linux configuration
+If zsh displays its new-user setup wizard when you log in, press `q`. Do not let it
+create `.zshrc`; that file is managed by this repository.
 
-Only link packages used by the headless development environment:
+#### Bootstrap the user environment
+
+Run the idempotent bootstrap script directly from the cloned repository:
 
 ```sh
-cd ~/dotfiles && stow --restow \
-  git \
-  mise \
-  nvim \
-  starship \
-  tmux \
-  zsh
+~/dotfiles/bin/bootstrap-linux
 ```
 
-Do not Stow the `homebrew`, desktop terminal, window-manager, or `ssh` packages on
-the server.
+The script:
 
-#### Install Linux tools
+- Stows only the headless Linux packages: `git`, `mise`, `nvim`, `starship`, `tmux`, and `zsh`.
+- Installs the official user-scoped mise binary when it is missing.
+- Installs Oh My Zsh without replacing the managed `.zshrc`.
+- Installs the configured language runtimes and Linux CLI applications.
+
+Start the configured shell when it finishes:
 
 ```sh
-~/.local/bin/mise install
+exec zsh
 ```
 
 The shared mise config installs language runtimes on both macOS and Linux.
@@ -117,9 +110,9 @@ tools and coding agents on Linux that Homebrew owns on macOS. Verify the selecte
 files and tools with:
 
 ```sh
-~/.local/bin/mise config ls
-~/.local/bin/mise ls --current
-~/.local/bin/mise doctor
+mise config ls
+mise ls --current
+mise doctor
 ```
 
 To update mise and all Linux user-level tools together:
@@ -132,15 +125,6 @@ Hermes uses its own official installer and updater because it manages a dedicate
 Python environment; it is not part of the mise manifest.
 
 ### Next steps
-
-#### Install [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
-
-Install it without starting a new shell or replacing the managed `.zshrc`:
-
-```sh
-RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
 
 #### Node.js / Ruby / Go / Bun
 
@@ -232,4 +216,5 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 | Script | Usage | Description |
 |--------|-------|-------------|
+| `bootstrap-linux` | `~/dotfiles/bin/bootstrap-linux` | Idempotently links the headless Linux configuration and installs mise, Oh My Zsh, runtimes, and CLI tools. |
 | `clean-rails-projects` | `clean-rails-projects [--dry-run] [DIR]` | Frees disk space in Rails project subdirectories. Truncates log files (`log/*.log`, `log/*.log.*`) and removes `public/packs`, `public/packs-test`, `tmp/cache`, and `tmp/screenshots`. Defaults to the current directory. Use `--dry-run` / `-n` to preview without making changes. |

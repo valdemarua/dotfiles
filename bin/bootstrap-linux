@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+readonly SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+readonly DOTFILES_DIR="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
+readonly MISE_BIN="${HOME}/.local/bin/mise"
+readonly -a PACKAGES=(
+  git
+  mise
+  nvim
+  starship
+  tmux
+  zsh
+)
+
+log() {
+  printf '\n==> %s\n' "$*"
+}
+
+die() {
+  printf 'bootstrap-linux: %s\n' "$*" >&2
+  exit 1
+}
+
+[[ "$(uname -s)" == "Linux" ]] ||
+  die "this script only supports Linux"
+
+[[ -d "${DOTFILES_DIR}/.git" ]] ||
+  die "run this script from a cloned dotfiles repository"
+
+for dependency in curl git stow zsh; do
+  command -v "${dependency}" >/dev/null 2>&1 ||
+    die "missing required command: ${dependency}"
+done
+
+if [[ -e "${HOME}/.zshrc" && ! -L "${HOME}/.zshrc" ]]; then
+  die "${HOME}/.zshrc already exists; move or remove it before running this script"
+fi
+
+log "Linking Linux dotfiles"
+stow \
+  --dir="${DOTFILES_DIR}" \
+  --target="${HOME}" \
+  --restow \
+  "${PACKAGES[@]}"
+
+if [[ ! -x "${MISE_BIN}" ]]; then
+  log "Installing mise"
+  curl -fsSL https://mise.run | sh
+else
+  log "mise is already installed"
+fi
+
+if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
+  log "Installing Oh My Zsh"
+  RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  log "Oh My Zsh is already installed"
+fi
+
+log "Installing mise-managed runtimes and Linux CLI tools"
+"${MISE_BIN}" install
+
+log "Linux user environment is ready"
+printf 'Start the configured shell with: exec zsh\n'
+printf 'Then verify it with: mise doctor\n'
