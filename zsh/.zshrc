@@ -154,12 +154,8 @@ if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
 
-# Python
-export PATH="${HOME}/.pyenv/shims:${PATH}"
-
-# Go
-export GOPATH="${HOME}/go"
-export PATH="${GOPATH}/bin:${PATH}"
+# Binaries installed with `go install`; Go defaults GOPATH to ${HOME}/go.
+export PATH="${PATH}:${HOME}/go/bin"
 
 #
 # Functions
