@@ -26,6 +26,7 @@ brew 'svn' # Needed for some brew formulas
 brew 'git-lfs'
 brew 'tig'
 brew 'jesseduffield/lazygit/lazygit' # simple terminal UI for git commands
+brew 'gitui'
 brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
 brew 'git-filter-repo' # Quickly rewrite git repository history
 

@@ -30,6 +30,7 @@ cd ~/dotfiles && stow \
   amethyst \
   gem \
   git \
+  gitui \
   ghostty \
   helix \
   homebrew \
@@ -93,7 +94,7 @@ Run the idempotent bootstrap script directly from the cloned repository:
 
 The script:
 
-- Stows only the headless Linux packages: `git`, `mise`, `nvim`, `starship`, `tmux`, and `zsh`.
+- Stows only the headless Linux packages: `git`, `gitui`, `mise`, `nvim`, `starship`, `tmux`, and `zsh`.
 - Installs the official user-scoped mise binary when it is missing.
 - Installs Oh My Zsh without replacing the managed `.zshrc`.
 - Installs the configured language runtimes and Linux CLI applications.
@@ -124,7 +125,10 @@ mu
 On Linux, Claude Code, Codex, and OpenCode are exempt from mise's release-age
 delay. Other tools and mise itself retain their default release-age policy.
 
-GitUI is also included on Linux; run `gitui` inside a Git repository to try it.
+GitUI is installed through Homebrew on macOS and mise on Linux; run `gitui`
+inside a Git repository to try it.
+The `gitui` Stow package installs the [official Vim keybindings](https://github.com/gitui-org/gitui/blob/v0.28.1/vim_style_key_config.ron):
+`h/j/k/l` navigation, `Ctrl-b`/`Ctrl-f` paging, `g`/`G` for top/bottom, and `F1` for help.
 
 Hermes uses its own official installer and updater because it manages a dedicated
 Python environment; it is not part of the mise manifest.

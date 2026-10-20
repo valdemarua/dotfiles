@@ -7,6 +7,7 @@ readonly DOTFILES_DIR="$(cd -- "${SCRIPT_DIR}/.." && pwd)"
 readonly MISE_BIN="${HOME}/.local/bin/mise"
 readonly -a PACKAGES=(
   git
+  gitui
   mise
   nvim
   starship

@@ -39,6 +39,7 @@ dotfiles/
 | `zsh/.aliases` | Simple command aliases (Rails shortcuts, editor shortcuts) |
 | `zsh/.functions` | Shell functions (`tm`, `bb`, `mu`, `timezsh`) |
 | `zsh/.zprofile` | Initializes Homebrew paths on macOS login shells |
+| `gitui/.config/gitui/key_bindings.ron` | GitUI's official Vim-style keybindings |
 | `homebrew/.Brewfile` | Global Homebrew bundle installed on every machine |
 | `homebrew/.Brewfile.work` | Work-specific packages; symlink to `~/.Brewfile.local` to activate |
 | `mise/.config/mise/config.toml` | Shared mise settings and language runtimes |
