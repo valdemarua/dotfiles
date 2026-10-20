@@ -1,8 +1,7 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local action = wezterm.action
-
-local split_nav = require("smartsplits").split_nav
+local smart_splits = wezterm.plugin.require("https://github.com/smart-splits-nvim/backend-wezterm")
 
 -- This table will hold the configuration.
 local config = {}
@@ -26,17 +25,6 @@ config.window_close_confirmation = "NeverPrompt" -- 'AlwaysPrompt'
 config.use_dead_keys = false
 
 config.keys = {
-  -- move between split panes
-  split_nav("move", "h"),
-  split_nav("move", "j"),
-  split_nav("move", "k"),
-  split_nav("move", "l"),
-  -- resize panes
-  split_nav("resize", "h"),
-  split_nav("resize", "j"),
-  split_nav("resize", "k"),
-  split_nav("resize", "l"),
-
   -- Turn off the default CMD-m Hide action, allowing CMD-m to
   -- be potentially recognized and handled by the tab
   {
@@ -81,6 +69,15 @@ config.keys = {
     action = action.SendString("\x0a"),
   },
 }
+
+smart_splits.apply_to_config(config, {
+  direction_keys = { "h", "j", "k", "l" },
+  modifiers = {
+    move = "CTRL",
+    resize = "META",
+  },
+  at_edge = "wrap",
+})
 
 -- config.font = wezterm.font("Noto Color Emoji")
 -- config.font = wezterm.font("Fira Code")

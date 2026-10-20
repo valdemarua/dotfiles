@@ -253,5 +253,36 @@ require("lazy").setup({
     end,
     event = "VeryLazy",
   },
-  { "smart-splits-nvim/smart-splits.nvim" },
+  {
+    "smart-splits-nvim/smart-splits.nvim",
+    lazy = false,
+    dependencies = {
+      {
+        "smart-splits-nvim/backend-tmux",
+        main = "smart-splits-backend-tmux",
+        opts = {},
+      },
+      {
+        "smart-splits-nvim/backend-wezterm",
+        main = "smart-splits-backend-wezterm",
+        opts = {},
+      },
+      {
+        "smart-splits-nvim/backend-ghostty",
+        main = "smart-splits-backend-ghostty",
+        opts = {},
+      },
+    },
+    opts = {
+      mux = {
+        -- tmux is the innermost multiplexer when it runs inside a terminal split.
+        backend = {
+          "smart-splits-backend-tmux",
+          "smart-splits-backend-wezterm",
+          "smart-splits-backend-ghostty",
+        },
+      },
+      move = { at_edge = "wrap" },
+    },
+  },
 })

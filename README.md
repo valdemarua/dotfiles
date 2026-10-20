@@ -162,6 +162,9 @@ Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+Start tmux and press `C-s I` to install the configured plugins, including the
+smart-splits backend.
+
 ### Aliases (`zsh/.aliases`)
 
 | Alias | Expands to | Description |
