@@ -121,6 +121,11 @@ To update mise and all Linux user-level tools together:
 mu
 ```
 
+On Linux, Claude Code, Codex, and OpenCode are exempt from mise's release-age
+delay. Other tools and mise itself retain their default release-age policy.
+
+GitUI is also included on Linux; run `gitui` inside a Git repository to try it.
+
 Hermes uses its own official installer and updater because it manages a dedicated
 Python environment; it is not part of the mise manifest.
 

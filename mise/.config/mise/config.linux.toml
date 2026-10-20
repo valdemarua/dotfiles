@@ -1,4 +1,8 @@
 # Homebrew owns these CLI tools on macOS. This manifest is loaded only on Linux.
+[settings]
+# Coding agents can use new releases immediately; other tools keep the default delay.
+minimum_release_age_excludes = ["claude", "codex", "opencode"]
+
 [tools]
 # Package and development tooling
 uv = "latest"
@@ -16,6 +20,7 @@ bat = "latest"
 eza = "latest"
 delta = "latest"
 lazygit = "latest"
+gitui = "latest"
 
 # Coding agents
 claude = "latest"
