@@ -48,12 +48,6 @@ cd ~/dotfiles && stow \
   lua
 ```
 
-Claude Code keeps sessions and credentials in `~/.claude`, so link its package
-file by file instead of replacing the whole directory:
-```
-cd ~/dotfiles && stow --no-folding claude
-```
-
 #### Install packages
 ```
 brew bundle --global
@@ -100,10 +94,11 @@ Run the idempotent bootstrap script directly from the cloned repository:
 
 The script:
 
-- Stows only the headless Linux packages: `git`, `gitui`, `mise`, `nvim`, `starship`, `tmux`, and `zsh`, plus `claude` file by file (`--no-folding`).
+- Stows only the headless Linux packages: `git`, `gitui`, `mise`, `nvim`, `starship`, `tmux`, and `zsh`.
 - Installs the official user-scoped mise binary when it is missing.
 - Installs Oh My Zsh without replacing the managed `.zshrc`.
 - Installs the configured language runtimes and Linux CLI applications.
+- Sets the Claude Code status line with `setup-claude`.
 
 Start the configured shell when it finishes:
 
@@ -161,7 +156,7 @@ mise use ruby@3.3
 
 #### Claude Code status line
 
-The `claude` Stow package links `~/.claude/statusline.sh`, which prints:
+`bin/claude-statusline` prints:
 
 ```
 user@host:~/project (branch) Opus 5.5 [high] ctx:23% 5h:41% 7d:12%
@@ -173,13 +168,12 @@ usage, and the 5-hour and weekly usage limits. Fields Claude Code does not provi
 which Homebrew installs on macOS and mise on Linux.
 
 `~/.claude/settings.json` is not versioned because Claude Code rewrites it (for
-example `/model` saves the default model there). On each machine, add:
+example `/model` saves the default model there). Instead, `bin/setup-claude` adds
+the `statusLine` entry to it and keeps your other settings. `bin/bootstrap-linux`
+and `install.sh` run it, so new machines need no manual step. To run it by hand:
 
-```json
-"statusLine": {
-  "type": "command",
-  "command": "~/.claude/statusline.sh"
-}
+```sh
+setup-claude
 ```
 
 #### VIM
@@ -270,5 +264,7 @@ run `stow -R zsh` from the dotfiles directory, then `exec zsh` to reload.
 
 | Script | Usage | Description |
 |--------|-------|-------------|
+| `claude-statusline` | Set as `statusLine.command` in `~/.claude/settings.json` | Claude Code status line: git branch, model, effort, context and usage limits. See [Claude Code status line](#claude-code-status-line). |
+| `setup-claude` | `setup-claude` | Idempotently sets `statusLine` in `~/.claude/settings.json` to `claude-statusline`, keeping all other settings. Requires `jq`. |
 | `bootstrap-linux` | `~/dotfiles/bin/bootstrap-linux` | Idempotently links the headless Linux configuration and installs mise, Oh My Zsh, runtimes, and CLI tools. |
 | `clean-rails-projects` | `clean-rails-projects [--dry-run] [DIR]` | Frees disk space in Rails project subdirectories. Truncates log files (`log/*.log`, `log/*.log.*`) and removes `public/packs`, `public/packs-test`, `tmp/cache`, and `tmp/screenshots`. Defaults to the current directory. Use `--dry-run` / `-n` to preview without making changes. |

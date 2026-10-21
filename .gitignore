@@ -2,5 +2,5 @@ plugin
 plugin/packer_compiled.lua
 vim/.vim/plugged
 homebrew/.Brewfile.local
-/.claude/
+.claude/
 

@@ -6,3 +6,6 @@ mas install 1291898086 # Toggl
 # Install Lua tools
 luarocks install luacheck
 cargo install stylua --features lua54
+
+# Point Claude Code's status line at bin/claude-statusline
+~/dotfiles/bin/setup-claude

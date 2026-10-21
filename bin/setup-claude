@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# setup-claude — point Claude Code's status line at bin/claude-statusline
+#
+# Merges the statusLine entry into ~/.claude/settings.json and keeps every other
+# setting. Safe to run repeatedly. Requires jq.
+
+set -euo pipefail
+
+readonly SETTINGS="${HOME}/.claude/settings.json"
+readonly COMMAND="~/dotfiles/bin/claude-statusline"
+
+command -v jq >/dev/null 2>&1 || {
+  printf 'setup-claude: missing required command: jq\n' >&2
+  exit 1
+}
+
+mkdir -p "$(dirname -- "${SETTINGS}")"
+[[ -s "${SETTINGS}" ]] || printf '{}\n' >"${SETTINGS}"
+
+tmp="$(mktemp "${SETTINGS}.XXXXXX")"
+trap 'rm -f -- "${tmp}"' EXIT
+jq --arg command "${COMMAND}" \
+  '.statusLine = {type: "command", command: $command}' \
+  "${SETTINGS}" >"${tmp}"
+mv -- "${tmp}" "${SETTINGS}"
+
+printf 'Claude Code status line: %s\n' "${COMMAND}"

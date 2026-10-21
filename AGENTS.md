@@ -26,8 +26,6 @@ dotfiles/
       config.toml       → shared mise settings
       config.linux.toml → Linux-only tool manifest
       miserc.toml       → enables platform config discovery
-  claude/
-    .claude/statusline.sh → ~/.claude/statusline.sh (stow --no-folding)
   bin/                 ← not a Stow package; added directly to $PATH
   install.sh           ← post-stow setup (MAS apps, Lua tools, Cargo binaries)
   mac-preferences.sh   ← macOS system defaults
@@ -41,13 +39,14 @@ dotfiles/
 | `zsh/.aliases` | Simple command aliases (Rails shortcuts, editor shortcuts) |
 | `zsh/.functions` | Shell functions (`tm`, `bb`, `mu`, `timezsh`) |
 | `zsh/.zprofile` | Initializes Homebrew paths on macOS login shells |
-| `claude/.claude/statusline.sh` | Claude Code status line; `~/.claude/settings.json` stays unversioned and points to it |
 | `gitui/.config/gitui/key_bindings.ron` | GitUI's official Vim-style keybindings |
 | `homebrew/.Brewfile` | Global Homebrew bundle installed on every machine |
 | `homebrew/.Brewfile.work` | Work-specific packages; symlink to `~/.Brewfile.local` to activate |
 | `mise/.config/mise/config.toml` | Shared mise settings and language runtimes |
 | `mise/.config/mise/config.linux.toml` | Linux-only user-level CLI tools |
 | `bin/bootstrap-linux` | Bootstraps the user environment on an Ansible-provisioned Linux machine |
+| `bin/claude-statusline` | Claude Code status line; `~/.claude/settings.json` stays unversioned and points to it |
+| `bin/setup-claude` | Sets `statusLine` in `~/.claude/settings.json`; run by `bootstrap-linux` and `install.sh` |
 | `bin/clean-rails-projects` | Frees disk space from Rails project directories (logs, compiled assets) |
 | `install.sh` | Post-Stow setup: MAS apps, `luarocks install`, `cargo install` |
 | `mac-preferences.sh` | macOS `defaults write` preferences |

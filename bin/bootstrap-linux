@@ -46,14 +46,6 @@ stow \
   --restow \
   "${PACKAGES[@]}"
 
-# ~/.claude also holds Claude Code's own state, so link files, not the directory.
-stow \
-  --dir="${DOTFILES_DIR}" \
-  --target="${HOME}" \
-  --restow \
-  --no-folding \
-  claude
-
 if [[ ! -x "${MISE_BIN}" ]]; then
   log "Installing mise"
   curl -fsSL https://mise.run | sh
@@ -71,6 +63,9 @@ fi
 
 log "Installing mise-managed runtimes and Linux CLI tools"
 "${MISE_BIN}" install
+
+log "Configuring Claude Code status line"
+"${MISE_BIN}" exec -- "${DOTFILES_DIR}/bin/setup-claude"
 
 log "Linux user environment is ready"
 printf 'Start the configured shell with: exec zsh\n'
