@@ -15,7 +15,13 @@ $(echo "$input" | jq -r '[
 ] | join("|")')
 EOF
 
-printf '\033[01;32m%s@%s\033[00m:\033[01;34m%s\033[00m' "$(whoami)" "$(hostname -s)" "$cwd"
+case "$cwd" in
+  "$HOME") dir="~" ;;
+  "$HOME"/*) dir="~${cwd#"$HOME"}" ;;
+  *) dir=$cwd ;;
+esac
+
+printf '\033[01;32m%s@%s\033[00m:\033[01;34m%s\033[00m' "$(whoami)" "$(hostname -s)" "$dir"
 
 branch=$(git -C "$cwd" --no-optional-locks symbolic-ref --short -q HEAD 2>/dev/null ||
   git -C "$cwd" --no-optional-locks rev-parse --short HEAD 2>/dev/null)
