@@ -26,6 +26,8 @@ dotfiles/
       config.toml       → shared mise settings
       config.linux.toml → Linux-only tool manifest
       miserc.toml       → enables platform config discovery
+  claude/
+    .claude/statusline.sh → ~/.claude/statusline.sh (stow --no-folding)
   bin/                 ← not a Stow package; added directly to $PATH
   install.sh           ← post-stow setup (MAS apps, Lua tools, Cargo binaries)
   mac-preferences.sh   ← macOS system defaults
@@ -39,6 +41,7 @@ dotfiles/
 | `zsh/.aliases` | Simple command aliases (Rails shortcuts, editor shortcuts) |
 | `zsh/.functions` | Shell functions (`tm`, `bb`, `mu`, `timezsh`) |
 | `zsh/.zprofile` | Initializes Homebrew paths on macOS login shells |
+| `claude/.claude/statusline.sh` | Claude Code status line; `~/.claude/settings.json` stays unversioned and points to it |
 | `gitui/.config/gitui/key_bindings.ron` | GitUI's official Vim-style keybindings |
 | `homebrew/.Brewfile` | Global Homebrew bundle installed on every machine |
 | `homebrew/.Brewfile.work` | Work-specific packages; symlink to `~/.Brewfile.local` to activate |

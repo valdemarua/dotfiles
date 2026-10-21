@@ -48,6 +48,12 @@ cd ~/dotfiles && stow \
   lua
 ```
 
+Claude Code keeps sessions and credentials in `~/.claude`, so link its package
+file by file instead of replacing the whole directory:
+```
+cd ~/dotfiles && stow --no-folding claude
+```
+
 #### Install packages
 ```
 brew bundle --global
@@ -94,7 +100,7 @@ Run the idempotent bootstrap script directly from the cloned repository:
 
 The script:
 
-- Stows only the headless Linux packages: `git`, `gitui`, `mise`, `nvim`, `starship`, `tmux`, and `zsh`.
+- Stows only the headless Linux packages: `git`, `gitui`, `mise`, `nvim`, `starship`, `tmux`, and `zsh`, plus `claude` file by file (`--no-folding`).
 - Installs the official user-scoped mise binary when it is missing.
 - Installs Oh My Zsh without replacing the managed `.zshrc`.
 - Installs the configured language runtimes and Linux CLI applications.
@@ -151,6 +157,29 @@ To select a version for the current project:
 ```
 mise use node@lts
 mise use ruby@3.3
+```
+
+#### Claude Code status line
+
+The `claude` Stow package links `~/.claude/statusline.sh`, which prints:
+
+```
+user@host:~/project (branch) Opus 5.5 [high] ctx:23% 5h:41% 7d:12%
+```
+
+That is the git branch, the current model and its effort level, context window
+usage, and the 5-hour and weekly usage limits. Fields Claude Code does not provide
+(for example effort on models without effort levels) are skipped. It needs `jq`,
+which Homebrew installs on macOS and mise on Linux.
+
+`~/.claude/settings.json` is not versioned because Claude Code rewrites it (for
+example `/model` saves the default model there). On each machine, add:
+
+```json
+"statusLine": {
+  "type": "command",
+  "command": "~/.claude/statusline.sh"
+}
 ```
 
 #### VIM

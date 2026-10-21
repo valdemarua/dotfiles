@@ -46,6 +46,14 @@ stow \
   --restow \
   "${PACKAGES[@]}"
 
+# ~/.claude also holds Claude Code's own state, so link files, not the directory.
+stow \
+  --dir="${DOTFILES_DIR}" \
+  --target="${HOME}" \
+  --restow \
+  --no-folding \
+  claude
+
 if [[ ! -x "${MISE_BIN}" ]]; then
   log "Installing mise"
   curl -fsSL https://mise.run | sh

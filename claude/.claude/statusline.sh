@@ -1,0 +1,30 @@
+#!/bin/sh
+# Claude Code status line: user@host:cwd (branch) model [effort] ctx:N% 5h:N% 7d:N%
+# Reads the status line JSON on stdin; fields missing from the input are skipped.
+
+input=$(cat)
+
+IFS='|' read -r cwd model effort ctx five week <<EOF
+$(echo "$input" | jq -r '[
+  (.workspace.current_dir // .cwd),
+  (.model.display_name // ""),
+  (.effort.level // ""),
+  ((.context_window.used_percentage // "") | if . == "" then "" else floor end),
+  ((.rate_limits.five_hour.used_percentage // "") | if . == "" then "" else floor end),
+  ((.rate_limits.seven_day.used_percentage // "") | if . == "" then "" else floor end)
+] | join("|")')
+EOF
+
+printf '\033[01;32m%s@%s\033[00m:\033[01;34m%s\033[00m' "$(whoami)" "$(hostname -s)" "$cwd"
+
+branch=$(git -C "$cwd" --no-optional-locks symbolic-ref --short -q HEAD 2>/dev/null ||
+  git -C "$cwd" --no-optional-locks rev-parse --short HEAD 2>/dev/null)
+[ -n "$branch" ] && printf ' \033[33m(%s)\033[00m' "$branch"
+
+[ -n "$model" ] && printf ' \033[01;37m%s\033[00m' "$model"
+[ -n "$effort" ] && printf ' \033[37m[%s]\033[00m' "$effort"
+[ -n "$ctx" ] && printf ' \033[36mctx:%s%%\033[00m' "$ctx"
+[ -n "$five" ] && printf ' \033[35m5h:%s%%\033[00m' "$five"
+[ -n "$week" ] && printf ' \033[35m7d:%s%%\033[00m' "$week"
+
+exit 0
