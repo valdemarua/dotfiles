@@ -21,6 +21,7 @@ alias cdv="cd ~/Dropbox/vagrant"
 alias cdp="cd ~/Projects"
 alias cds="cd ~/Sites"
 alias cdd="cd ~/Downloads"
+alias cda="cd ~/apps"
 alias dtf="cd ~/dotfiles"
 
 # Capistrano
