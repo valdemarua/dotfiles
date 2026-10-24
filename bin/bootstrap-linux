@@ -64,6 +64,17 @@ fi
 log "Installing mise-managed runtimes and Linux CLI tools"
 "${MISE_BIN}" install
 
+if command -v crontab >/dev/null 2>&1; then
+  log "Scheduling daily mise upgrades"
+  # Same as the `mu` shell function, which cron cannot call. Replacing the
+  # previous entry keeps re-runs from adding duplicates.
+  mkdir -p "${HOME}/.local/state"
+  mise_cron="0 4 * * * { ${MISE_BIN} self-update -y && ${MISE_BIN} upgrade --global; } >> \$HOME/.local/state/mise-upgrade.log 2>&1"
+  { crontab -l 2>/dev/null | grep -vF 'upgrade --global' || true; echo "${mise_cron}"; } | crontab -
+else
+  log "crontab not found; skipping daily mise upgrades"
+fi
+
 log "Configuring Claude Code status line"
 "${MISE_BIN}" exec -- "${DOTFILES_DIR}/bin/setup-claude"
 

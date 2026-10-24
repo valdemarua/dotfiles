@@ -98,6 +98,7 @@ The script:
 - Installs the official user-scoped mise binary when it is missing.
 - Installs Oh My Zsh without replacing the managed `.zshrc`.
 - Installs the configured language runtimes and Linux CLI applications.
+- Schedules a daily cron job at 04:00 that runs the same update as `mu` (`mise self-update` and `mise upgrade --global`), logging to `~/.local/state/mise-upgrade.log`.
 - Sets the Claude Code status line with `setup-claude`.
 
 Start the configured shell when it finishes:
@@ -266,5 +267,5 @@ run `stow -R zsh` from the dotfiles directory, then `exec zsh` to reload.
 |--------|-------|-------------|
 | `claude-statusline` | Set as `statusLine.command` in `~/.claude/settings.json` | Claude Code status line: git branch, model, effort, context and usage limits. See [Claude Code status line](#claude-code-status-line). |
 | `setup-claude` | `setup-claude` | Idempotently sets `statusLine` in `~/.claude/settings.json` to `claude-statusline`, keeping all other settings. Requires `jq`. |
-| `bootstrap-linux` | `~/dotfiles/bin/bootstrap-linux` | Idempotently links the headless Linux configuration and installs mise, Oh My Zsh, runtimes, and CLI tools. |
+| `bootstrap-linux` | `~/dotfiles/bin/bootstrap-linux` | Idempotently links the headless Linux configuration and installs mise, Oh My Zsh, runtimes, and CLI tools, and schedules daily mise upgrades. |
 | `clean-rails-projects` | `clean-rails-projects [--dry-run] [DIR]` | Frees disk space in Rails project subdirectories. Truncates log files (`log/*.log`, `log/*.log.*`) and removes `public/packs`, `public/packs-test`, `tmp/cache`, and `tmp/screenshots`. Defaults to the current directory. Use `--dry-run` / `-n` to preview without making changes. |
