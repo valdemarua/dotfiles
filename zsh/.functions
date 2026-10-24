@@ -3,6 +3,24 @@ tm() {
   tmux new-session -A -s "${1:-main}"
 }
 
+# SSH: Gruvbox Dark for the current pane while connected (local machine only)
+# Uses OSC escape sequences, supported by Ghostty and WezTerm.
+if [[ -z "$SSH_CONNECTION" ]]; then
+  ssh() {
+    local -a palette=(282828 cc241d 98971a d79921 458588 b16286 689d6a a89984
+                      928374 fb4934 b8bb26 fabd2f 83a598 d3869b 8ec07c ebdbb2)
+    local i
+    for i in {0..15}; do printf '\e]4;%d;#%s\a' $i ${palette[i+1]}; done
+    printf '\e]10;#ebdbb2\a\e]11;#282828\a\e]12;#ebdbb2\a'
+
+    command ssh "$@"
+    local ssh_status=$?
+
+    printf '\e]104\a\e]110\a\e]111\a\e]112\a'  # restore the terminal's theme
+    return $ssh_status
+  }
+fi
+
 # Homebrew (macOS only)
 if command -v brew >/dev/null 2>&1; then
   # --global – Read the Brewfile from ~/.Brewfile
