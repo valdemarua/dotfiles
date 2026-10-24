@@ -62,7 +62,8 @@ config.keys = {
     mods = "SHIFT|CMD",
     action = action.SplitVertical({ domain = "CurrentPaneDomain" }),
   },
-  -- to fix Shift + Enter issue in Codex
+  -- Shift+Enter sends a line feed, which Claude Code and Codex read as a newline.
+  -- Unlike an extended key sequence it passes through tmux and SSH unchanged.
   {
     key = "Enter",
     mods = "SHIFT",

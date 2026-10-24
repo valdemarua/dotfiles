@@ -9,6 +9,10 @@ keybind = performable:alt+j=resize_split:down,30
 keybind = performable:alt+k=resize_split:up,30
 keybind = performable:alt+l=resize_split:right,30
 
+# Shift+Enter sends a line feed, which Claude Code and Codex read as a newline.
+# Unlike an extended key sequence it passes through tmux and SSH unchanged.
+keybind = shift+enter=text:\x0a
+
 # The Ghostty backend activates this table while Neovim owns the pane.
 keybind = nvim/
 keybind = nvim/ctrl+h=text:\x08
