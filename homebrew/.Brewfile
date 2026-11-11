@@ -42,6 +42,7 @@ brew 'zellij'
 brew 'zsh'
 brew 'starship'
 brew 'direnv'
+brew 'awscli'
 
 # Comand Line Tools
 brew 'jq' # Lightweight and flexible command-line JSON processor
