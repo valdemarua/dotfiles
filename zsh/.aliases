@@ -81,5 +81,4 @@ alias lg='lazygit'
 
 # mise
 alias mi="mise install"
-alias mu="mise upgrade"
 alias mls="mise ls"
