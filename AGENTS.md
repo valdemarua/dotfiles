@@ -79,6 +79,17 @@ Run `bb` to install (it bundles both the global Brewfile and `~/.Brewfile.local`
 `bin/` is not a Stow package. `$HOME/dotfiles/bin` is added to `$PATH` directly in `.zshrc`,
 so scripts there are available on every machine after cloning.
 
+### Shell startup speed
+
+Keep new-shell startup fast; measure with `timezsh`, or `ZPROF=1 zsh -i` then `zprof`.
+
+- Load tool init scripts with `_cached_init <name> <command...>` in `.zshrc` instead of
+  `eval "$(tool init zsh)"`. Output is cached in `~/.cache/zsh/` and rebuilt when the
+  tool's executable changes; `rm -r ~/.cache/zsh` forces a rebuild. Don't cache output
+  that depends on the environment (e.g. `mise activate`).
+- `.zprofile` writes out `brew shellenv`'s exports instead of running brew.
+- `compinit` only re-checks completions when a directory in `fpath` changed.
+
 ## Extending `bin/clean-rails-projects`
 
 Add entries to `TRUNCATE_DIRS` (zero out matching files, keeping them) or `REMOVE_DIRS`
