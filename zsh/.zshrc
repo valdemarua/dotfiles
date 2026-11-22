@@ -43,10 +43,28 @@ autoload -Uz compinit && compinit -u
 zstyle ':completion:*' menu select                 # arrow keys to pick a match
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case-insensitive matching
 
-# Key bindings: Ctrl-P / Ctrl-N search history for commands starting with the
-# text already typed.
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
+# Key bindings
+#
+# Emacs-style editing (Ctrl-A/Ctrl-E, Alt-B/Alt-F, Ctrl-W...). Without this
+# zsh switches to vi mode because EDITOR contains "vi".
+bindkey -e
+
+# Up/Down and Ctrl-P/Ctrl-N search history for commands starting with the text
+# already typed (plain Up/Down on an empty line).
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search   # Up
+bindkey '^[OA' up-line-or-beginning-search   # Up (application mode)
+bindkey '^[[B' down-line-or-beginning-search # Down
+bindkey '^[OB' down-line-or-beginning-search # Down (application mode)
+bindkey '^p' up-line-or-beginning-search
+bindkey '^n' down-line-or-beginning-search
+
+bindkey '^[[H' beginning-of-line     # Home
+bindkey '^[[F' end-of-line           # End
+bindkey '^[[3~' delete-char          # Delete
+bindkey '^[[Z' reverse-menu-complete # Shift-Tab: previous completion
 
 # Tools
 #
