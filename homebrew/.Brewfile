@@ -41,7 +41,6 @@ brew 'tmuxinator'
 brew 'zellij'
 brew 'zsh'
 brew 'starship'
-brew 'direnv'
 brew 'awscli'
 
 # Comand Line Tools
