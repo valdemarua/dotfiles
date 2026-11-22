@@ -35,9 +35,9 @@ dotfiles/
 
 | File | Purpose |
 |------|---------|
-| `zsh/.zshrc` | Main Zsh config — PATH, Oh My Zsh plugins, prompt, tool initialization |
-| `zsh/.aliases` | Simple command aliases (Rails shortcuts, editor shortcuts) |
-| `zsh/.functions` | Shell functions (`tm`, `bb`, `mu`, `timezsh`) |
+| `zsh/.zshrc` | Main Zsh config — PATH, history, completion, tool initialization (no framework) |
+| `zsh/.aliases` | Simple command aliases (git, Rails, editor shortcuts) |
+| `zsh/.functions` | Shell functions (`gcm`, `gcd`, `tm`, `bb`, `mu`, `timezsh`) |
 | `zsh/.zprofile` | Initializes Homebrew paths on macOS login shells |
 | `gitui/.config/gitui/key_bindings.ron` | GitUI's official Vim-style keybindings |
 | `homebrew/.Brewfile` | Global Homebrew bundle installed on every machine |

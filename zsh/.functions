@@ -1,3 +1,24 @@
+# Git: check out the main or development branch by its conventional name.
+# Only local refs are read (no network). A name counts if it exists locally
+# or as origin/<name>; for the latter, `git checkout <name>` creates the local
+# tracking branch automatically.
+_git_checkout_first() {
+  local name
+  git rev-parse --git-dir >/dev/null || return  # not a repo: one error, stop
+  for name in "$@"; do
+    if git show-ref --quiet --verify "refs/heads/${name}" ||
+       git show-ref --quiet --verify "refs/remotes/origin/${name}"; then
+      git checkout "$name"
+      return
+    fi
+  done
+  echo "No branch named: $*" >&2
+  return 1
+}
+
+gcm() { _git_checkout_first main master; }
+gcd() { _git_checkout_first dev devel develop development; }
+
 # Tmux
 tm() {
   tmux new-session -A -s "${1:-main}"

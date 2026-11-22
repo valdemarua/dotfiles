@@ -1,10 +1,4 @@
-zmodload zsh/zprof # Profiler
-
-zstyle ':omz:update' mode disabled
-# This will check for updates every 14 days
-zstyle ':omz:update' frequency 14
-
-ZSH_DISABLE_COMPFIX=true
+zmodload zsh/zprof # Profiler; run `zprof` to see what slowed startup
 
 export EDITOR='vim'
 
@@ -14,29 +8,17 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/dotfiles/bin:${PATH}"
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export MANPATH="/usr/local/man:$MANPATH"
 
-# Path to your oh-my-zsh installation.
-export ZSH="${HOME}/.oh-my-zsh"
-
-# Activate mise before tools provided by the Linux-only manifest are initialized.
-if command -v mise >/dev/null 2>&1; then
-  eval "$(mise activate zsh)"
-fi
-
-# FZF
-export FZF_DEFAULT_COMMAND='fd --type f'
-# Set up fzf key bindings and fuzzy completion
-if command -v fzf >/dev/null 2>&1; then
-  source <(fzf --zsh)
-fi
-
-# zsh keybindings
+# History
 #
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
-
-# zsh options
-#
+# HISTSIZE is how many commands the current shell keeps in memory; SAVEHIST is
+# how many are written to HISTFILE. Without them zsh may not save history to a
+# file at all (macOS sets small defaults in /etc/zshrc; Linux often sets none).
+HISTFILE="${HOME}/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=50000
 HISTDUP=erase
 setopt appendhistory
 setopt sharehistory
@@ -45,111 +27,38 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
-#ZSH_THEME="agnoster"
-#ZSH_THEME="cobalt2"
-# ZSH_THEME="random"
-
-# ZSH_THEME="muse" # set by `omz`
-
-# Initialize Pure theme
-# https://github.com/sindresorhus/pure#getting-started
-# autoload -U promptinit; promptinit
-# prompt pure
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-
-plugins=(git ruby bundler)
-
-if [[ "$OSTYPE" == darwin* ]]; then
-  plugins+=(macos)
-fi
-
-# User configuration
-
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/man:$MANPATH"
-
-if [[ -r "${ZSH}/oh-my-zsh.sh" ]]; then
-  source "${ZSH}/oh-my-zsh.sh"
-fi
-
-if [[ -r "${HOME}/.aliases" ]]; then
-  source "${HOME}/.aliases"
-fi
-
-if [[ -r "${HOME}/.functions" ]]; then
-  source "${HOME}/.functions"
-fi
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+# Completion
 #
+# compinit enables Tab completion. It must run before the tools below, because
+# some of them (zoxide, gcloud) register completions with `compdef`, which
+# compinit defines. gcloud even runs compinit itself if it's missing, with the
+# interactive "insecure directories" prompt.
+#
+# -u trusts completion directories owned by another user. On macOS Homebrew's
+# directories belong to whichever account installed Homebrew, so without -u
+# every other account on the Mac gets that prompt on each new shell.
+autoload -Uz compinit && compinit -u
+zstyle ':completion:*' menu select                 # arrow keys to pick a match
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # case-insensitive matching
 
-# Init zoxide
+# Key bindings: Ctrl-P / Ctrl-N search history for commands starting with the
+# text already typed.
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
+
+# Tools
+#
+# Each one is skipped if it isn't installed, so the same file works on macOS
+# (Homebrew) and Linux (mise).
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
+
+export FZF_DEFAULT_COMMAND='fd --type f'
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
+
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
 fi
@@ -157,13 +66,14 @@ fi
 # Binaries installed with `go install`; Go defaults GOPATH to ${HOME}/go.
 export PATH="${PATH}:${HOME}/go/bin"
 
-# Init starship prompt
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
+# Google Cloud SDK (Homebrew)
 if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
 if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Aliases and functions; loaded last so they override anything set above.
+[[ -r "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
+[[ -r "${HOME}/.functions" ]] && source "${HOME}/.functions"

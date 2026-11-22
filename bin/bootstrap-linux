@@ -53,14 +53,6 @@ else
   log "mise is already installed"
 fi
 
-if [[ ! -d "${HOME}/.oh-my-zsh" ]]; then
-  log "Installing Oh My Zsh"
-  RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-  log "Oh My Zsh is already installed"
-fi
-
 log "Installing mise-managed runtimes and Linux CLI tools"
 "${MISE_BIN}" install
 
