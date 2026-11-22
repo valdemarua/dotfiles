@@ -1,5 +1,11 @@
 zmodload zsh/zprof # Profiler; run `zprof` to see what slowed startup
 
+# Keep only the first occurrence of each directory in PATH and fpath, so
+# re-adding one (nested shells, tmux, `source ~/.zshrc`) doesn't duplicate it.
+# Both spellings are listed: `path` is the array form of the PATH string, and
+# zsh only dedupes `export PATH="..."` assignments when PATH is marked too.
+typeset -U PATH path FPATH fpath
+
 export EDITOR='vim'
 
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -8,8 +14,6 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 export PATH="${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/dotfiles/bin:${PATH}"
-export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/man:$MANPATH"
 
 # History
 #
@@ -19,9 +23,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
+setopt sharehistory      # write each command immediately; other shells see it
 setopt hist_ignore_space
 setopt hist_save_no_dups
 setopt hist_ignore_dups
