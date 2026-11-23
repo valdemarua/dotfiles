@@ -40,7 +40,6 @@ alias bu="bundle update"
 alias ra="bundle exec rubocop -a"
 alias bs="bin/setup"
 alias bw="bin/webpack-dev-server"
-alias ss="spring stop"
 
 alias rs="rails s"
 alias rc="rails c"

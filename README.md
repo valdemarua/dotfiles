@@ -241,7 +241,6 @@ run `stow -R zsh` from the dotfiles directory, then `exec zsh` to reload.
 | `ra` | `bundle exec rubocop -a` | Run Rubocop with auto-correct |
 | `bs` | `bin/setup` | Run project setup script |
 | `bw` | `bin/webpack-dev-server` | Start Webpack dev server |
-| `ss` | `spring stop` | Stop Spring preloader |
 | **Overmind** | | |
 | `os` | `overmind start` | Start all Procfile processes |
 | `osd` | `overmind s -f Procfile.dev` | Start dev Procfile processes |
