@@ -19,6 +19,23 @@ _git_checkout_first() {
 gcm() { _git_checkout_first main master; }
 gcd() { _git_checkout_first dev devel develop development; }
 
+# Git: commits on the current branch that aren't on main/master yet.
+# Compares against the local branch, or origin/<name> if there's no local one.
+glb() {
+  local name base
+  git rev-parse --git-dir >/dev/null || return
+  for name in main master; do
+    for base in "$name" "origin/$name"; do
+      if git rev-parse --quiet --verify "${base}^{commit}" >/dev/null; then
+        git log --graph --pretty=lg "${base}..HEAD" "$@"
+        return
+      fi
+    done
+  done
+  echo "No main or master branch" >&2
+  return 1
+}
+
 # Tmux
 tm() {
   tmux new-session -A -s "${1:-main}"

@@ -212,6 +212,8 @@ run `stow -R zsh` from the dotfiles directory, then `exec zsh` to reload.
 | **Shell** | | |
 | `so` | `source ~/.zshrc` | Reload shell config |
 | `cl` | `clear` | Clear terminal |
+| `-` | `cd -` | Go back to the previous directory |
+| `lsa` | `ls -lah` | List all files with human-readable sizes |
 | **Tmux** | | |
 | `tm [session]` | `tmux new-session -A -s "${session:-main}"` | Attach to or create a session; defaults to `main` |
 | `th` | `tm humanize` | Attach to or create the `humanize` session |
@@ -219,13 +221,16 @@ run `stow -R zsh` from the dotfiles directory, then `exec zsh` to reload.
 | `cds` | `cd ~/Sites` | Jump to Sites |
 | `cdp` | `cd ~/Projects` | Jump to Projects |
 | `cdb` | `cd ~/Dropbox` | Jump to Dropbox |
-| `cdv` | `cd ~/Dropbox/vagrant` | Jump to Vagrant dir |
 | `cdd` | `cd ~/Downloads` | Jump to Downloads |
 | `dtf` | `cd ~/dotfiles` | Jump to dotfiles |
 | **Homebrew** | | |
 | `bb` | `brew bundle ...` | On macOS, upgrade `~/.Brewfile` + `~/.Brewfile.local` if present, then purge Homebrew's download cache |
 | **mise** | | |
 | `mu` | `mise self-update && mise upgrade --global` | Update mise, then upgrade globally configured tools |
+| **Bundler** | | |
+| `bi` | `bundle install` | Install gems |
+| `be` | `bundle exec` | Run a command with the project's bundled gems, e.g. `be rspec` |
+| `bu` | `bundle update` | Update gems |
 | **Rails** | | |
 | `rs` | `rails s` | Start Rails server |
 | `rc` | `rails c` | Open Rails console |
@@ -233,15 +238,10 @@ run `stow -R zsh` from the dotfiles directory, then `exec zsh` to reload.
 | `rdms` | `rails db:migrate:status` | Show migration status |
 | `rdr` | `rails db:rollback` | Rollback last migration |
 | `rT` | `rails -T` | List Rake tasks |
-| `ra` | `rubocop -a` | Run Rubocop with auto-correct |
+| `ra` | `bundle exec rubocop -a` | Run Rubocop with auto-correct |
 | `bs` | `bin/setup` | Run project setup script |
 | `bw` | `bin/webpack-dev-server` | Start Webpack dev server |
 | `ss` | `spring stop` | Stop Spring preloader |
-| **Capistrano** | | |
-| `capp` | `bundle exec cap production deploy` | Deploy to production |
-| `caps` | `bundle exec cap staging deploy` | Deploy to staging |
-| `capv` | `bundle exec cap vagrant deploy` | Deploy to Vagrant |
-| `cappdp` | `bundle exec cap production db:pull` | Pull production DB |
 | **Overmind** | | |
 | `os` | `overmind start` | Start all Procfile processes |
 | `osd` | `overmind s -f Procfile.dev` | Start dev Procfile processes |

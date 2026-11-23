@@ -7,25 +7,19 @@ alias so="source ~/.zshrc"
 
 # Common
 alias cl=clear
+alias -- -="cd -"
+alias lsa="ls -lah"
 
 # Tmux
 alias th="tm humanize"
 
 # Dirs
 alias cdb="cd ~/Dropbox"
-alias cdv="cd ~/Dropbox/vagrant"
 alias cdp="cd ~/Projects"
 alias cds="cd ~/Sites"
 alias cdd="cd ~/Downloads"
 alias cda="cd ~/apps"
 alias dtf="cd ~/dotfiles"
-
-# Capistrano
-alias capp="bundle exec cap production deploy"
-alias caps="bundle exec cap staging deploy"
-alias capv="bundle exec cap vagrant deploy"
-
-alias cappdp="bundle exec cap production db:pull"
 
 # Foreman
 # alias fs="foreman start"
@@ -37,8 +31,13 @@ alias cappdp="bundle exec cap production db:pull"
 alias os="overmind start"
 alias osd="overmind s -f Procfile.dev"
 
+# Bundler
+alias bi="bundle install"
+alias be="bundle exec"
+alias bu="bundle update"
+
 # Development
-alias ra="rubocop -a"
+alias ra="bundle exec rubocop -a"
 alias bs="bin/setup"
 alias bw="bin/webpack-dev-server"
 alias ss="spring stop"
@@ -72,7 +71,7 @@ alias nn="nvim ."
 # Search history
 alias hg='history | grep'
 
-# Git (`gcm` and `gcd` are in .functions)
+# Git (`gcm`, `gcd` and `glb` are in .functions)
 alias g='git'
 alias gst='git status'
 alias ga='git add'
@@ -84,10 +83,17 @@ alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gc='git commit --verbose'
 alias gcmsg='git commit --message'
+alias gf='git fetch'
 alias gp='git push'
 alias gl='git pull'
+alias glo='git log --pretty=lo --date=format-local:"%Y-%m-%d %H:%M"'
 alias glog='git log --oneline --decorate --graph'
+# `lo` and `lg` formats are defined in .gitconfig; `glb` (this branch only) is in .functions
+alias glol='git log --graph --pretty=lg'
+alias glola='git log --graph --pretty=lg --all'
+alias glg='git log --stat'
 alias grb='git rebase'
+alias grhh='git reset --hard'
 alias gsta='git stash push'
 alias gstp='git stash pop'
 # Single quotes delay $(...) until the alias runs, so it uses the branch you're

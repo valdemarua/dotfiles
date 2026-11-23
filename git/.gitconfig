@@ -25,6 +25,12 @@
 [fetch]
 	prune = true
 
+# Short log lines. lg: hash, branches/tags, subject, relative date, author
+# (glol/glola/glb). lo: hash, date, branches/tags, subject (glo).
+[pretty]
+  lg = tformat:%C(yellow)%h%C(reset)%C(auto)%d%C(reset) %s %C(green)(%ar) %C(blue)<%an>%C(reset)
+  lo = tformat:%C(yellow)%h%C(reset) %C(green)%ad%C(reset)%C(auto)%d%C(reset) %s
+
 [interactive]
   diffFilter = dilta --color-only
 
