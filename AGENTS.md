@@ -16,6 +16,7 @@ dotfiles/
     .functions         → ~/.functions
     .zprofile          → ~/.zprofile
     .homebrew          → ~/.homebrew
+    .hushlogin         → ~/.hushlogin (empty; hides macOS "Last login" line)
   nvim/
     .config/nvim/      → ~/.config/nvim/
   homebrew/
