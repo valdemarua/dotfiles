@@ -16,7 +16,7 @@ if [[ "$OSTYPE" == darwin* && -o interactive ]]; then
 
     # Keg-only formulae are not symlinked into the Homebrew prefix by default.
     export PATH="${HOMEBREW_PREFIX}/opt/imagemagick@6/bin:${PATH}"
-    export PATH="${HOMEBREW_PREFIX}/opt/mysql@5.7/bin:${PATH}"
+    export PATH="${HOMEBREW_PREFIX}/opt/mysql-client@8.4/bin:${PATH}"
     export PATH="${HOMEBREW_PREFIX}/opt/postgresql@16/bin:${PATH}"
   fi
 

@@ -2,8 +2,6 @@
 # tap 'homebrew/cask-versions'
 # tap 'homebrew/cask-fonts' # Fonts
 # tap 'homebrew/cask-drivers' # For logitech-options
-tap 'abhimanyu003/sttr'
-tap 'manaflow-ai/cmux'
 
 brew 'mas' # Mac App Store manager
 brew 'stow'
@@ -18,14 +16,13 @@ brew 'optipng'
 brew 'ctags'
 brew 'ccrypt'
 brew 'prettierd'
-brew 'firebase-cli'
 brew 'watchman'
 brew 'svn' # Needed for some brew formulas
 
 # Git tools
 brew 'git-lfs'
 brew 'tig'
-brew 'jesseduffield/lazygit/lazygit' # simple terminal UI for git commands
+brew 'lazygit' # simple terminal UI for git commands
 brew 'gitui'
 brew 'git-delta' # A syntax-highlighting pager for git, diff, and grep output
 brew 'git-filter-repo' # Quickly rewrite git repository history
@@ -85,7 +82,6 @@ brew 'ripgrep' # ripgrep recursively searches directories for a regex pattern
 brew 'fd' # fd is a simple, fast and user-friendly alternative to find.
 
 brew 'bat' # bat supports syntax highlighting for a large number of programming and markup languages
-brew 'tldr'
 brew 'tokei'   # Count your code, quickly.
 brew 'eza'     # A modern alternative to ls
 brew 'sttr'    # Cross-platform, cli app to perform various operations on string
@@ -116,11 +112,11 @@ brew 'memcached', restart_service: false
 # Databases
 #
 brew 'postgresql@16'
-brew 'mysql@5.7', restart_service: false
 
 #
 # Database clients
 #
+brew 'mysql-client@8.4' # mysql CLI and the library the mysql2 gem builds against; servers run in Docker
 brew 'pgcli' # This is a postgres client that does auto-completion and syntax highlighting.
 brew 'pspg' # Unix pager (with very rich functionality) designed for work with tables.
 
@@ -221,7 +217,6 @@ cask 'claude-code'
 cask 'chatgpt'
 cask 'codex' # OpenAI's coding agent that runs in your terminal
 cask 'codex-app' # OpenAI's Codex desktop app for managing coding agents
-cask 'ollama-app'
 cask 'antigravity-cli' # Terminal interface for Antigravity agents
 brew 'opencode' # AI coding agent, built for the terminal
 
